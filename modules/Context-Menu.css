@@ -1,0 +1,235 @@
+ /* compact menu */
+menupopup > :is(menuitem, menu){
+  height: fit-content !important;
+  padding-block: 2px !important;
+}
+
+:is(menuitem, menu).bookmark-item{
+  padding-inline: 8px !important;
+  .menu-iconic-left{margin-inline: 0px 3px !important;}
+}
+
+:is(.bookmark-item, #PlacesChevron, #bookmarks-menu-button, #sidebarMenu-popup) 
+:is(menuitem, menu) {margin-inline: 0px !important;}
+
+/* Apply Zen workspace gradient to all context menu and panels
+ 
+Suitable if the OS, desktop environment or window manager supported blur background */
+menupopup, panel {
+  --panel-background: color-mix(in srgb, var(--zen-primary-color) 30%, #000000a0) !important ;
+   backdrop-filter: blur(10px) ;
+  border-radius: 12px !important;
+}
+
+menupopup > :is(menuitem, menu):not([disabled="true"])[selected="true"],
+menupopup > :is(menuitem, menu):not([disabled="true"]):hover {
+  border-radius: 15px !important;
+  margin: 5px;
+}
+
+/* Fix text color on Firefox confirmation pop-ups when applying Zen colors on light mode */
+#confirmation-hint {
+  --arrowpanel-color: var(--sidebar-text-color) !important;
+  border: none !important;
+}
+
+/* Prioritize "Copy Clean Link" when available, otherwise, only show "Copy Link" */
+#contentAreaContextMenu:has(#context-stripOnShareLink[disabled="false"]) {
+  #context-copylink {
+    display: none !important;
+  }
+}
+#context-stripOnShareLink[disabled="true"] {
+  display: none !important;
+}
+
+/* --- Context Menu --- */}
+#confirmation-hint {
+  --arrowpanel-color: var(--sidebar-text-color) !important;
+}
+
+/* Debloat tab name */
+#context_zen-add-essential::before {
+  content: "Add to Essentials" !important;
+}
+
+#context_zen-add-essential>.menu-text {
+  display: none !important;
+}
+
+#context_bookmarkTab::before {
+  content: "Bookmark Tab" !important;
+}
+
+#context_bookmarkTab>.menu-text {
+  display: none !important;
+}
+
+#context-zen-change-workspace-tab{
+  display: none  !important;
+}
+
+#context-zen-change-workspace-tab::after {
+  display: none !important;
+}
+
+#context-zen-change-workspace-tab>.menu-text {
+  display: none !important;
+}
+
+#context_zenSplitTabs::before {
+  content: "Split Tab..." !important;
+}
+
+#context_zenSplitTabs>.menu-text {
+  display: none !important;
+}
+
+#context_zen-replace-pinned-url-with-current::before {
+  content: "Replace Pinned URL" !important;
+}
+
+#context_zen-replace-pinned-url-with-current>.menu-text {
+  display: none !important;
+}
+
+#context-searchselect-private::before {
+  content: "Search in a Private Window" !important;
+}
+
+#context-searchselect-private>.menu-text {
+  display: none !important;
+}
+
+/* Hiding unnecessary context menu */
+#context-savepage,
+#context-sendpagetodevice,
+#context-sep-sendlinktodevice,
+#context-sendlinktodevice,
+#context-print-selection,
+#context-searchselect-private,
+#context-openlinkinusercontext-menu,
+#context-openlinkinnewcontainercontext-menu,
+#context-openlinkprivate,
+#context-bookmarklink,
+#context-openlink,
+#context-stripOnShareLink[disabled="true"],
+#context-inspect,
+#inspect-separator,
+#context-sep-screenshots,
+#context-media-eme-separator,
+#context-video-fullscreen,
+#context-leave-dom-fullscreen,
+#context-viewvideo,
+#context-media-sep-video-commands,
+#context-media-loop,
+#context-media-playbackrate>.menu-right,
+#context-sep-open {
+  display: none !important;
+}
+#context-sendimage,
+#context-sep-sharing,
+#context-sep-setbackground,
+#context-savelink,
+#context-zenSplitLink,
+#context-zenAddToWebPanel,
+#context-sendvideo,
+#context-viewimageinfo {
+  display: none !important;
+}
+
+/* Sidebar tab options */
+#context_openANewTab,
+#context_reopenInContainer,
+#context_zenTabActions,
+#context_closeTab,
+#context_closeDuplicateTabs[disabled="true"],
+#context_zenSplitTabs[disabled="true"],
+
+/* Sidebar toolbar options */
+#toggle_toolbar-menubar,
+#toolbar-context-undoCloseTab,
+#toolbar-context-selectAllTabs,
+#toolbar-context-bookmarkSelectedTab,
+#toolbar-context-bookmarkSelectedTabs,
+#toolbar-context-reloadSelectedTab,
+#toolbar-context-reloadSelectedTabs,
+#context-inspect-a11y,
+#viewToolbarsMenuSeparator,
+#toolbarItemsMenuSeparator,
+#toolbarNavigatorItemsMenuSeparator {
+  visibility: collapse !important;
+}
+
+
+/* Style for menu separators */
+menuseparator {
+  &::before {
+    opacity: 0.3;
+  }
+
+  /* Hide the first separator*/ 
+  &:first-of-type {
+    display: none !important;
+  } 
+  &:nth-of-type(4) {
+    display: none !important;
+  }
+
+  &:nth-of-type(7) {
+    display: none !important;
+  }
+}
+
+/* FIX header icons for the app menu sub menus (eg. fx account, history...) */
+.panel-header>h1 {
+  text-align: left;
+  margin-left: 8px !important;
+}
+
+.wordmark::after {
+  content: "Plus" !important;
+}
+
+@media not (-moz-platform: linux) {
+  .unified-extensions-context-menu-pin-to-toolbar {
+    --menu-image: url("chrome://browser/skin/zen-icons/pin.svg");
+  }
+}
+
+.unified-extensions-context-menu-move-widget-down {
+  --menu-image: url("chrome://browser/skin/zen-icons/arrow-down.svg");
+}
+
+.unified-extensions-context-menu-move-widget-up {
+  --menu-image: url("chrome://browser/skin/zen-icons/arrow-up.svg");
+}
+
+:not(:not(menubar) > menu, #ContentSelectDropdown)>menupopup>menuitem:not(.menuitem-iconic,
+  [type="checkbox"],
+  [type="radio"],
+  .in-menulist,
+  .in-menulist menuitem,
+  .unified-nav-current),
+:not(:not(menubar) > menu, #ContentSelectDropdown)>menupopup>menu:not(.menu-iconic,
+  [type="checkbox"],
+  [type="radio"],
+  .in-menulist,
+  .in-menulist menu,
+  .unified-nav-current),
+:not(:not(menubar) > menu, #ContentSelectDropdown)>menupopup>menucaption {
+  padding-inline-start: calc(var(--zen-contextmenu-menuitem-padding-inline) + var(--zen-contextmenu-menuicon-margin-inline) / 2) !important;
+  /* Default: approx 30px */
+}
+
+/* Linux-specific adjustment for menucaption padding based on user feedback */
+@media (-moz-platform: linux) {
+  :not(:not(menubar) > menu, #ContentSelectDropdown)>menupopup>menucaption {
+    padding-inline-start: calc(var(--zen-contextmenu-menuitem-padding-inline) + var(--zen-contextmenu-menuicon-margin-inline) / 8) !important;
+  }
+}
+
+menupopup>menuitem[type="checkbox"] .menu-iconic-left {
+  --menu-image: none !important;
+  margin-inline-start: 4px;
+}
