@@ -1,7 +1,7 @@
 /* Tab Group */
 tab-group:not([split-view-group]) {
   display: grid !important;
-  background: color-mix(in srgb, var(--tab-group-color-invert) 20%, transparent) !important;
+  background: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
   border: 1px solid color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
   border-radius: var(--border-radius-medium);
   margin: 2px 2px 2px 2px !important;
@@ -13,10 +13,10 @@ tab-group:not([split-view-group]) {
   transition: max-height 0.2s ease !important;
   overflow: hidden !important;
     @media (-moz-pref("zen.view.sidebar-expanded")) {
-        width: var(--tab-min-width) !important;
+        width: var(--tab-max-width) !important;
       }
         &[collapsed]:hover {
-        background-color: color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
+        background-color: color-mix(in srgb, var(--tab-group-color-invert) 40%, transparent) !important;
         border: 1px solid color-mix(in srgb, var(--tab-group-color-invert) 10%, transparent) !important;
         border-radius: var(--border-radius-medium);
       }
@@ -43,7 +43,7 @@ tab-group:not([split-view-group]) {
   }
 
   &>vbox {
-    padding-top: 2px !important;
+    padding-top: 0px !important;
   }
 
   /* group icon */
