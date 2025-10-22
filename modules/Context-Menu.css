@@ -1,3 +1,16 @@
+/* --- Context Menu --- */
+#contentAreaContextMenu {
+  width: 250px !important;
+}
+
+#tabContextMenu {
+  width: 220px !important;
+}
+
+#confirmation-hint {
+  --arrowpanel-color: var(--sidebar-text-color) !important;
+}
+
  /* compact menu */
 menupopup > :is(menuitem, menu){
   height: fit-content !important;
