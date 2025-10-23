@@ -13,13 +13,35 @@
   transition: backdrop-filter 0.5s ease !important;
 }
 
+
+/* Apply transition to the site data icon button */
+#zen-site-data-icon-button {
+  transition: all 0.15s ease !important;
+  margin-inline-start: -25px !important;
+  overflow: visible !important;
+}
+
+/* Hide button by default (non-hover state) */
+.urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
+  transform: translateX(25px) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Show button on hover */
+.urlbar-input-container:hover #zen-site-data-icon-button, #zen-site-data-icon-button[open]{
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
 /* Hide stuff in the URL bar */
-  #copy-url-icon,
+  #zen-copy-url-button,
   #urlbar-zoom-button,
   #identity-icon-box,
   #identity-permission-box,
-    #tracking-protection-icon-container,
-    #page-action-buttons {
+  #tracking-protection-icon-container,
+  #page-action-buttons {
       display: none !important;
     }
 
