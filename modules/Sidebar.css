@@ -1,118 +1,3 @@
-/* Hides Top Toolbar (single toolbar) */
-  :root[zen-single-toolbar="true"] #zen-appcontent-navbar-wrapper {
-    max-height: var(--zen-element-separation) !important;
-    margin-top: 0px;
-  }
-
- .zen-current-workspace-indicator {
-  display: none !important;
-}
-
-/* hide scrollbar */
-  scrollbox {
-    scrollbar-width: none !important;
-  }
-
-/* PanelUI */
-#appMenu-new-tab-button2,
-#appMenu-new-window-button2,
-#appMenu-new-private-window-button2,
-#appMenu-new-private-window-button2 + toolbarseparator
-
-{display: none !important;}
-
-
-/* Fix color text */
-@media (-moz-platform: linux) {
-  :root {
-    --sidebar-text-color: rgba(255, 255, 255, 0.8) !important;
-  }
-}
-
-  /* -------------------------- COMPACT SIDEBAR -------------------------- */
-
-  #navigator-toolbox:not([animate='true']) #titlebar {
-    position: relative;
-  }
-
-  #navigator-toolbox:not([animate='true']) #titlebar::before {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    z-index: -1;
-    border-radius: 15px !important;
-    background: transparent !important;
-  }
-
-  body:has([zen-compact-mode="true"]) #titlebar {
-    border-radius: 15px !important;
-    padding: 6px !important;
-    background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.8)) !important;
-    box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
-  }
-
-  body:has([zen-compact-mode="true"]) #titlebar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(10px) !important;
-    z-index: -1;
-    isolation: isolate;
-  }
-
-  body:has([zen-compact-mode="true"]) .zen-toolbar-background {
-    opacity: 0;
-  }
-
-
- 
-@-moz-document url-prefix("chrome:") {
-  /* ------------------------- GENERAL ZEN UI ------------------------- */
-  /*Web View border extra rounded*/
-  .browserContainer {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    transparent 100%
-  );
-}}
-
-  :root {
-    --attention-dot-color: transparent !important; /* remove attention dot */
-    --zen-themed-toolbar-bg-transparent: transparent !important; /* fix for transparency */
-  }
-
-
-/* -------Removes scrollbar in tab panel and also adds fade effect -------- */ 
-    #zen-tabs-wrapper {
-        mask-image: linear-gradient(to bottom, transparent, black 20px, black calc(100% - 20px), transparent 100%) !important;
-    }
-
-#zen-tabs-wrapper {
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    overflow-y: auto !important;
-}
-
-#zen-tabs-wrapper::-webkit-scrollbar {
-    display: none !important;
-}
-/* === BETTER CUSTOMIZE TOOLBAR === */
-#customization-container {
-  position: absolute;
-  z-index: 1;
-  bottom: 10px;
-  right: 10px;
-  height: 80%;
-  width: 70%;
-  border-radius: 12px;
-  padding: 10px;
-  background: light-dark(rgba(255,255,255,0.32),rgba(0,0,0,0.3)) !important;
-}
-
 
 /* Topbar Buttons */
     @media not (-moz-bool-pref: "neo-theme-window-buttons-disabled") {
@@ -242,6 +127,131 @@
             }
         }
     }
+ 
+ /* --- Compact Sidebar --- */
+:root[zen-compact-mode="true"] {
+  .browserSidebarContainer {
+    border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;
+  }
+}
+  #navigator-toolbox:not([animate='true']) #titlebar::before {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 15px !important;
+    background: transparent !important;
+  }
+  
+:root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
+  @media -moz-pref("zen.view.compact.hide-tabbar") or -moz-pref("zen.view.use-single-toolbar") {
+    #navigator-toolbox:not([animate="true"]) #titlebar::before {
+      border-radius: 15px !important;
+      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.7)) !important;
+      box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
+      backdrop-filter: blur(10px) !important;
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    #navigator-toolbox:not([animate="true"]) #titlebar::after {
+      content: "";
+      position: absolute;
+      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.8)) !important;
+      box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
+      backdrop-filter: blur(10px) !important;
+      pointer-events: none;
+      z-index: 0;
+    }
+  }
+}
+
+:root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
+  @media -moz-pref("zen.view.compact.hide-toolbar") {
+    &:not([zen-single-toolbar="true"]) {
+      & #zen-appcontent-navbar-wrapper {
+        & #zen-appcontent-navbar-container {
+          top: calc(var(--zen-element-separation) / 1.4) !important;
+          left: calc(var(--zen-element-separation) / 0.999) !important;
+          height: calc(100% - (var(--zen-element-separation) * 2.4)) !important;
+          background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.8)) !important;
+          box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
+          border-radius: 15px !important;
+          scale: 1 !important;
+        }
+      }
+    }
+  }
+}  
+    
+  body:has([zen-compact-mode="true"]) #titlebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px) !important;
+    z-index: -1;
+    isolation: isolate;
+  }
+
+  body:has([zen-compact-mode="true"]) .zen-toolbar-background {
+    opacity: 0;
+  }
+
+  
+    
+/* Hides Top Toolbar (single toolbar) */
+  :root[zen-single-toolbar="true"] #zen-appcontent-navbar-wrapper {
+    max-height: var(--zen-element-separation) !important;
+    margin-top: 0px;
+  }
+
+ .zen-current-workspace-indicator {
+  display: none !important;
+}
+
+
+/* PanelUI */
+#appMenu-new-tab-button2,
+#appMenu-new-window-button2,
+#appMenu-new-private-window-button2,
+#appMenu-new-private-window-button2 + toolbarseparator
+
+{display: none !important;}
+
+
+@-moz-document url-prefix("chrome:") {
+  /* ------------------------- GENERAL ZEN UI ------------------------- */
+  /*Web View border extra rounded*/
+  .browserContainer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 100%
+  );
+}}
+
+  :root {
+    --attention-dot-color: transparent !important; /* remove attention dot */
+    --zen-themed-toolbar-bg-transparent: transparent !important; /* fix for transparency */
+  }
+
+/* === BETTER CUSTOMIZE TOOLBAR === */
+#customization-container {
+  position: absolute;
+  z-index: 1;
+  bottom: 10px;
+  right: 10px;
+  height: 80%;
+  width: 70%;
+  border-radius: 12px;
+  padding: 10px;
+  background: light-dark(rgba(255,255,255,0.32),rgba(0,0,0,0.3)) !important;
+}
 
 /* Fix color text */
 @media (-moz-platform: linux) {
@@ -299,11 +309,6 @@ menuitem *,
   contain: layout style paint;
 }
 
-/* Disable dragging from the tab vertical sidebar */
-#TabsToolbar {
-  -moz-window-dragging: no-drag !important;
-}
-
 /* Hide double audio button */
 .button-background {
   display: none !important;
@@ -327,34 +332,10 @@ menuitem *,
   outline: 0px solid color-mix(in srgb, var(--zen-primary-color) 50%, transparent) !important;
 }
 
-/* Always show seperator bottom */
-.pinned-tabs-container-separator {
-  background: light-dark(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) !important;
-
-  .zen-workspace-pinned-tabs-section[hide-separator] & {
-    margin: 8px auto 8px !important;
-    max-height: 1px !important;
-  }
-}
-
-/* Overflow separator */
-zen-workspace {
-  &>arrowscrollbox {
-    &[overflowing] {
-      --zen-scrollbar-overflow-background: unset !important;
-    }
-  }
-}
-
 /* Drop shadow */
 & #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0001), 0 6px 20px rgba(0, 0, 0, 0.0001) !important;
   --uc-tweak-rounded-corners-shadow-color: #141515 !important;
-}
-
-/* No sidebar scrollbar */
-scrollbox:nth-child(5) {
-  scrollbar-width: none !important;
 }
 
 /* Hides the name of the extension on tabs loaded from the extension */
@@ -384,4 +365,4 @@ scrollbox:nth-child(5) {
   .tabbrowser-tab>.tab-stack>.tab-content[titlechanged]:not([selected="true"]) {
     background-image: none !important;
   }
-}
+}}
