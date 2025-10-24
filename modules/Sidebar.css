@@ -231,12 +231,11 @@ panel[type="arrow"][position] > vbox > scrollbox {
     overflow-y: auto !important;
 }
 
-
-/* Hide scrollbar in Zen Browser sidebar (compact mode) */
-#sidebar-box scrollbar,{
-    display: none !important;
-    width: 0 !important;
+/* No sidebar scrollbar */
+scrollbox:nth-child(5) {
+  scrollbar-width: none !important;
 }
+
 
 /* Hides Top Toolbar (single toolbar) */
   :root[zen-single-toolbar="true"] #zen-appcontent-navbar-wrapper {
