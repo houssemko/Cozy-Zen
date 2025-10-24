@@ -13,7 +13,6 @@
   transition: backdrop-filter 0.5s ease !important;
 }
 
-
 /* Apply transition to the site data icon button */
 #zen-site-data-icon-button {
   transition: all 0.15s ease !important;
@@ -39,8 +38,6 @@
   #zen-copy-url-button,
   #urlbar-zoom-button,
   #identity-icon-box,
-  #identity-permission-box,
-  #tracking-protection-icon-container,
   #page-action-buttons {
       display: none !important;
     }
@@ -148,7 +145,7 @@
 
     .urlbarView-title,
     .urlbarView-url {
-      font-weight: 1000 !important;
+      font-weight: 500 !important;
       margin-top: auto !important;
       margin-bottom: auto !important;
       text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
@@ -265,7 +262,7 @@
 
     .urlbarView-title,
     .urlbarView-url {
-      font-weight: 1000 !important;
+      font-weight: 500 !important;
       margin-top: auto !important;
       margin-bottom: auto !important;
       text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
