@@ -16,46 +16,35 @@
 /* Apply transition to the site data icon button */
 #zen-site-data-icon-button {
   transition: all 0.15s ease !important;
-  margin-inline-start: -25px !important;
   overflow: visible !important;
 }
 
+/* Apply negative margin only when urlbar is not floating and not open */
+#urlbar:not([zen-floating-urlbar='true']) #zen-site-data-icon-button {
+  margin-inline-start: -25px !important;
+}
+
 /* Hide button by default (non-hover state) */
-.urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
+#urlbar:not([zen-floating-urlbar='true']) .urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
   transform: translateX(25px) !important;
   opacity: 0 !important;
   pointer-events: none !important;
 }
 
 /* Show button on hover */
-.urlbar-input-container:hover #zen-site-data-icon-button, #zen-site-data-icon-button[open]{
+#urlbar:not([zen-floating-urlbar='true']) .urlbar-input-container:hover #zen-site-data-icon-button, #zen-site-data-icon-button[open]{
   transform: translateX(0) !important;
   opacity: 1 !important;
   pointer-events: auto !important;
 }
 
 /* Hide stuff in the URL bar */
-  #zen-copy-url-button,
-  #urlbar-zoom-button,
-  #identity-icon-box,
-  #page-action-buttons {
-      display: none !important;
-    }
-
-    #identity-icon-box {
-      margin-left: 1px !important;
-      padding-left: 6px !important;
-      padding-right: 6px !important;
-      border-radius: var(--urlbar-icon-border-radius) !important;
- @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
-        margin-left: 3px !important;
-      }
-    }
-    .verifiedDomain {
-      image {
-        list-style-image: url("chrome://browser/skin/zen-icons/link.svg") !important;
-      }
-    }
+#urlbar:not([zen-floating-urlbar='true']) #zen-copy-url-button,
+#urlbar:not([zen-floating-urlbar='true']) #urlbar-zoom-button,
+#urlbar:not([zen-floating-urlbar='true']) #identity-icon-box,
+#urlbar:not([zen-floating-urlbar='true']) #page-action-buttons {
+  display: none !important;
+}
 
 /* Center text in URL bar */
 #urlbar .urlbar-input,
