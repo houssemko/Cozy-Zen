@@ -243,7 +243,7 @@
       }
 
       &:hover .urlbar-background {
-        background: color-mix(in srgb, var(--zen-primary-color) 40%, transparent) !important;
+        background: color-mix(in srgb, light-dark(var(--zen-primary-color), var(--zen-colors-primary-foreground)) 50%, transparent) !important;
       }
     }
   }
