@@ -1,4 +1,3 @@
-
 /* Topbar Buttons */
     @media not (-moz-bool-pref: "neo-theme-window-buttons-disabled") {
         @media not (-moz-bool-pref: "zen.view.experimental-no-window-controls") {
@@ -199,11 +198,46 @@
   }
 
   body:has([zen-compact-mode="true"]) .zen-toolbar-background {
-    opacity: 0;
+    opacity: 0.3;
   }
 
-  
-    
+/* Limit height and width of history panel */
+#history-panel,
+#PanelUI-history,
+#viewHistorySidebar,
+.zen-history-panel,
+[data-l10n-id="history-panel"],
+#appMenu-historyView,
+.PanelUI-subView[id*="history"] {
+    max-height: 500px !important;
+    max-width: 300px !important;
+}
+
+/* History dropdown from toolbar */
+#ContentSelectDropdown[width*="history"],
+panel[type="arrow"][position] > vbox > scrollbox {
+    max-height: 500px !important;
+    max-width: 300px !important;
+}
+
+/* Limit height and width of recently closed tabs panel */
+#appMenu-library-recentlyClosedTabs,
+#PanelUI-recentlyClosedTabs,
+#historyMenuRecentlyClosedTabs,
+#recently-closed-tabs-list,
+#historyUndoMenu menupopup {
+    max-height: 500px !important;
+    max-width: 300px !important;
+    overflow-y: auto !important;
+}
+
+
+/* Hide scrollbar in Zen Browser sidebar (compact mode) */
+#sidebar-box scrollbar,{
+    display: none !important;
+    width: 0 !important;
+}
+
 /* Hides Top Toolbar (single toolbar) */
   :root[zen-single-toolbar="true"] #zen-appcontent-navbar-wrapper {
     max-height: var(--zen-element-separation) !important;
