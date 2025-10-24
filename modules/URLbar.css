@@ -3,13 +3,11 @@
   top: 210px !important; /* Adjust: 10px = very top, 40px = lower */
   min-width: auto !important;    /* Remove forced min-width if causing issues */
   border-radius: 25px !important;
-  position: fixed !important; /* Ensure it's fixed to viewport */
 }
 
 
 #urlbar .urlbar-background {
   background-color: transparent;
-  position: relative;
   transition: backdrop-filter 0.5s ease !important;
 }
 
@@ -22,6 +20,16 @@
 /* Apply negative margin only when urlbar is not floating and not open */
 #urlbar:not([zen-floating-urlbar='true']) #zen-site-data-icon-button {
   margin-inline-start: -25px !important;
+}
+/* URLbar container animation */
+#urlbar:not([zen-floating-urlbar='true']):not([open]):hover {
+  transform: translateY(-2px) scale(1.05);
+  background: transparent !important;
+}
+
+/* Remove hover effect when zen site data button is open */
+#urlbar:has(#zen-site-data-icon-button[open]):hover {
+  transform: none;
 }
 
 /* Hide button by default (non-hover state) */
@@ -50,13 +58,12 @@
 #urlbar .urlbar-input,
 .urlbar-input-container {
     text-align: center !important;
-    position: relative;
-}
 
 /* ------------------ Results Rows Styling ------------------ */
 /* Remove favicon background when row is selected */
 .urlbarView-row-inner[selected] .urlbarView-favicon {
   background: none !important;
+}
 }
 
 /* Invert search icon for dark mode */
