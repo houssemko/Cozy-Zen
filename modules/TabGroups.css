@@ -4,6 +4,7 @@ tab-group:not([split-view-group]) {
   background: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
   border: 2px solid color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
   border-radius: var(--border-radius-medium);
+  margin: 1px 1px 1px 1px !important;
   padding: 5px 0px !important;
   max-height: 1000px !important;
   transition: max-height 0.2s ease !important;
@@ -26,8 +27,8 @@ tab-group:not([split-view-group]) {
       
   &>.tab-group-container {
     :root[zen-sidebar-expanded] &>* {
-      margin-inline-start: unset !important;
-      margin-inline-end: unset !important;
+      margin-inline-start: 1px !important;
+      margin-inline-end: 1px !important;
       scale: 1 !important;
     }
   }
@@ -210,8 +211,6 @@ tab-group:not([split-view-group]) {
       --tab-group-color-invert: transparent !important;
       --tab-group-color: transparent !important;
     }
-
-    margin-left: -2px !important;
   }
 
   tab::before {
