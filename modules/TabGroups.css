@@ -25,13 +25,7 @@ tab-group:not([split-view-group]) {
         ) !important;
       }
       
-  &>.tab-group-container {
-    :root[zen-sidebar-expanded] &>* {
-      margin-inline-start: 1px !important;
-      margin-inline-end: 1px !important;
-      scale: 1 !important;
-    }
-  }
+ 
 
   & tab {
     transition: opacity 0.5s ease !important;
@@ -117,8 +111,7 @@ tab-group:not([split-view-group]) {
       background: transparent !important;
       border: unset !important;
       font-weight: 1000 !important;
-      text-align: unset !important;
-      padding-left: 23px !important;
+      text-align: left !important;
     }
 
     & .tab-group-label-container>label::before{
@@ -144,7 +137,7 @@ tab-group:not([split-view-group]) {
       background: transparent !important;
       border: unset !important;
       border-radius: 0px !important;
-      margin-inline: 6px 4px !important;
+      margin-inline: 6px !important;
     }
 
     &>label::after {
