@@ -32,16 +32,16 @@ However, your GitHub repo is titled **Minimalistic-desktop-wallpapers**, and cur
 3. **Create or open the `chrome` folder** inside your profile folder.
 
 4. **Copy the following into the `chrome` folder**:
-   - `custom.css`
-   - `content.css`
+   - `userChrome.css`
+   - `userContent.css`
    - The entire `modules` folder
 
    Your structure should look like this:
    ```
    your-firefox-profile/
    └── chrome/
-       ├── custom.css
-       ├── content.css
+       ├── userChrome.css
+       ├── userContent.css
        └── modules/
            ├── Sidebar.css
            └── ... (other module files)
