@@ -10,13 +10,8 @@ This theme includes visual refinements, layout tweaks, and integrates the powerf
 
 ### ✨ [Context-Menu-Icons (CMI)](https://github.com/Starry-AXQG/Context-Menu-Icons)
 > Adds beautiful FluentUI/ZenUI icons to all context menus — including tabs, bookmarks, extensions, zenFolders, and zenWorkspaces.  
-> Includes **JavaScript-powered menu folding** to declutter long menus.
-
 - **Icon Packs**: FluentUI (default) or ZenUI
-- **Smart Folding**: Collapse rarely used items into a “Show more options” submenu
-- **Hotkey Control**: Toggle folding per item with `CapsLock + Ctrl + Shift + A`
-- **Temporary Full Menu**: Hold `Shift` while right-clicking to bypass folding
-
+  
 ---
 
 ## 🛠️ Installation
@@ -37,9 +32,7 @@ If you haven’t already, enable `userChrome.css` support in Zen:
        └── modules/                ← organized mod directory
            └── icons/              ← Context-Menu-Icons (CMI)
                ├── icons.css
-               ├── CMI-config.css  ← ✅ customization file (edit this!)
-               ├── fluentui/
-               └── zenui/
+               └──  CMI-config.css  ← ✅ customization file (edit this!)
    ```
 
 > 💡 **Important**: The `CMI-config.css` file **must be inside** the `icons/` folder for CMI to load properly.
@@ -54,34 +47,6 @@ svg.context-properties.content.enabled = true
 ### 4. Restart Zen Browser
 After copying files and setting preferences, fully restart Zen to apply changes.
 
----
-
-## ⚙️ Customizing Context-Menu-Icons
-
-Edit `modules/icons/CMI-config.css` to personalize behavior:
-
-```css
-:root {
-  /* Choose icon pack: 1 = FluentUI (default), 2 = ZenUI */
-  --cmi-icon-package: 1;
-
-  /* Fold specific menu items by ID (comma-separated) */
-  --cmi-fold-item-ids: "context-openlink, context-openlinkprivate, context-sendlinktodevice";
-
-  /* Customize folded submenu label */
-  --cmi-fold-menu-label: "Show more options";
-}
-```
-
-Alternatively, manage settings via `about:config`:
-- `cmi-Switch-Icon-Package` → `1` or `2`
-- `cmi-fold-item-IDs` → comma-separated list of menu item IDs
-- `cmi-fold_menu_item-enable` → `true`/`false` to toggle folding
-
-> 💡 **Pro Tip**:  
-> With the context menu open, hover an item and press **`CapsLock + Ctrl + Shift + A`** to instantly add/remove it from the folded list—no manual ID lookup needed!
-
-> 🕶️ Hold **`Shift`** while right-clicking to temporarily show the full, unfolded menu.
 
 ---
 
@@ -107,10 +72,5 @@ Since CMI updates frequently:
 
 This theme is for personal use. Respect the licenses of all included mods.  
 CMI is licensed under its own terms—see its [repository](https://github.com/Starry-AXQG/Context-Menu-Icons) for details.
-
----
-
-> 🌼 Enjoy a cozier, more intuitive Zen experience.
-```
 
 --
