@@ -14,28 +14,20 @@ tab-group:not([split-view-group]) {
   overflow: hidden !important;
 
   /* Sidebar expanded view */
-  @media (-moz-pref("zen.view.sidebar-expanded")) {
-    width: var(--tab-max-width) !important;
-  }
-
   & > vbox {
     padding-top: 0px !important;
   }
-
   & tab {
     transition: opacity 0.5s ease !important;
   }
-
   &:after {
     display: none;
     padding: 0px !important;
     background-color: color-mix(in srgb, var(--tab-group-color) 50%, transparent) !important;
   }
-
   tab::before {
     background: none !important;
   }
-
   & tab:not([zen-glance-tab]) {
     overflow: visible !important;
 
@@ -43,13 +35,11 @@ tab-group:not([split-view-group]) {
       transition: scale 0.03s !important;
       scale: 1;
     }
-
     .tab-group-line {
       --tab-group-color-invert: transparent !important;
       --tab-group-color: transparent !important;
     }
   }
-
   tab-group:has(tab[hidden]) {
     display: none !important;
   }
