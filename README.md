@@ -13,24 +13,46 @@ Zen Browser supports deep UI customization through `userChrome.css`—and this r
 
 > 💡 Inspired by minimalism and mindful computing.
 
-## 🛠️ How to Use
-1. **Locate your Zen Browser profile folder**  
-   Go to `about:support` → **Profile Folder** → **Open Directory**.
+Got it! Based on your instruction, it seems you're actually referring to a **userChrome.css**-style customization for Firefox (not wallpapers), since you mention `custom.css`, `content.css`, and a `modules` folder inside a `chrome` directory.
 
-2. **Enable custom CSS**  
-   In Zen Browser, go to `about:config` and enable:  toolkit.legacyUserProfileCustomizations.stylesheets = true
+However, your GitHub repo is titled **Minimalistic-desktop-wallpapers**, and currently contains no code or files (based on the knowledge base). If you're updating the README for a **Firefox theme/mod** instead, here’s a revised **Installation section** you can use in your `README.md`:
 
-3. **Install this theme**  
-- Inside your profile folder, create a `chrome` folder (if it doesn’t exist).  
-- Place the `userChrome.css` file from this repo into that folder.  
-- Restart Zen Browser.
+---
 
-Your browser UI should now reflect the Cozy-Zen style!
+### 🛠️ Installation
 
-## 🌱 Customization Tips
-- Edit `userChrome.css` live to see real-time changes [[2]].
-- Zen Browser supports powerful mods like SuperGradient and Drop Shadow—feel free to mix and match [[4]].
-- Always back up your profile before major changes.
+1. **Enable Firefox userChrome support** (if not already enabled):
+   - Go to `about:config`
+   - Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+
+2. **Locate your Firefox profile folder**:
+   - Go to `about:support`
+   - Under **Application Basics**, find **Profile Folder** → click **Open Folder**
+
+3. **Create or open the `chrome` folder** inside your profile folder.
+
+4. **Copy the following into the `chrome` folder**:
+   - `custom.css`
+   - `content.css`
+   - The entire `modules` folder
+
+   Your structure should look like this:
+   ```
+   your-firefox-profile/
+   └── chrome/
+       ├── custom.css
+       ├── content.css
+       └── modules/
+           ├── Sidebar.css
+           └── ... (other module files)
+   ```
+
+5. **Restart Zen** to apply the changes.
+
+
+---
+
+Let me know if you'd like this integrated into a full README, or if the repo actually *does* include these files (they’re just not visible in the current GitHub view).
 
 ## 📜 License
 This CSS customization is free to use, modify, and share.  
