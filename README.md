@@ -1,77 +1,116 @@
 # 🌿 Cozy-Zen
 
-A personal collection of custom CSS tweaks to make [Zen Browser](https://zen-browser.app/) feel calm, cozy, and perfectly tailored to my workflow.
+My personal, hand-crafted CSS theme for the [Zen Browser](https://zen-browser.app/), designed for a clean, calm, and highly functional browsing experience.
 
-Zen Browser supports deep UI customization through `userChrome.css`—and this repo is where I experiment, refine, and share my favorite visual enhancements.
-
-## 🎨 Features
-- Streamlined interface with reduced visual clutter  
-- Soft padding and rounded elements for a “cozy” feel  
-- Custom tab styling (vertical or horizontal)  
-- Subtle animations and hover effects  
-- Optimized for focus and minimal distraction  
-
-> 💡 Inspired by minimalism and mindful computing.
-
-Got it! Based on your instruction, it seems you're actually referring to a **userChrome.css**-style customization for Firefox (not wallpapers), since you mention `custom.css`, `content.css`, and a `modules` folder inside a `chrome` directory.
-
-However, your GitHub repo is titled **Minimalistic-desktop-wallpapers**, and currently contains no code or files (based on the knowledge base). If you're updating the README for a **Firefox theme/mod** instead, here’s a revised **Installation section** you can use in your `README.md`:
+This theme includes visual refinements, layout tweaks, and integrates the powerful **Context-Menu-Icons (CMI)** mod to bring intuitive icons and smart folding to Zen’s right-click menus.
 
 ---
 
-### 🛠️ Installation
+## 📦 Included Mods
 
-1. **Enable Firefox userChrome support** (if not already enabled):
-   - Go to `about:config`
-   - Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+### ✨ [Context-Menu-Icons (CMI)](https://github.com/Starry-AXQG/Context-Menu-Icons)
+> Adds beautiful FluentUI/ZenUI icons to all context menus — including tabs, bookmarks, extensions, zenFolders, and zenWorkspaces.  
+> Includes **JavaScript-powered menu folding** to declutter long menus.
 
-2. **Locate your Firefox profile folder**:
-   - Go to `about:support`
-   - Under **Application Basics**, find **Profile Folder** → click **Open Folder**
+- **Icon Packs**: FluentUI (default) or ZenUI
+- **Smart Folding**: Collapse rarely used items into a “Show more options” submenu
+- **Hotkey Control**: Toggle folding per item with `CapsLock + Ctrl + Shift + A`
+- **Temporary Full Menu**: Hold `Shift` while right-clicking to bypass folding
 
-3. **Create or open the `chrome` folder** inside your profile folder.
+---
 
-4. **Copy the following into the `chrome` folder**:
-   - `userChrome.css`
-   - `userContent.css`
-   - The entire `modules` folder
+## 🛠️ Installation
 
-   Your structure should look like this:
+### 1. Set Up Your `chrome` Folder
+If you haven’t already, enable `userChrome.css` support in Zen:
+- Go to `about:config`
+- Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
+- Locate your [Zen profile folder](https://github.com/zen-browser/zen/wiki/Profile-Directory) and create a `chrome` folder inside it.
+
+### 2. Install Cozy-Zen
+1. Download or clone this repo.
+2. Copy the entire contents of this repository into your `chrome` folder:
    ```
-   your-firefox-profile/
+   [Your Zen Profile]/
    └── chrome/
-       ├── userChrome.css
-       ├── userContent.css
-       └── modules/
-           ├── Sidebar.css
-           └── ... (other module files)
+       ├── userChrome.css          ← main entry point
+       └── modules/                ← organized mod directory
+           └── icons/              ← Context-Menu-Icons (CMI)
+               ├── icons.css
+               ├── CMI-config.css  ← ✅ customization file (edit this!)
+               ├── fluentui/
+               └── zenui/
    ```
 
-5. **Restart Zen** to apply the changes.
+> 💡 **Important**: The `CMI-config.css` file **must be inside** the `icons/` folder for CMI to load properly.
 
-## Integrated Mods
+### 3. Enable Required Preference
+In `about:config`, ensure this setting is **enabled**:
+```
+svg.context-properties.content.enabled = true
+```
+> ⚠️ CMI will **not run** without this.
 
-This theme includes the following community mods for enhanced UI:
-
-### Context Menu Icons (CMI)
-- **Source**: [Starry-AXQG/Context-Menu-Icons](https://github.com/Starry-AXQG/Context-Menu-Icons)
-- **Version**: v2.1+
-- **Features**:
-  - Adds intuitive icons to Zen browser’s context menus (including zenFolder and zenWorkspace).
-  - Supports **FluentUI** and **ZenUI** icon packs (default: FluentUI).
-  - Extensions, bookmarks, and tab context menus are visually harmonized.
-
-#### How It’s Integrated
-- The `icons/` folder (from CMI) is placed inside the `chrome/modules` directory.
-- Loaded via:  
-   ```css
-  @import "modules/CMI/CMI-config.css";
-  @import "modules/CMI/icons.css"; 
+### 4. Restart Zen Browser
+After copying files and setting preferences, fully restart Zen to apply changes.
 
 ---
 
-Let me know if you'd like this integrated into a full README, or if the repo actually *does* include these files (they’re just not visible in the current GitHub view).
+## ⚙️ Customizing Context-Menu-Icons
 
-## 📜 License
-This CSS customization is free to use, modify, and share.  
-Licensed under **MIT**—see [LICENSE](LICENSE) for details.
+Edit `modules/icons/CMI-config.css` to personalize behavior:
+
+```css
+:root {
+  /* Choose icon pack: 1 = FluentUI (default), 2 = ZenUI */
+  --cmi-icon-package: 1;
+
+  /* Fold specific menu items by ID (comma-separated) */
+  --cmi-fold-item-ids: "context-openlink, context-openlinkprivate, context-sendlinktodevice";
+
+  /* Customize folded submenu label */
+  --cmi-fold-menu-label: "Show more options";
+}
+```
+
+Alternatively, manage settings via `about:config`:
+- `cmi-Switch-Icon-Package` → `1` or `2`
+- `cmi-fold-item-IDs` → comma-separated list of menu item IDs
+- `cmi-fold_menu_item-enable` → `true`/`false` to toggle folding
+
+> 💡 **Pro Tip**:  
+> With the context menu open, hover an item and press **`CapsLock + Ctrl + Shift + A`** to instantly add/remove it from the folded list—no manual ID lookup needed!
+
+> 🕶️ Hold **`Shift`** while right-clicking to temporarily show the full, unfolded menu.
+
+---
+
+## 🔄 Updating CMI
+
+Since CMI updates frequently:
+1. Download the latest release from [Starry-AXQG/Context-Menu-Icons](https://github.com/Starry-AXQG/Context-Menu-Icons)
+2. Replace the contents of your `modules/icons/` folder with the new `icons/` folder
+3. Preserve your customizations by re-applying changes to `CMI-config.css` if needed
+
+> 🔜 *(Future note: Consider using [Sine](https://sine.zen-browser.app/) for auto-updates—but manual install gives full control.)*
+
+---
+
+## 🙏 Credits
+
+- **[Context-Menu-Icons](https://github.com/Starry-AXQG/Context-Menu-Icons)** by [Starry-AXQG](https://github.com/Starry-AXQG)  
+- **[Zen Browser](https://zen-browser.app/)** – The beautiful, Firefox-based browser that makes this possible
+
+---
+
+## 📝 License
+
+This theme is for personal use. Respect the licenses of all included mods.  
+CMI is licensed under its own terms—see its [repository](https://github.com/Starry-AXQG/Context-Menu-Icons) for details.
+
+---
+
+> 🌼 Enjoy a cozier, more intuitive Zen experience.
+```
+
+--
