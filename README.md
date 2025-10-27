@@ -4,8 +4,6 @@ A personal collection of custom CSS tweaks to make [Zen Browser](https://zen-bro
 
 Zen Browser supports deep UI customization through `userChrome.css`—and this repo is where I experiment, refine, and share my favorite visual enhancements.
 
-![Cozy Zen Preview](preview.png) <!-- Optional: add a screenshot later -->
-
 ## 🎨 Features
 - Streamlined interface with reduced visual clutter  
 - Soft padding and rounded elements for a “cozy” feel  
