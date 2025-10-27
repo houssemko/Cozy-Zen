@@ -59,28 +59,6 @@
                     box-shadow: 0 0px 8px color-mix(in srgb, var(--zen-primary-color) 20%, rgb(255, 90, 100)) !important;
                 }
             }
-
-            @media (-moz-pref("neo-theme-window-buttons-colorful-enabled")) {
-                .titlebar-min {
-                    background-color: color-mix(in srgb, var(--zen-primary-color) 90%, white) !important;
-                    box-shadow: 0 0px 4px color-mix(in srgb, var(--zen-primary-color) 90%, white) !important;
-                }
-
-                .titlebar-restore {
-                    background-color: color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
-                    box-shadow: 0 0px 4px color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
-                }
-
-                .titlebar-max {
-                    background-color: color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
-                    box-shadow: 0 0px 4px color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
-                }
-
-                .titlebar-close {
-                    background-color: color-mix(in srgb, var(--zen-primary-color) 20%, rgb(255, 90, 100)) !important;
-                    box-shadow: 0 0px 4px color-mix(in srgb, var(--zen-primary-color) 20%, rgb(255, 90, 100)) !important;
-                }
-            }
         }
     }
 
@@ -127,79 +105,51 @@
         }
     }
  
- /* --- Compact Sidebar --- */
-:root[zen-compact-mode="true"] {
-  .browserSidebarContainer {
-    border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;
-  }
+/* --- Compact Sidebar --- */
+body:has([zen-compact-mode="true"]) #titlebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  isolation: isolate;
 }
-  #navigator-toolbox:not([animate='true']) #titlebar::before {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    z-index: -1;
-    border-radius: 15px !important;
-    background: transparent !important;
-  }
-  
+
+body:has([zen-compact-mode="true"]) .zen-toolbar-background {
+  opacity: 0.3;
+}
+
+
+:root[zen-compact-mode="true"] .browserSidebarContainer {
+  border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;
+}
+
 :root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
   @media -moz-pref("zen.view.compact.hide-tabbar") or -moz-pref("zen.view.use-single-toolbar") {
-    #navigator-toolbox:not([animate="true"]) #titlebar::before {
-      border-radius: 15px !important;
-      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.7)) !important;
-      box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
-      backdrop-filter: blur(10px) !important;
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      z-index: -1;
-    }
-
+    #navigator-toolbox:not([animate="true"]) #titlebar::before,
     #navigator-toolbox:not([animate="true"]) #titlebar::after {
       content: "";
       position: absolute;
-      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.8)) !important;
+      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.7)) !important;
       box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
       backdrop-filter: blur(10px) !important;
       pointer-events: none;
+    }
+    
+    #navigator-toolbox:not([animate="true"]) #titlebar::before {
+      border-radius: 15px !important;
+      z-index: -1;
+    }
+    
+    #navigator-toolbox:not([animate="true"]) #titlebar::after {
+      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.8)) !important;
       z-index: 0;
     }
   }
 }
 
-:root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
-  @media -moz-pref("zen.view.compact.hide-toolbar") {
-    &:not([zen-single-toolbar="true"]) {
-      & #zen-appcontent-navbar-wrapper {
-        & #zen-appcontent-navbar-container {
-          top: calc(var(--zen-element-separation) / 1.4) !important;
-          left: calc(var(--zen-element-separation) / 0.999) !important;
-          height: calc(100% - (var(--zen-element-separation) * 2.4)) !important;
-          background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.8)) !important;
-          box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
-          border-radius: 15px !important;
-          scale: 1 !important;
-        }
-      }
-    }
-  }
-}  
-    
-  body:has([zen-compact-mode="true"]) #titlebar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(10px) !important;
-    z-index: -1;
-    isolation: isolate;
-  }
-
-  body:has([zen-compact-mode="true"]) .zen-toolbar-background {
-    opacity: 0.3;
-  }
 
 /* Limit height and width of history panel */
 #history-panel,
@@ -209,14 +159,14 @@
 [data-l10n-id="history-panel"],
 #appMenu-historyView,
 .PanelUI-subView[id*="history"] {
-    max-height: 500px !important;
+    max-height: 460px !important;
     max-width: 300px !important;
 }
 
 /* History dropdown from toolbar */
 #ContentSelectDropdown[width*="history"],
 panel[type="arrow"][position] > vbox > scrollbox {
-    max-height: 500px !important;
+    max-height: 460px !important;
     max-width: 300px !important;
 }
 
@@ -226,10 +176,11 @@ panel[type="arrow"][position] > vbox > scrollbox {
 #historyMenuRecentlyClosedTabs,
 #recently-closed-tabs-list,
 #historyUndoMenu menupopup {
-    max-height: 500px !important;
+    max-height: 460px !important;
     max-width: 300px !important;
     overflow-y: auto !important;
 }
+
 
 /* No sidebar scrollbar */
 scrollbox:nth-child(5) {
@@ -313,89 +264,4 @@ toolbarbutton {
   }
 }
 
-/* Performance optimizations */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-.tabbrowser-tab *,
-#nav-bar toolbarbutton *,
-#PersonalToolbar toolbarbutton *,
-#urlbar *,
-#searchbar *,
-menupopup *,
-menuitem *,
-#sidebar-box *,
-#downloads-notification-anchor * {
-  backface-visibility: hidden;
-}
-.zen-floating-urlbar,
-.zen-floating-status-bar {
-  transform: translateZ(0);
-  will-change: transform, opacity;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease-out;
-  contain: layout style paint;
-}
 
-/* Hide double audio button */
-.button-background {
-  display: none !important;
-}
-
-/* Window controls shadowing fix by @taroj1205 */
-#zen-sidebar-splitter {
-  opacity: 0 !important;
-  border: none !important;
-  min-width: var(--zen-toolbox-padding) !important;
-  max-width: var(--zen-toolbox-padding) !important;
-}
-
-&:has(#navigator-toolbox:hover) #zen-sidebar-splitter,
-#zen-sidebar-splitter:hover,
-#zen-sidebar-splitter:hover:active {
-  width: var(--zen-toolbox-padding) !important;
-}
-
-#tabbrowser-tabpanels[zen-split-view="true"] .browserSidebarContainer.deck-selected {
-  outline: 0px solid color-mix(in srgb, var(--zen-primary-color) 50%, transparent) !important;
-}
-
-/* Drop shadow */
-& #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0001), 0 6px 20px rgba(0, 0, 0, 0.0001) !important;
-  --uc-tweak-rounded-corners-shadow-color: #141515 !important;
-}
-
-/* Hides the name of the extension on tabs loaded from the extension */
-#urlbar #identity-box.extensionPage #identity-icon-label {
-  display: none !important;
-}
-
-/* Fix inactive and unload opacity tab */
-.tab-icon-image {
-  @media -moz-pref("browser.tabs.fadeOutExplicitlyUnloadedTabs") {
-    &[pending][discarded] {
-      opacity: unset !important;
-      transition-property: filter, opacity;
-      transition-duration: 1s;
-    }
-  }
-}
-
-/* Hide attention icon (green dot) under tab icons */
-#navigator-toolbox {
-
-  .tabbrowser-tab:is([image], [pinned])>.tab-stack>.tab-content[attention]:not([selected]),
-  .tabbrowser-tab>.tab-stack>.tab-content[pinned][titlechanged]:not([selected]) {
-    background-image: none !important;
-  }
-
-  .tabbrowser-tab>.tab-stack>.tab-content[titlechanged]:not([selected="true"]) {
-    background-image: none !important;
-  }
-}}
