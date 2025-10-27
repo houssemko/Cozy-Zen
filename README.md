@@ -62,11 +62,11 @@ This theme includes the following community mods for enhanced UI:
   - Extensions, bookmarks, and tab context menus are visually harmonized.
 
 #### How It’s Integrated
-- The `icons/` folder (from CMI) is placed inside the `chrome/modukes` directory.
+- The `icons/` folder (from CMI) is placed inside the `chrome/modules` directory.
 - Loaded via:  
-  ```css
- @import "modules/CMI/CMI-config.css";
- @import "modules/CMI/icons.css"; ```
+   ```css
+  @import "modules/CMI/CMI-config.css";
+  @import "modules/CMI/icons.css"; 
 
 ---
 
