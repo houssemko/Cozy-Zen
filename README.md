@@ -49,6 +49,24 @@ However, your GitHub repo is titled **Minimalistic-desktop-wallpapers**, and cur
 
 5. **Restart Zen** to apply the changes.
 
+## Integrated Mods
+
+This theme includes the following community mods for enhanced UI:
+
+### Context Menu Icons (CMI)
+- **Source**: [Starry-AXQG/Context-Menu-Icons](https://github.com/Starry-AXQG/Context-Menu-Icons)
+- **Version**: v2.1+
+- **Features**:
+  - Adds intuitive icons to Zen browser’s context menus (including zenFolder and zenWorkspace).
+  - Supports **FluentUI** and **ZenUI** icon packs (default: FluentUI).
+  - Extensions, bookmarks, and tab context menus are visually harmonized.
+
+#### How It’s Integrated
+- The `icons/` folder (from CMI) is placed inside the `chrome/modukes` directory.
+- Loaded via:  
+  ```css
+ @import "modules/CMI/CMI-config.css";
+ @import "modules/CMI/icons.css"; ```
 
 ---
 
