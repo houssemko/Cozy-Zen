@@ -478,24 +478,11 @@ menupopup *, menuitem *,
   scale: 0.85 !important;
   opacity: 0.3 !important;
 }
-
 /* === TOOLBAR BUTTON HOVER ANIMATIONS === */
-
-/* Settings/Menu button with continuous spin - Multiple selectors */
-#appMenu-popup-button,
-#appMenu-fxa-status-button,
-toolbarbutton[label="Settings"],
-toolbarbutton[data-l10n-id="toolbar-button-settings"] {
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: transparent !important;
-}
-
-#appMenu-popup-button:hover,
-#appMenu-fxa-status-button:hover,
-toolbarbutton[label="Settings"]:hover,
-toolbarbutton[data-l10n-id="toolbar-button-settings"]:hover {
+/* Settings button animation */
+toolbar toolbarbutton[label="Settings"]:not([open="true"]):not([cui-areatype="menu-panel"]):not(#nav-bar *):hover,
+#nav-bar toolbarbutton[label="Settings"]:not([open="true"]):not([cui-areatype="menu-panel"]):hover {
   animation: settingsSpin 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  background: transparent !important;
 }
 
 @keyframes settingsSpin {
@@ -544,7 +531,7 @@ toolbarbutton[data-l10n-id="toolbar-button-settings"]:hover {
   }
 }
 
-/* Bookmarks button with bookmark slide-in effect */
+/* Bookmarks button with magnetic pull effect */
 #bookmarks-menu-button,
 #PanelUI-bookmarks-button {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -553,7 +540,7 @@ toolbarbutton[data-l10n-id="toolbar-button-settings"]:hover {
 
 #bookmarks-menu-button:hover,
 #PanelUI-bookmarks-button:hover {
-  animation: bookmarkSlideDown 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: bookmarkMagnet 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   background: transparent !important;
 }
 
@@ -566,15 +553,14 @@ toolbarbutton[data-l10n-id="toolbar-button-settings"]:hover {
   transform: none !important;
 }
 
-@keyframes bookmarkSlideDown {
+@keyframes bookmarkMagnet {
   0% { 
-    transform: translateY(-8px) scale(1); 
+    transform: scale(1) translateY(0); 
   }
   100% { 
-    transform: translateY(0) scale(1.1); 
+    transform: scale(1.15) translateY(-3px); 
   }
 }
-
 
 /* Search/Find button with ripple pulse effect */
 #search-container,
