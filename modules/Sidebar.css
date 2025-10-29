@@ -1,3 +1,72 @@
+/* ------------------------- GENERAL SIDEBAR -------------------------- */
+/* --- Compact Sidebar --- */
+body:has([zen-compact-mode="true"]) #titlebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  isolation: isolate;
+}
+
+body:has([zen-compact-mode="true"]) .zen-toolbar-background {
+  opacity: 0.3;
+}
+
+:root[zen-compact-mode="true"]:is([zen-single-toolbar="true"]) {
+  .browserSidebarContainer {
+    border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;
+  }
+}
+
+:root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
+  @media -moz-pref("zen.view.compact.hide-tabbar") or -moz-pref("zen.view.use-single-toolbar") {
+    #navigator-toolbox:not([animate="true"]) #titlebar::before,
+    #navigator-toolbox:not([animate="true"]) #titlebar::after {
+      content: "";
+      position: absolute;
+      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.7)) !important;
+      box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
+      backdrop-filter: blur(10px) !important;
+      pointer-events: none;
+    }
+    
+    #navigator-toolbox:not([animate="true"]) #titlebar::before {
+      border-radius: 15px !important;
+      z-index: -1;
+    }
+    
+    #navigator-toolbox:not([animate="true"]) #titlebar::after {
+      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.8)) !important;
+      z-index: 0;
+    }
+  }
+}
+  /* hide scrollbar */
+  scrollbox {
+    scrollbar-width: none !important;
+  }
+  
+/* Hides Top Toolbar (single toolbar) */
+  :root[zen-single-toolbar="true"] #zen-appcontent-navbar-wrapper {
+    max-height: var(--zen-element-separation) !important;
+    margin-top: 0px;
+  }
+
+ .zen-current-workspace-indicator {
+  display: none !important;
+}
+
+/* PanelUI */
+#appMenu-new-tab-button2,
+#appMenu-new-window-button2,
+#appMenu-new-private-window-button2,
+#appMenu-new-private-window-button2 + toolbarseparator {
+display: none !important;
+}
+
 /* Topbar Buttons */
     @media not (-moz-bool-pref: "neo-theme-window-buttons-disabled") {
         @media not (-moz-bool-pref: "zen.view.experimental-no-window-controls") {
@@ -104,52 +173,6 @@
             }
         }
     }
- 
-/* --- Compact Sidebar --- */
-body:has([zen-compact-mode="true"]) #titlebar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  isolation: isolate;
-}
-
-body:has([zen-compact-mode="true"]) .zen-toolbar-background {
-  opacity: 0.3;
-}
-
-
-:root[zen-compact-mode="true"] .browserSidebarContainer {
-  border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;
-}
-
-:root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
-  @media -moz-pref("zen.view.compact.hide-tabbar") or -moz-pref("zen.view.use-single-toolbar") {
-    #navigator-toolbox:not([animate="true"]) #titlebar::before,
-    #navigator-toolbox:not([animate="true"]) #titlebar::after {
-      content: "";
-      position: absolute;
-      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.7)) !important;
-      box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
-      backdrop-filter: blur(10px) !important;
-      pointer-events: none;
-    }
-    
-    #navigator-toolbox:not([animate="true"]) #titlebar::before {
-      border-radius: 15px !important;
-      z-index: -1;
-    }
-    
-    #navigator-toolbox:not([animate="true"]) #titlebar::after {
-      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.8)) !important;
-      z-index: 0;
-    }
-  }
-}
-
 
 /* Limit height and width of history panel */
 #history-panel,
@@ -182,48 +205,6 @@ panel[type="arrow"][position] > vbox > scrollbox {
 }
 
 
-/* No sidebar scrollbar */
-scrollbox:nth-child(5) {
-  scrollbar-width: none !important;
-}
-
-
-/* Hides Top Toolbar (single toolbar) */
-  :root[zen-single-toolbar="true"] #zen-appcontent-navbar-wrapper {
-    max-height: var(--zen-element-separation) !important;
-    margin-top: 0px;
-  }
-
- .zen-current-workspace-indicator {
-  display: none !important;
-}
-
-
-/* PanelUI */
-#appMenu-new-tab-button2,
-#appMenu-new-window-button2,
-#appMenu-new-private-window-button2,
-#appMenu-new-private-window-button2 + toolbarseparator
-
-{display: none !important;}
-
-
-@-moz-document url-prefix("chrome:") {
-  /* ------------------------- GENERAL ZEN UI ------------------------- */
-  /*Web View border extra rounded*/
-  .browserContainer {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    transparent 100%
-  );
-}}
-
-  :root {
-    --attention-dot-color: transparent !important; /* remove attention dot */
-    --zen-themed-toolbar-bg-transparent: transparent !important; /* fix for transparency */
-  }
-
 /* === BETTER CUSTOMIZE TOOLBAR === */
 #customization-container {
   position: absolute;
@@ -236,32 +217,4 @@ scrollbox:nth-child(5) {
   padding: 10px;
   background: light-dark(rgba(255,255,255,0.32),rgba(0,0,0,0.3)) !important;
 }
-
-/* Fix color text */
-@media (-moz-platform: linux) {
-  :root {
-    --sidebar-text-color: rgba(255, 255, 255, 0.8) !important;
-  }
-}
-
-[zen-should-be-dark-mode="false"] #browser {
-  --sidebar-text-color: light-dark(rgb(249, 249, 250), rgb(249, 249, 250)) !important;
-}
-
-.tab-label,
-toolbarbutton {
-  color: var(--sidebar-text-color) !important;
-}
-
-/* Bleeding corner */
-:root[zen-single-toolbar="true"] {
-  html:not([sizemode="fullscreen"]) {
-
-    .browserStack,
-    browser {
-      clip-path: inset(0 round var(--zen-native-inner-radius));
-    }
-  }
-}
-
 
