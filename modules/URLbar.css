@@ -70,8 +70,7 @@
 }
 
 /* Center text in URL bar */
-#urlbar .urlbar-input,
-.urlbar-input-container {
+#urlbar .urlbar-input-container {
     text-align: center !important;
 
 /* ------------------ Results Rows Styling ------------------ */
