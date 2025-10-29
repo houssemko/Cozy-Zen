@@ -3,7 +3,7 @@
    ============================================ */
 
 tab-group:not([split-view-group]) {
-  display: grid !important;
+  display: block !important;
   background: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
   border: 2px solid color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
   border-radius: var(--border-radius-medium);
@@ -45,80 +45,69 @@ tab-group:not([split-view-group]) {
   }
 }
 
-
 /* ============================================
-   TAB GROUP LABEL - BASE STYLES
-   ============================================ */
-
+/* TAB GROUP LABEL - BASE STYLES
+============================================ */
 tab-group:not([split-view-group]) .tab-group-label-container {
   flex: 0 0 auto !important;
   position: relative !important;
-  top: 18 !important;
   z-index: 1000 !important;
   margin: 0 !important;
   height: 24px !important;
   color: var(--sidebar-text-color) !important;
   border-radius: calc(var(--border-radius-medium) + 2px) !important;
-  transition: transform 0.2s ease, background-color 0.2s ease, border-radius 0.2s ease-in-out;
-  display: block;
-
-  &:after {
-    transition: transform 0.2s ease-out !important;
-    display: none !important;
-    padding: 0px !important;
-  }
-
-  /* Label text styles */
-  & > label {
-    width: 100% !important;
-    background: transparent !important;
-    border: unset !important;
-    font-weight: 1000 !important;
-    text-align: unset !important;
-    color: var(--sidebar-text-color) !important;
-    padding-left: 23px !important;
-    margin: 0 !important;
-    margin-top: 0 !important;
-    outline: none !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    border-radius: 0px !important;
-    margin-inline: 6px !important;
-  }
-
-  /* Folder icon (before) */
-  & > label::before {
-    font-weight: 1000 !important;
-    content: "" !important;
-    position: absolute !important;
-    padding-top: 2px;
-    left: 6px !important;
-    top: 10% !important;
-    width: 18px !important;
-    height: 18px !important;
-    background: var(--sidebar-text-color) !important;
-    mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgOS41MDJWOC43NWEyLjI1IDIuMjUgMCAwIDAtMi4yNS0yLjI1aC01LjcyNWwtMi4zOC0xLjk4QTIuMjUgMi4yNSAwIDAgMCA4LjIwNCA0SDQuMjVBMi4yNSAyLjI1IDAgMCAwIDIgNi4yNWwtLjAwNCAxMS41QTIuMjUgMi4yNSAwIDAgMCA0LjI0NiAyMEgxOC40N2ExLjc1IDEuNzUgMCAwIDAgMS42OTgtMS4zMjVsMS43NS02Ljk5OGExLjc1IDEuNzUgMCAwIDAtMS42OTgtMi4xNzVIMjBaTTQuMjUgNS41aDMuOTU2YS43NS43NSAwIDAgMSAuNDguMTczbDIuNTg4IDIuMTU0YS43NS43NSAwIDAgMCAuNDguMTczaDUuOTk2YS43NS43NSAwIDAgMSAuNzUuNzV2Ljc1Mkg2LjQyNGEyLjI1IDIuMjUgMCAwIDAtMi4xODMgMS43MDRsLS43NDQgMi45NzhMMy41IDYuMjVhLjc1Ljc1IDAgMCAxIC43NS0uNzVabTEuNDQ3IDYuMDdhLjc1Ljc1IDAgMCAxIC43MjctLjU2OEgyMC4yMmEuMjUuMjUgMCAwIDEgLjI0Mi4zMWwtMS43NSA2Ljk5OWEuMjUuMjUgMCAwIDEtLjI0Mi4xODlINC4yODVhLjI1LjI1IDAgMCAxLS4yNDMtLjMxbDEuNjU1LTYuNjJaIiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+");
-    mask-size: contain;
-    mask-repeat: no-repeat;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-color: color-mix(in srgb, var(--tab-group-color-invert) 100%, transparent) !important;
-  }
-
-  /* Arrow icon (after) */
-  & > label::after {
-    content: "" !important;
-    position: relative !important;
-    top: 50% !important;
-    transform: translateY(-50%) rotate(180deg) !important;
-    width: 12px !important;
-    height: 12px !important;
-    background: var(--sidebar-text-color) !important;
-    mask-image: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGQ9Ik00MTMuMSAzMjcuM2wtMS44LTIuMS0xMzYtMTU2LjVjLTQuNi01LjMtMTEuNS04LjYtMTkuMi04LjYtNy43IDAtMTQuNiAzLjQtMTkuMiA4LjZMMTAxIDMyNC45bC0yLjMgMi42Qzk3IDMzMCA5NiAzMzMgOTYgMzM2LjJjMCA4LjcgNy40IDE1LjggMTYuNiAxNS44aDI4Ni44YzkuMiAwIDE2LjYtNy4xIDE2LjYtMTUuOCAwLTMuMy0xLjEtNi40LTIuOS04Ljl6Ii8+PG1ldGFkYXRhPjxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6cmRmcz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wMS9yZGYtc2NoZW1hIyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj48cmRmOkRlc2NyaXB0aW9uIGFib3V0PSJodHRwczovL2ljb25zY291dC5jb20vbGVnYWwjbGljZW5zZXMiIGRjOnRpdGxlPSJhcnJvdyx1cCxiIiBkYzpkZXNjcmlwdGlvbj0iYXJyb3csdXAsYiIgZGM6cHVibGlzaGVyPSJJY29uc2NvdXQiIGRjOmRhdGU9IjIwMTctMDktMjQiIGRjOmZvcm1hdD0iaW1hZ2Uvc3ZnK3htbCIgZGM6bGFuZ3VhZ2U9ImVuIj48ZGM6Y3JlYXRvcj48cmRmOkJhZz48cmRmOmxpPkJlbmphbWluIEogU3BlcnJ5PC9yZGY6bGk+PC9yZGY6QmFnPjwvZGM6Y3JlYXRvcj48L3JkZjpEZXNjcmlwdGlvbj48L3JkZjpSREY+PC9tZXRhZGF0YT48L3N2Zz4=");
-    mask-size: contain;
-  }
+  transition: transform 0.2s ease, background-color 0.2s ease, border-radius 0.2s ease-in-out !important;
 }
 
+/* Label text styles */
+tab-group:not([split-view-group]) .tab-group-label-container > label {
+  width: 100% !important;
+  background: transparent !important;
+  border: unset !important;
+  font-weight: 1000 !important;
+  text-align: unset !important;
+  color: var(--sidebar-text-color) !important;
+  padding-left: 23px !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  outline: none !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  border-radius: 0px !important;
+  margin-inline: 6px !important;
+}
+
+/* Folder icon (before) */
+tab-group:not([split-view-group]) .tab-group-label-container > label::before {
+  font-weight: 1000 !important;
+  content: "" !important;
+  position: absolute !important;
+  padding-top: 2px;
+  left: 6px !important;
+  top: 10% !important;
+  width: 18px !important;
+  height: 18px !important;
+  background: var(--sidebar-text-color) !important;
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgOS41MDJWOC43NWEyLjI1IDIuMjUgMCAwIDAtMi4yNS0yLjI1aC01LjcyNWwtMi4zOC0xLjk4QTIuMjUgMi4yNSAwIDAgMCA4LjIwNCA0SDQuMjVBMi4yNSAyLjI1IDAgMCAwIDIgNi4yNWwtLjAwNCAxMS41QTIuMjUgMi4yNSAwIDAgMCA0LjI0NiAyMEgxOC40N2ExLjc1IDEuNzUgMCAwIDAgMS42OTgtMS4zMjVsMS43NS02Ljk5OGExLjc1IDEuNzUgMCAwIDAtMS42OTgtMi4xNzVIMjBaTTQuMjUgNS41aDMuOTU2YS43NS43NSAwIDAgMSAuNDguMTczbDIuNTg4IDIuMTU0YS43NS43NSAwIDAgMCAuNDguMTczaDUuOTk2YS43NS43NSAwIDAgMSAuNzUuNzV2Ljc1Mkg2LjQyNGEyLjI1IDIuMjUgMCAwIDAtMi4xODMgMS43MDRsLS43NDQgMi45NzhMMy41IDYuMjVhLjc1Ljc1IDAgMCAxIC43NS0uNzVabTEuNDQ3IDYuMDdhLjc1Ljc1IDAgMCAxIC43MjctLjU2OEgyMC4yMmEuMjUuMjUgMCAwIDEgLjI0Mi4zMWwtMS43NSA2Ljk5OWEuMjUuMjUgMCAwIDEtLjI0Mi4xODlINC4yODVhLjI1LjI1IDAgMCAxLS4yNDMtLjMxbDEuNjU1LTYuNjJaIiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-color: color-mix(in srgb, var(--tab-group-color-invert) 100%, transparent) !important;
+}
+
+/* Arrow icon (after) */
+tab-group:not([split-view-group]) .tab-group-label-container > label::after {
+  content: "" !important;
+  position: relative !important;
+  top: 50% !important;
+  transform: translateY(-50%) rotate(180deg) !important;
+  width: 12px !important;
+  height: 12px !important;
+  background: var(--sidebar-text-color) !important;
+  mask-image: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGQ9Ik00MTMuMSAzMjcuM2wtMS44LTIuMS0xMzYtMTU2LjVjLTQuNi01LjMtMTEuNS04LjYtMTkuMi04LjYtNy43IDAtMTQuNiAzLjQtMTkuMiA4LjZMMTAxIDMyNC45bC0yLjMgMi42Qzk3IDMzMCA5NiAzMzMgOTYgMzM2LjJjMCA4LjcgNy40IDE1LjggMTYuNiAxNS44aDI4Ni44YzkuMiAwIDE2LjYtNy4xIDE2LjYtMTUuOCAwLTMuMy0xLjEtNi40LTIuOS04Ljl6Ii8+PG1ldGFkYXRhPjxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6cmRmcz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wMS9yZGYtc2NoZW1hIyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj48cmRmOkRlc2NyaXB0aW9uIGFib3V0PSJodHRwczovL2ljb25zY291dC5jb20vbGVnYWwjbGljZW5zZXMiIGRjOnRpdGxlPSJhcnJvdyx1cCxiIiBkYzpkZXNjcmlwdGlvbj0iYXJyb3csdXAsYiIgZGM6cHVibGlzaGVyPSJJY29uc2NvdXQiIGRjOmRhdGU9IjIwMTctMDktMjQiIGRjOmZvcm1hdD0iaW1hZ2Uvc3ZnK3htbCIgZGM6bGFuZ3VhZ2U9ImVuIj48ZGM6Y3JlYXRvcj48cmRmOkJhZz48cmRmOmxpPkJlbmphbWluIEogU3BlcnJ5PC9yZGY6bGk+PC9yZGY6QmFnPjwvZGM6Y3JlYXRvcj48L3JkZjpEZXNjcmlwdGlvbj48L3JkZjpSREY+PC9tZXRhZGF0YT48L3N2Zz4=");
+  mask-size: contain;
+}
 
 /* ============================================
    TAB GROUP - COLLAPSED STATE
@@ -136,7 +125,7 @@ tab-group:not([split-view-group])[collapsed] {
 
   /* Hide tabs in collapsed state */
   & tab {
-    display: flex !important;
+    display: block !important;
     z-index: -1 !important;
     opacity: 0 !important;
     padding: 0 !important;
@@ -180,7 +169,6 @@ tab-group[collapsed] .tab-group-container {
 /* ============================================
    TAB GROUP - EXPANDED STATE
    ============================================ */
-
 tab-group:not([split-view-group]):not([collapsed]) {
   max-height: 500px !important;
   overflow: scroll !important;
