@@ -11,38 +11,8 @@ tab-group:not([split-view-group]) {
   padding: 5px 0px !important;
   max-height: 1000px !important;
   transition: max-height 0.2s ease !important;
+  transition: background-color 0.2s ease, border-radius 0.2s ease-in-out;
   overflow: hidden !important;
-
-  /* Sidebar expanded view */
-  & > vbox {
-    padding-top: 0px !important;
-  }
-  & tab {
-    transition: opacity 0.5s ease !important;
-  }
-  &:after {
-    display: none;
-    padding: 0px !important;
-    background-color: color-mix(in srgb, var(--tab-group-color) 50%, transparent) !important;
-  }
-  tab::before {
-    background: none !important;
-  }
-  & tab:not([zen-glance-tab]) {
-    overflow: visible !important;
-
-    &:active {
-      transition: scale 0.03s !important;
-      scale: 1;
-    }
-    .tab-group-line {
-      --tab-group-color-invert: transparent !important;
-      --tab-group-color: transparent !important;
-    }
-  }
-  tab-group:has(tab[hidden]) {
-    display: none !important;
-  }
 }
 
 /* ============================================
@@ -116,7 +86,7 @@ tab-group:not([split-view-group]) .tab-group-label-container > label::after {
 tab-group:not([split-view-group])[collapsed] {
   overflow: hidden !important;
   max-height: 3rem !important;
-  transition: transform 0.2s ease-out !important;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1.07);
 
   /* Collapsed hover state */
   &:hover {
