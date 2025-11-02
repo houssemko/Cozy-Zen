@@ -1,13 +1,17 @@
 /* Tab Group */
+@media (-moz-platform: linux) {
+  :root {
+    --sidebar-text-color: rgba(255, 255, 255, 1) !important;
+  }
+}
+
 tab-group:not([split-view-group]) {
   display: grid !important;
   background: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
-  border: 1px solid color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
+  border: 2px solid color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
   border-radius: var(--border-radius-medium);
   margin: 2px 2px 2px 2px !important;
   margin-inline: 2px !important;
-  border-top: 1px solid #f2f2f21f !important;
-  border-bottom: 1px solid #4442441f !important;
   padding: 5px 0px !important;
   max-height: 1000px !important;
   transition: max-height 0.2s ease !important;
@@ -17,8 +21,6 @@ tab-group:not([split-view-group]) {
       }
         &[collapsed]:hover {
         background-color: color-mix(in srgb, var(--tab-group-color-invert) 40%, transparent) !important;
-        border: 1px solid color-mix(in srgb, var(--tab-group-color-invert) 10%, transparent) !important;
-        border-radius: var(--border-radius-medium);
       }
       &:after {
         display: none;
