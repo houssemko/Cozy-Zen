@@ -58,47 +58,23 @@
   50% { box-shadow: 0 0 0 4px rgba(68, 138, 255, 0.1); }
 }
 
-/* Apply transition to close/reset buttons with elastic bounce */
-:is(.tab-close-button) {
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-  position: relative !important; 
-}
+/* show tab close/reset button only on hover with cool animation */
+:is(.tab-close-button, .tab-reset-button)
+{transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;}
 
-/* Ensure buttons are visible by default on non-pinned, non-zen-essential tabs */
-.tabbrowser-tab:not([pinned]):not([zen-essential]) 
-:is(.tab-close-button) {
-  display: flex !important;
-}
+.tabbrowser-tab:not([pinned],[zen-essential])
+.tab-close-button,
+.tabbrowser-tab[pinned]:not([zen-essential])
+.tab-reset-button
+{display: flex !important;}
 
-/* Hide buttons on non-hover - slide off with scale and rotation */
-.tabbrowser-tab:not([pinned]):not([zen-essential]):not(:hover) 
-:is(.tab-close-button) {
-  transform: translateX(100%) scale(0.3) rotate(-15deg) !important;
+.tabbrowser-tab:not(:hover) 
+:is(.tab-close-button, .tab-reset-button){
+  margin-inline-end: -25px !important;
   opacity: 0 !important;
   pointer-events: none !important;
 }
 
-/* Show buttons on hover with bounce effect */
-.tabbrowser-tab:not([pinned]):not([zen-essential]):hover 
-:is(.tab-close-button) {
-  transform: translateX(0) scale(1) rotate(0deg) !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-
-/* Add subtle pulse and glow on button hover */
-:is(.tab-close-button):hover {
-  transform: scale(1.15) !important;
-  filter: brightness(1.5) drop-shadow(0 0 8px rgba(250, 70, 70, 0.4)) !important;
-  transition: all 0.15s ease !important; /* Faster response on hover */
-}
-
-/* Active state with satisfying press effect */
-:is(.tab-close-button):active {
-  transform: scale(0.9) !important;
-  filter: brightness(1.2) drop-shadow(0 0 4px rgba(250, 70, 70, 0.6)) !important;
-  transition: all 0.1s ease !important;
-}
 /* NAVIGATION BUTTON ANIMATIONS */
 #back-button {
   transition: transform 0.22s cubic-bezier(0.68,-0.6, 0.32,1.6),
