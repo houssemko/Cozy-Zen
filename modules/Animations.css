@@ -58,14 +58,10 @@
   50% { box-shadow: 0 0 0 4px rgba(68, 138, 255, 0.1); }
 }
 
-
-/*------------------------------------
- * Show tab close/reset button only on hover with cool animation
- ------------------------------------*/
-
 /* Apply transition to close/reset buttons with elastic bounce */
 :is(.tab-close-button) {
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  position: relative !important; 
 }
 
 /* Ensure buttons are visible by default on non-pinned, non-zen-essential tabs */
@@ -74,11 +70,10 @@
   display: flex !important;
 }
 
-/* Hide buttons on non-hover with scale and rotation */
+/* Hide buttons on non-hover - slide off with scale and rotation */
 .tabbrowser-tab:not([pinned]):not([zen-essential]):not(:hover) 
 :is(.tab-close-button) {
-  transform: scale(0.8) rotate(-5deg) !important;
-  margin-inline-end: -25px !important;
+  transform: translateX(100%) scale(0.3) rotate(-15deg) !important;
   opacity: 0 !important;
   pointer-events: none !important;
 }
@@ -86,7 +81,7 @@
 /* Show buttons on hover with bounce effect */
 .tabbrowser-tab:not([pinned]):not([zen-essential]):hover 
 :is(.tab-close-button) {
-  transform: scale(1) rotate(0deg) !important;
+  transform: translateX(0) scale(1) rotate(0deg) !important;
   opacity: 1 !important;
   pointer-events: auto !important;
 }
@@ -94,17 +89,17 @@
 /* Add subtle pulse and glow on button hover */
 :is(.tab-close-button):hover {
   transform: scale(1.15) !important;
-  filter: brightness(1.5) drop-shadow(0 0 8px rgba(250, 70, 70, 0.4));
+  filter: brightness(1.5) drop-shadow(0 0 8px rgba(250, 70, 70, 0.4)) !important;
+  transition: all 0.15s ease !important; /* Faster response on hover */
 }
 
 /* Active state with satisfying press effect */
 :is(.tab-close-button):active {
   transform: scale(0.9) !important;
+  filter: brightness(1.2) drop-shadow(0 0 4px rgba(250, 70, 70, 0.6)) !important;
   transition: all 0.1s ease !important;
 }
-
 /* NAVIGATION BUTTON ANIMATIONS */
-
 #back-button {
   transition: transform 0.22s cubic-bezier(0.68,-0.6, 0.32,1.6),
               box-shadow 0.18s cubic-bezier(0.4,0,0.2,1),
@@ -318,144 +313,6 @@ menupopup *, menuitem *,
   50% { outline-color: #64b5f6; }
 }
 
-/* Floating elements with smooth animations */
-.zen-floating-urlbar,
-.zen-floating-status-bar {
-    /* Hardware acceleration */
-    transform: translateZ(0);
-    will-change: transform, opacity;
-    /* Smooth appearance */
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-                opacity 0.2s ease-out; 
-    /* Glass effect */
-    backdrop-filter: blur(20px) saturate(180%);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px; 
-    /* Optimize rendering */
-    contain: layout style paint;
-}
-
-@-moz-document url-prefix("chrome:") {
-  /* ------------------------ Glance Animation ----------------------- */
-  .browserSidebarContainer.zen-glance-background.deck-selected {
-    filter: blur(5px) brightness(50%);
-    transition: filter 0.1s ease-in-out;
-  }
-}
-  
-/* ----------------- Other animations ------------------ */
-/* ------------------ Custom Split View Animation ------------------- */
-
-@keyframes scaleAndBrighten {
-  0% {
-    transform: scale(0.95);
-    opacity: 0;
-    filter: brightness(0);
-  }
-  50% {
-    filter: brightness(0);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    filter: brightness(1);
-  }
-}
-
-#tabbrowser-tabpanels[zen-split-view="true"] {
-  transition: none !important;
-}
-
-#tabbrowser-tabpanels[zen-split-view="true"] .browserSidebarContainer {
-
-  animation: scaleAndBrighten 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
-}
-  /* website view animations [works for split tabs] */
-  #browser:not(:has(.zen-glance-background)) #tabbrowser-tabpanels {
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.35) !important;
-  }
-  
-  /* trackpad gestures*/
-  tabpanels .browserStack browser {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1) 0.1s !important;
-  }
-
-  /* Previous animation*/
-  .browserStack:has(#historySwipeAnimationPreviousArrow:not([style="translate: none;"])) browser{
-    scale: 0.95 !important;
-    transform: translateX(3%) !important;
-  }
-  
-  /* Next animation*/
-  .browserStack:has(#historySwipeAnimationNextArrow:not([style="translate: none;"])) browser{
-    scale: 0.95 !important;
-    transform: translateX(-3%) !important;
-  }
-  
-  /* smoothen trackpad gestures */
-  .browserStack browser[style*="transform: none"] {
-  }
-
-  /* ctrl tab visuals and animations */
-  #ctrlTab-panel {
-    --panel-background: rgba(0,0,0,0.9) !important;
-    transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.1) 0.2s !important;
-    border-radius: 13px;
-    scale: 0.7;
-  }
-  
-  #ctrlTab-panel:has(.ctrlTab-preview:not([hidden="true"])) {
-    scale: 0.7 !important;
-    border-radius: 13px;
-  }
-  
-  slot:nth-child(1) {
-    padding: 0 !important;
-  }
-  
-  .ctrlTab-preview-inner {
-    /* 	padding: 0 !important; */
-    margin: 0 !important;
-    transition: all 0.2s ease-in-out;
-  
-    .ctrlTab-canvas {
-      border-radius: 1em !important;
-      overflow: hidden;
-      img {
-        background-color: #000000 !important;
-      }
-    }
-  
-    .ctrlTab-favicon-container {
-      justify-content: center !important;
-      transition: all 0.5s ease-in-out;
-      image {
-        border-radius: 50% !important;
-        transition: all 0.5s ease-in-out !important;
-        /* 			scale: 1.25 !important; */
-      }
-    }
-  
-    .ctrlTab-label {
-      margin-top: 1.5em !important;
-    }
-  }
-  
-  .ctrlTab-preview:focus > .ctrlTab-preview-inner {
-    outline: none !important;
-    /* border: none !important;   */
-    background-color: var(--sidebar-background-color) !important;
-    border-radius: 1.5em !important;
-    scale: 1.05 !important;
-  
-    .ctrlTab-favicon-container {
-      image {
-        padding: 2px !important;
-      }
-    }
-  }
-
 /* Sound playing indicator effects for all media states */
 .tabbrowser-tab[soundplaying] .tab-icon-overlay,
 .tabbrowser-tab[muted] .tab-icon-overlay,
@@ -478,6 +335,9 @@ menupopup *, menuitem *,
   scale: 0.85 !important;
   opacity: 0.3 !important;
 }
+
+
+
 /* === TOOLBAR BUTTON HOVER ANIMATIONS === */
 /* Settings button animation */
 toolbar toolbarbutton[label="Settings"]:not([open="true"]):not([cui-areatype="menu-panel"]):not(#nav-bar *):hover,
