@@ -11,7 +11,6 @@ tab-group:not([split-view-group]) {
   border: 2px solid color-mix(in srgb, var(--tab-group-color-invert) 29%, transparent) !important;
   border-radius: var(--border-radius-medium);
   margin: 2px 2px 2px 2px !important;
-  margin-inline: 2px !important;
   padding: 5px 0px !important;
   max-height: 1000px !important;
   transition: max-height 0.2s ease !important;
@@ -21,6 +20,9 @@ tab-group:not([split-view-group]) {
       }
         &[collapsed]:hover {
         background-color: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
+        transform: translateY(-2px) scale(1.05) ;
+        box-shadow: 0 4px 12px -4px rgba(30,40,80,0.09);
+        z-index: 2;
       }
       &:after {
         display: none;
@@ -196,6 +198,10 @@ tab-group:not([split-view-group]) {
     max-height: 500px !important;
     overflow: scroll !important;
     scrollbar-width: none !important;
+
+    & tab:not([zen-glance-tab]) {
+      padding-right: 1px !important;
+    }
   }
 
   tab-group:has(tab[hidden]) {
