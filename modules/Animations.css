@@ -1,3 +1,17 @@
+/* Hardware acceleration & will-change for best performance */
+#tabbrowser-tabs,
+.tabbrowser-tab,
+#nav-bar toolbarbutton,
+#PersonalToolbar toolbarbutton,
+#urlbar,
+#searchbar,
+menupopup,
+panel,
+tooltip {
+  transform: translateZ(0);
+  will-change: auto;
+}
+
 /* === TAB ANIMATIONS === */
 /* Tab hover and active animation with enhanced shadows */
 .tabbrowser-tab {
@@ -16,7 +30,11 @@
 
 /* Prevent shifting inside tab groups - keep visual effect without transform/scale */
 tab-group:not([collapsed]) .tabbrowser-tab:hover {
-  transform: none !important;
+  transform: box-shadow 0.2s cubic-bezier(0.4,0,0.2,1), 
+              transform 0.24s cubic-bezier(0.22,1.5,0.36,1),
+              opacity 0.15s cubic-bezier(0.4,0,0.2,1),
+              filter 0.2s ease !important;
+  box-shadow: none !important;
   filter: brightness(1.05);
 }
 
