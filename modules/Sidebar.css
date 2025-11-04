@@ -12,7 +12,7 @@ body:has([zen-compact-mode="true"]) #titlebar::before {
 }
 
 body:has([zen-compact-mode="true"]) .zen-toolbar-background {
-  opacity: 0.3;
+  opacity: var(--zen-grainy-background-opacity, 0.1);
 }
 
 :root[zen-compact-mode="true"]:is([zen-single-toolbar="true"]) {
@@ -27,9 +27,10 @@ body:has([zen-compact-mode="true"]) .zen-toolbar-background {
     #navigator-toolbox:not([animate="true"]) #titlebar::after {
       content: "";
       position: absolute;
-      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.7)) !important;
+      background: light-dark(rgba(30, 30, 30, 0.9), rgba(0, 0, 0, 0.7)) !important;
       box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
       backdrop-filter: blur(10px) !important;
+      border-radius: 15px !important;
       pointer-events: none;
     }
     
@@ -39,11 +40,13 @@ body:has([zen-compact-mode="true"]) .zen-toolbar-background {
     }
     
     #navigator-toolbox:not([animate="true"]) #titlebar::after {
-      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.8)) !important;
+      background: light-dark(rgba(30, 30, 30, 0.95), rgba(0, 0, 0, 0.8)) !important;
+      border-radius: 15px !important;
       z-index: 0;
     }
   }
 }
+  
   /* hide scrollbar */
   scrollbox {
     scrollbar-width: none !important;
@@ -59,6 +62,19 @@ body:has([zen-compact-mode="true"]) .zen-toolbar-background {
   display: none !important;
 }
 
+/* Hide the overflow background gradient */
+  .workspace-arrowscrollbox[overflowing] {
+    --zen-scrollbar-overflow-background: transparent !important;
+    background: transparent !important;
+  }
+
+  /* Also remove any visual overlay pseudo-elements */
+  .workspace-arrowscrollbox[overflowing]::before,
+  .workspace-arrowscrollbox[overflowing]::after {
+    content: none !important;
+    display: none !important;
+  }
+  
 /* PanelUI */
 #appMenu-new-tab-button2,
 #appMenu-new-window-button2,
@@ -205,16 +221,48 @@ panel[type="arrow"][position] > vbox > scrollbox {
 }
 
 
-/* === BETTER CUSTOMIZE TOOLBAR === */
+/* --- Better customize toolbar by Tanay-Kar --- */
 #customization-container {
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   bottom: 10px;
   right: 10px;
   height: 80%;
   width: 70%;
   border-radius: 12px;
+
   padding: 10px;
-  background: light-dark(rgba(255,255,255,0.32),rgba(0,0,0,0.3)) !important;
+  background: light-dark(rgba(255, 255, 255, 0.32), rgba(0, 0, 0, 0.3)) !important;
+}
+
+@media (-moz-bool-pref: "zen.tabs.vertical.right-side") {
+  #customization-container {
+    left: 10px;
+  }
+
+  #customization-container #customization-content-container {
+    flex-direction: row-reverse;
+  }
+}
+
+#customization-container #customization-panel-container {
+  padding: 10px !important;
+}
+
+
+#customization-container #customization-panelWrapper {
+  --panel-arrow-offset: 0px;
+}
+
+#customization-container .panel-arrowbox {
+  display: none !important;
+}
+
+#customization-container .panel-arrowcontent {
+  height: 100% !important;
+  background: light-dark(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4)) !important;
+  border: none !important;
+  margin: 0px !important;
+  border-radius: 8px;
 }
 
