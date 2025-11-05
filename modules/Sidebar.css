@@ -1,5 +1,46 @@
+/* Panels Translucency*/
+#sidebar-box,
+#bookmarksPanel.sidebar-panel,
+#sidebar-header,
+#history-panel,
+:root,
+#header {
+  background-color: color-mix(in srgb, var(--zen-primary-color) 20%, #000000a0) !important; 
+  backdrop-filter: blur(10px) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /* ------------------------- GENERAL SIDEBAR -------------------------- */
 /* --- Compact Sidebar --- */
+   :root[zen-compact-mode="true"] #browser::after {
+      content: "" !important;
+      position: absolute !important;
+      z-index: -1000;
+      border-radius: 15px !important;
+      filter: blur(0.1px) !important;
+      background-color: light-dark(rgba(30, 30, 30, 0.9), rgba(0, 0, 0, 0.7)) !important;
+      opacity: 0 !important;
+      transition: opacity 0.2s ease;
+    }
+
+    /* Right-side pseudo background alignment */
+    :root[zen-right-side="true"][zen-compact-mode="true"] #browser::after {
+      left: auto !important;
+      right: calc(var(--zen-element-separation) / 0.65) !important;
+    }
+
+    /* Sidebar on right */
+    :root[zen-right-side="true"][zen-compact-mode="true"] #titlebar {
+      left: auto !important;
+      right: calc(var(--zen-element-separation) / 0.9) !important;
+    }
+
+    /* Show pseudo background when active/hovered */
+    :root[zen-compact-mode="true"] #browser:has(>#navigator-toolbox:is([zen-has-hover="true"],[zen-user-show=""],[has-popup-menu=""]))::after{
+      opacity: 1 !important;
+    }
+
 body:has([zen-compact-mode="true"]) #titlebar::before {
   content: '';
   position: absolute;
