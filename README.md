@@ -31,7 +31,7 @@ If you haven’t already, enable `userChrome.css` support in Zen:
        ├── userChrome.css          ← main entry point
        ├──userContent.css
        ├──content/
-       ├    └── Better-pdf.css  
+       ├  └── Better-pdf.css  
        └── modules/                ← organized mod directory
            └── icons/              ← Context-Menu-Icons (CMI)
                ├── icons.css
