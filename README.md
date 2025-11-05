@@ -29,6 +29,9 @@ If you haven’t already, enable `userChrome.css` support in Zen:
    [Your Zen Profile]/
    └── chrome/
        ├── userChrome.css          ← main entry point
+       ├──userContent.css
+       ├──content/
+       ├    └── Better-pdf.css  
        └── modules/                ← organized mod directory
            └── icons/              ← Context-Menu-Icons (CMI)
                ├── icons.css
