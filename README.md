@@ -76,4 +76,4 @@ Since CMI updates frequently:
 This theme is for personal use. Respect the licenses of all included mods.  
 CMI is licensed under its own terms—see its [repository](https://github.com/Starry-AXQG/Context-Menu-Icons) for details.
 
---
+---
