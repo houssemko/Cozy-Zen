@@ -29,9 +29,11 @@ tooltip {
 }
 
 /* Prevent shifting inside tab groups */
+tab-group:not([collapsed]) .tabbrowser-tab {
+width: 98%;
+}
 tab-group:not([collapsed]) .tabbrowser-tab:hover {
-  transform:  translateY(-2px) scale(1.05);
-  box-shadow: 0 4px 12px -4px rgba(30,40,80,0.09);
+  transform: translateY(-1px) scale(1.04);
   z-index: 1;
   box-shadow: none !important;
   filter: brightness(1.05);
