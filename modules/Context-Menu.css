@@ -13,9 +13,7 @@ menupopup > :is(menuitem, menu){
 :is(.bookmark-item, #PlacesChevron, #bookmarks-menu-button, #sidebarMenu-popup) 
 :is(menuitem, menu) {margin-inline: 0px !important;}
 
-/* Apply Zen workspace gradient to all context menu and panels
- 
-Suitable if the OS, desktop environment or window manager supported blur background */
+/* Apply Zen workspace gradient to all context menu and panels*/
 menupopup, panel {
   background-color: transparent !important;
   transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out !important;
@@ -29,7 +27,6 @@ menuitem:hover:active,
 menu:hover:active,
 menuitem[_moz-menuactive="true"],
 menu[_moz-menuactive="true"] {
-  color: inherit !important;
   background-color: color-mix(in srgb, AccentColor 30%, rgba(255, 255, 255, 0.08)) !important;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, AccentColor 40%, rgba(255, 255, 255, 0.3)) !important;
 }
@@ -37,10 +34,10 @@ menu[_moz-menuactive="true"] {
 menuitem:not(:hover),
 menu:not(:hover) {
   background-color: transparent !important;
+  border-radius: 15px !important;
   box-shadow: inset 0 0 0 1px transparent !important;
 }
 
-/* --- Context Menu --- */}
 /* Debloat tab name */
 #context_zen-add-essential::before {
   content: "Add to Essentials" !important;
@@ -160,69 +157,3 @@ menuseparator {
   &::before {
     opacity: 0.3;
   }
-
-  /* Hide the first separator*/ 
-  &:first-of-type {
-    display: none !important;
-  } 
-  &:nth-of-type(4) {
-    display: none !important;
-  }
-
-  &:nth-of-type(7) {
-    display: none !important;
-  }
-}
-
-/* FIX header icons for the app menu sub menus (eg. fx account, history...) */
-.panel-header>h1 {
-  text-align: left;
-  margin-left: 8px !important;
-}
-
-.wordmark::after {
-  content: "Plus" !important;
-}
-
-@media not (-moz-platform: linux) {
-  .unified-extensions-context-menu-pin-to-toolbar {
-    --menu-image: url("chrome://browser/skin/zen-icons/pin.svg");
-  }
-}
-
-.unified-extensions-context-menu-move-widget-down {
-  --menu-image: url("chrome://browser/skin/zen-icons/arrow-down.svg");
-}
-
-.unified-extensions-context-menu-move-widget-up {
-  --menu-image: url("chrome://browser/skin/zen-icons/arrow-up.svg");
-}
-
-:not(:not(menubar) > menu, #ContentSelectDropdown)>menupopup>menuitem:not(.menuitem-iconic,
-  [type="checkbox"],
-  [type="radio"],
-  .in-menulist,
-  .in-menulist menuitem,
-  .unified-nav-current),
-:not(:not(menubar) > menu, #ContentSelectDropdown)>menupopup>menu:not(.menu-iconic,
-  [type="checkbox"],
-  [type="radio"],
-  .in-menulist,
-  .in-menulist menu,
-  .unified-nav-current),
-:not(:not(menubar) > menu, #ContentSelectDropdown)>menupopup>menucaption {
-  padding-inline-start: calc(var(--zen-contextmenu-menuitem-padding-inline) + var(--zen-contextmenu-menuicon-margin-inline) / 2) !important;
-  /* Default: approx 30px */
-}
-
-/* Linux-specific adjustment for menucaption padding based on user feedback */
-@media (-moz-platform: linux) {
-  :not(:not(menubar) > menu, #ContentSelectDropdown)>menupopup>menucaption {
-    padding-inline-start: calc(var(--zen-contextmenu-menuitem-padding-inline) + var(--zen-contextmenu-menuicon-margin-inline) / 8) !important;
-  }
-}
-
-menupopup>menuitem[type="checkbox"] .menu-iconic-left {
-  --menu-image: none !important;
-  margin-inline-start: 4px;
-}
