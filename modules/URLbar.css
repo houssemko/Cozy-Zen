@@ -6,10 +6,7 @@
 }
 
 #urlbar .urlbar-background {
-  background-color: transparent;
-  border-radius: 15px;
-  transition: backdrop-filter 0.5s ease !important;
-  box-shadow: inset 0 0 0 1px  light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.2)) !important;
+  box-shadow: inset 0 0 0 1px  light-dark(rgba(20, 20, 20, 0.2), rgba(50, 50, 50, 0.9)) !important;
 }
 
 /* Apply transition to the site data icon button */
@@ -70,8 +67,11 @@
 }
 
 /* Center text in URL bar */
-#urlbar .urlbar-input-container {
-    text-align: center !important;
+#urlbar .urlbar-input,
+.urlbar-input-container {
+  text-align: center !important;
+  position: relative;
+}
 
 /* ------------------ Results Rows Styling ------------------ */
 /* Remove favicon background when row is selected */
@@ -131,8 +131,8 @@
     }
 
     .urlbar-background {
-      backdrop-filter: blur(10px) !important;
-      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.75)) !important;
+      backdrop-filter: blur(20px) !important;
+      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.7)) !important;
       box-shadow: 0 0px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
     }
 
@@ -158,7 +158,6 @@
       font-weight: 500 !important;
       margin-top: auto !important;
       margin-bottom: auto !important;
-      text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
     }
 
     .urlbarView-title-separator {
@@ -250,17 +249,23 @@
   }
 }
 
- /* URLbar hover animation */
-    &:not([breakout-extend="true"]) {
-      .urlbar-background {
-        transition: background 0.2s ease;
-      }
+/* Clean hover effect */
+#urlbar:hover:not([focused="true"]) {
+  background: var(--urlbar-hover-background) ;
+}
 
-      &:hover .urlbar-background {
-        background: color-mix(in srgb, light-dark(var(--zen-primary-color), var(--zen-colors-primary-foreground)) 50%, transparent) !important;
-      }
-    }
-  }
+#urlbar-results,
+#PopupAutoCompleteRichResult,
+.autocomplete-richlistbox {
+  overflow-y: auto !important;
+  padding-right: 18px !important;
+  margin-right: -18px !important;
+}
+
+.urlbarView-body-outer {
+  overflow-x: hidden !important;
+}
+}
 
   .urlbarView-row {
     transition: transform 0.2s ease;
@@ -275,7 +280,6 @@
       font-weight: 500 !important;
       margin-top: auto !important;
       margin-bottom: auto !important;
-      text-shadow: rgba(255, 255, 255, 0.1) -1px -1px 1px, rgba(0, 0, 0, 0.5) 1px 1px 1px;
     }
 
     .urlbarView-title-separator {
