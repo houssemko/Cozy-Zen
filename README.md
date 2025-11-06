@@ -47,6 +47,7 @@ svg.context-properties.content.enabled = true
 ```
 > ⚠️ CMI will **not run** without this.
 
+### 5. Place `user.js` inside your [Zen profile folder]
 ### 4. Restart Zen Browser
 After copying files and setting preferences, fully restart Zen to apply changes.
 
