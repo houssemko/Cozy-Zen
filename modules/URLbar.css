@@ -1,6 +1,7 @@
-/* URLbar styling */ 
+/* URLbar styling */
 #urlbar[open][zen-floating-urlbar='true'] {
-  top: 20% !important;
+  align-self: center !important;
+  position: relative; 
   min-width: auto !important; 
 }
 
@@ -9,6 +10,7 @@
   background-color: color-mix(in srgb, var(--zen-primary-color) 1%, #000000a0) !important;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Hardware acceleration for backdrop-filter */
   transform: translateZ(0);
   will-change: backdrop-filter, background-color;
 } 
@@ -21,6 +23,9 @@
 #zen-site-data-icon-button {
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   overflow: visible !important;
+  /* Hardware acceleration for animated button */
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
 /* Apply negative margin only when urlbar is not floating and not open */
@@ -87,7 +92,6 @@
 .urlbarView-row-inner[selected] .urlbarView-favicon {
   background: none !important;
 }
-}
 
 /* Invert search icon for dark mode */
 @media (prefers-color-scheme: dark) {
@@ -150,6 +154,9 @@
   
   .urlbarView-row {
     transition: transform 0.2s ease;
+    /* Hardware acceleration for animated rows */
+    transform: translateZ(0);
+    will-change: transform, background;
 
     .urlbarView-row-inner {
       border-radius: 8px !important;
@@ -267,6 +274,9 @@
 
   .urlbarView-row {
     transition: transform 0.2s ease;
+    /* Hardware acceleration for animated rows */
+    transform: translateZ(0);
+    will-change: transform, background;
 
     .urlbarView-row-inner {
       border-radius: 8px !important;
@@ -375,6 +385,9 @@
   .searchbar-engine-one-off-item {
     --urlbar-box-focus-bgcolor: color-mix(in srgb, currentColor 16%, transparent);
     transition: background-color 0.2s ease !important;
+    /* Hardware acceleration for animated icons/buttons */
+    transform: translateZ(0);
+    will-change: background-color;
   }
 
   /* Results URL display */
