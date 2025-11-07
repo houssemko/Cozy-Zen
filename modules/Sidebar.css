@@ -1,3 +1,18 @@
+/* Hardware acceleration & will-change for best performance */
+#sidebar-box,
+#bookmarksPanel.sidebar-panel,
+#sidebar-header,
+#history-panel,
+:root,
+#header,
+/* Pseudo-elements that animate or use backdrop-filter */
+#navigator-toolbox:not([animate="true"]) #titlebar::before,
+#navigator-toolbox:not([animate="true"]) #titlebar::after,
+#browser::after {
+  transform: translateZ(0);
+  will-change: auto;
+}
+
 /* Panels Translucency*/
 #sidebar-box,
 #bookmarksPanel.sidebar-panel,
