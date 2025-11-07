@@ -14,35 +14,45 @@ findbar {
   transition: background 0.2s ease, opacity 0.2s ease, visibility 0.2s ease,
   top 0.2s ease, box-shadow 0.2s ease !important;
   backdrop-filter: blur(20px);
-    
-    & .findbar-container {
-      flex-wrap: wrap;
-      overflow-x: auto !important;
-      height: auto !important;
-      row-gap: 10px;
+  /* Hardware acceleration for findbar */
+  transform: translateZ(0);
+  will-change: auto;
   
-      & > :first-child {
-        width: 100% !important;
-      }
-  
-      & .findbar-textbox {
-        flex-grow: 1;
-      }
+  & .findbar-container {
+    flex-wrap: wrap;
+    overflow-x: auto !important;
+    height: auto !important;
+    row-gap: 10px;
+    /* Hardware acceleration for container */
+    transform: translateZ(0);
+    will-change: auto;
+
+    & > :first-child {
+      width: 100% !important;
     }
-  
-    &[hidden="true"] {
-      top: -150px;
+
+    & .findbar-textbox {
+      flex-grow: 1;
     }
-  
-    @starting-style {
-      top: -150px;
+  }
+
+  &[hidden="true"] {
+    top: -150px;
+  }
+
+  @starting-style {
+    top: -150px;
+  }
 }
 
 .findbar-highlight, .findbar-case-sensitive, .findbar-match-diacritics, .findbar-entire-word { 
   display: none !important;
 }
 
-.findbar-container>.findbar-find-status{display: none !important;}
+.findbar-container>.findbar-find-status {
+  display: none !important;
+}
+
 .findbar-label.found-matches { 
   margin-inline-start: -2em !important;
   position: fixed !important;
@@ -51,7 +61,10 @@ findbar {
 
 .findbar-closebutton, .findbar-find-previous, .findbar-find-next {
   scale: 1 !important;
+  /* Hardware acceleration for buttons */
+  transform: translateZ(0);
+  will-change: auto;
   &:hover {
-   transform: scale(1.08) !important;
- }
+    transform: scale(1.08) !important;
+  }
 }
