@@ -2,7 +2,9 @@
 #urlbar[open][zen-floating-urlbar='true'] {
   top: 210px !important; /* Adjust: 10px = very top, 40px = lower */
   min-width: auto !important;    /* Remove forced min-width if causing issues */
-  border-radius: 25px !important;
+  backdrop-filter: blur(5px) !important;
+  background: color-mix(in srgb, var(--zen-primary-color) 5%, #000000a0) !important; 
+  box-shadow: 0 0px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
 }
 
 #urlbar .urlbar-background {
@@ -129,12 +131,6 @@
       @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
         margin-left: 4px !important;
       }
-    }
-
-    .urlbar-background [zen-floating-urlbar='true'] {
-      backdrop-filter: blur(20px) !important;
-      background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.7)) !important;
-      box-shadow: 0 0px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
     }
 
   &:is([pageproxystate="invalid"]):is([usertyping]) {
