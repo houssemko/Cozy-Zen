@@ -51,7 +51,7 @@
 }
 
 /* Show pseudo background when active/hovered */
-:root[zen-compact-mode="true"] #browser:has(>#navigator-toolbox:is([zen-has-hover="true"],[zen-user-show=""],[has-popup-menu=""]))::after{
+:root[zen-compact-mode="true"]:not([zen-floating-urlbar='true']) #browser:has(>#navigator-toolbox:is([zen-has-hover="true"],[zen-user-show=""],[has-popup-menu=""]))::after{
   opacity: 1 !important;
 }
 
