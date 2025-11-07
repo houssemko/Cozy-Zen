@@ -7,7 +7,7 @@
 
 #urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
   backdrop-filter: blur(20px) !important;
-  background-color: color-mix(in srgb, var(--zen-primary-color) 1%, #000000a0) !important;
+  background-color: light-dark(rgba(255, 255, 255, 0.2), rgba(10, 10, 10, 0.85)) !important;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   /* Hardware acceleration for backdrop-filter */
