@@ -16,7 +16,6 @@
 } 
 
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
-  backdrop-filter : blur(5px);
   background-color: light-dark(rgba(255, 255, 255, 0.3), rgba(30, 30, 30, 0.85)) !important;
   box-shadow: inset 0 0 0 1px  light-dark(rgba(255, 255, 255, 0.3), rgba(75, 75, 75, 0.6)) !important;
 }
