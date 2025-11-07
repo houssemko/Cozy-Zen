@@ -20,6 +20,9 @@
   padding-bottom: 5px !important;
   height: calc(var(--toolbar-height)) !important;
   z-index: -10000 !important;
+  /* Hardware acceleration for static pseudo-bg */
+  transform: translateZ(0);
+  will-change: auto;
 }
 
 .sidebarOpen::before {
@@ -32,8 +35,11 @@
   bottom: 5px !important;
   border-radius: 10px !important;
   width: var(--sidebar-width) !important;
-
+  /* Hardware acceleration for static pseudo-bg */
+  transform: translateZ(0);
+  will-change: auto;
 }
+
 /* ---- Config ----- */
 
 /*
@@ -183,6 +189,9 @@ html[mozdisallowselectionprint] {
       background: var(--natsumi-glass-background) !important;
       backdrop-filter: blur(5px);
       border-radius: 10px;
+      /* Hardware acceleration for glass containers */
+      transform: translateZ(0);
+      will-change: auto;
     }
 
     #toolbarContainer {
@@ -200,6 +209,9 @@ html[mozdisallowselectionprint] {
       box-shadow: 0 0 var(--natsumi-glass-shadow-size) var(--natsumi-glass-shadow-color) !important;
       animation: pdfjs-appear 0.3s ease;
       overflow: hidden !important;
+      /* Hardware acceleration for animated toolbar */
+      transform: translateZ(0);
+      will-change: auto;
 
       @media (prefers-color-scheme: dark) {
         border-color: rgba(235, 235, 235, 0.3) !important;
@@ -224,6 +236,9 @@ html[mozdisallowselectionprint] {
         border: 1px solid rgba(20, 20, 20, 0.2) !important;
         box-shadow: 0 0 var(--natsumi-glass-shadow-size) var(--natsumi-glass-shadow-color) !important;
         animation: secondary-appear 0.3s ease;
+        /* Hardware acceleration for animated dropdown */
+        transform: translateZ(0);
+        will-change: auto;
 
         &.hidden {
           animation: none !important;
@@ -267,6 +282,9 @@ html[mozdisallowselectionprint] {
       border: 1px solid rgba(20, 20, 20, 0.2) !important;
       box-shadow: 0 0 var(--natsumi-glass-shadow-size) var(--natsumi-glass-shadow-color) !important;
       filter: blur(0px);
+      /* Hardware acceleration for sidebar */
+      transform: translateZ(0);
+      will-change: auto;
 
       @media (prefers-color-scheme: dark) {
         border-color: rgba(235, 235, 235, 0.3) !important;
@@ -375,6 +393,9 @@ html[mozdisallowselectionprint] {
     .toolbarButton {
       border-radius: 6px !important;
       transition: background-color 0.2s ease;
+      /* Hardware acceleration for animated buttons */
+      transform: translateZ(0);
+      will-change: auto;
 
       &:hover {
         background-color: var(--toolbarbutton-hover-background) !important;
@@ -399,6 +420,9 @@ html[mozdisallowselectionprint] {
       border-radius: 10px !important;
       border: 1px solid rgba(20, 20, 20, 0.2) !important;
       box-shadow: 0 0 var(--natsumi-glass-shadow-size) var(--natsumi-glass-shadow-color) !important;
+      /* Hardware acceleration for dialog */
+      transform: translateZ(0);
+      will-change: auto;
 
       @media (prefers-color-scheme: dark) {
         border-color: rgba(235, 235, 235, 0.3) !important;
@@ -636,4 +660,3 @@ html[mozdisallowselectionprint] {
     }
   }
 }
-
