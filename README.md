@@ -1,8 +1,6 @@
 # 🌿 Cozy-Zen
 
-My personal, hand-crafted CSS theme for the [Zen Browser](https://zen-browser.app/), designed for a clean, calm, and highly functional browsing experience.
-
-This theme includes visual refinements, layout tweaks, and integrates the powerful **Context-Menu-Icons (CMI)** mod to bring intuitive icons and smart folding to Zen’s right-click menus.
+My personal, hand-crafted CSS theme for the [Zen Browser](https://zen-browser.app/), Basically Zen Browser with quality of life improvements centered around the Compact Sidebar.
 
 ---
 
