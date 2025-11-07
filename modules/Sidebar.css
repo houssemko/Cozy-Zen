@@ -33,7 +33,7 @@
   z-index: -1000;
   border-radius: 15px !important;
   filter: blur(0.1px) !important;
-  background-color: color-mix(in srgb, var(--zen-primary-color) 5%, #000000a0) !important;
+  background-color: light-dark(rgba(255, 255, 255, 0.2), rgba(10, 10, 10, 0.75)) !important;
   opacity: 0 !important;
   transition: opacity 0.2s ease;
 }
@@ -51,7 +51,7 @@
 }
 
 /* Show pseudo background when active/hovered */
-:root[zen-compact-mode="true"]:not([zen-floating-urlbar='true']) #browser:has(>#navigator-toolbox:is([zen-has-hover="true"],[zen-user-show=""],[has-popup-menu=""]))::after{
+:root[zen-compact-mode="true"]:not([zen-floating-urlbar='true']) #browser:has(>#navigator-toolbox:is([zen-has-hover="true"],[zen-user-show=""],[has-popup-menu=""]))::after {
   opacity: 1 !important;
 }
 
@@ -82,7 +82,7 @@ body:has([zen-compact-mode="true"]) .zen-toolbar-background {
     #navigator-toolbox:not([animate="true"]) #titlebar::after {
       content: "";
       position: absolute;
-      background: color-mix(in srgb, var(--zen-primary-color) 5%, #000000a0) !important;
+      background: light-dark(rgba(255, 255, 255, 0.2), rgba(10, 10, 10, 0.9)) !important;
       box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
       backdrop-filter: blur(10px) !important;
       border-radius: 15px !important;
