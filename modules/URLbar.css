@@ -6,7 +6,7 @@
 }
 
 #urlbar .urlbar-background {
-  box-shadow: inset 0 0 0 1px  light-dark(rgba(20, 20, 20, 0.2), rgba(50, 50, 50, 0.9)) !important;
+  box-shadow: inset 0 0 0 1px  light-dark(rgba(255, 255, 255, 0.3), rgba(75, 75, 75, 0.6)) !important;
 }
 
 /* Apply transition to the site data icon button */
@@ -22,8 +22,9 @@
 
 /* URLbar container animation */
 #urlbar:not([zen-floating-urlbar='true']):not([open]):hover {
-  transform: translateY(-2px) scale(1.05);
-  background: transparent !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  transform: translateY(-2px) scale(1.05) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Remove hover effect when zen site data button is open */
@@ -130,7 +131,7 @@
       }
     }
 
-    .urlbar-background {
+    .urlbar-background [zen-floating-urlbar='true'] {
       backdrop-filter: blur(20px) !important;
       background: light-dark(rgba(30, 30, 30, 0.7), rgba(0, 0, 0, 0.7)) !important;
       box-shadow: 0 0px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
@@ -247,11 +248,6 @@
     --urlbar-box-focus-bgcolor: color-mix(in srgb, currentColor 16%, transparent);
     transition: background-color 0.2s ease !important;
   }
-}
-
-/* Clean hover effect */
-#urlbar:hover:not([focused="true"]) {
-  background: var(--urlbar-hover-background) ;
 }
 
 #urlbar-results,
