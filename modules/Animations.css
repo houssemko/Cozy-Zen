@@ -1,255 +1,689 @@
-/* Tab Group */
-@media (-moz-platform: linux) {
-  :root {
-    --sidebar-text-color: rgba(255, 255, 255, 1) !important;
+/* Smaller Toast*/
+#zen-toast-container {
+  top: calc(var(--zen-element-separation) * 6) !important;
+  
+  :root:not([zen-right-side='true']) & {
+    right: calc(var(--zen-element-separation) * 2) !important;
+  }
+
+  :root[zen-right-side='true'] & {
+    left: calc(var(--zen-element-separation) * 2) !important;
+  }
+
+  & .zen-toast {
+    padding: 3px !important;
+    border-radius: 15px !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    box-shadow: 0px !important ;
+    
+    & .description {
+        font-size: 10px !important;
+    }
+
+    &:has(#mod-zentoast[mod-zentoast-background_opacity="0.1"]) { background: rgba(255, 255, 255, 0.1) !important; }
+    &:has(#mod-zentoast[mod-zentoast-background_opacity="0.2"]) { background: rgba(255, 255, 255, 0.2) !important; }
+    &:has(#mod-zentoast[mod-zentoast-background_opacity="0.3"]) { background: rgba(255, 255, 255, 0.3) !important; }
+    &:has(#mod-zentoast[mod-zentoast-background_opacity="0.4"]) { background: rgba(255, 255, 255, 0.4) !important; }
+    &:has(#mod-zentoast[mod-zentoast-background_opacity="0.5"]) { background: rgba(255, 255, 255, 0.5) !important; }
+    &:has(#mod-zentoast[mod-zentoast-background_opacity="0.6"]) { background: rgba(255, 255, 255, 0.6) !important; }
+
+    &:has(#mod-zentoast[mod-zentoast-border_opacity="0.1"]) { border: 1px solid rgba(0, 0, 0, 0.1) !important; }
+    &:has(#mod-zentoast[mod-zentoast-border_opacity="0.2"]) { border: 1px solid rgba(0, 0, 0, 0.2) !important; }
+    &:has(#mod-zentoast[mod-zentoast-border_opacity="0.3"]) { border: 1px solid rgba(0, 0, 0, 0.3) !important; }
+    &:has(#mod-zentoast[mod-zentoast-border_opacity="0.4"]) { border: 1px solid rgba(0, 0, 0, 0.4) !important; }
+    &:has(#mod-zentoast[mod-zentoast-border_opacity="0.5"]) { border: 1px solid rgba(0, 0, 0, 0.5) !important; }
+    &:has(#mod-zentoast[mod-zentoast-border_opacity="0.6"]) { border: 1px solid rgba(0, 0, 0, 0.6) !important; }
+
+    &:has(#mod-zentoast[mod-zentoast-text_opacity="0.1"]) { color: rgba(0, 0, 0, 0.1) !important; }
+    &:has(#mod-zentoast[mod-zentoast-text_opacity="0.2"]) { color: rgba(0, 0, 0, 0.2) !important; }
+    &:has(#mod-zentoast[mod-zentoast-text_opacity="0.3"]) { color: rgba(0, 0, 0, 0.3) !important; }
+
+    &:has(#mod-zentoast[mod-zentoast-text_opacity="0.4"]) { color: rgba(0, 0, 0, 0.4) !important; }
+    &:has(#mod-zentoast[mod-zentoast-text_opacity="0.5"]) { color: rgba(0, 0, 0, 0.5) !important; }
+    &:has(#mod-zentoast[mod-zentoast-text_opacity="0.6"]) { color: rgba(0, 0, 0, 0.6) !important; }
+
+    &:hover {
+      background: var(--zen-primary-color) !important;
+      color: var(--button-primary-color) !important;
+      border: 1px solid rgba(0, 0, 0, 0.0) !important;
+      transition: 0.3s !important;
+    }
   }
 }
 
-tab-group:not([split-view-group]) {
-  display: grid !important;
-  background: color-mix(in srgb, var(--tab-group-color-invert) 15%, transparent) !important;
-  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
-  border: none !important;
-  border-radius: var(--border-radius-medium);
-  margin: 2px 2px 2px 2px !important;
-  padding: 5px 0px !important;
-  max-height: 1000px !important;
-  transition: max-height 0.2s ease !important;
-  overflow: hidden !important;
-  /* Hardware acceleration for animated group */
+/* Hardware acceleration & will-change for best performance */
+#tabbrowser-tabs,
+.tabbrowser-tab,
+#nav-bar toolbarbutton,
+#PersonalToolbar toolbarbutton,
+#urlbar,
+#searchbar,
+menupopup,
+panel,
+tooltip {
   transform: translateZ(0);
   will-change: auto;
-  
-  @media (-moz-pref("zen.view.sidebar-expanded")) {
-    width: var(--tab-max-width) !important;
-  }
-  
-  &[collapsed]:hover {
-    background-color: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
-    transform: translateY(-2px) scale(1.05) ;
-    box-shadow: 0 4px 12px -4px rgba(30,40,80,0.09);
-    z-index: 2;
-  }
- 
+}
 
-  &:after {
-    display: none;
-    padding: 0px !important;
-    background-color: color-mix(
-      in srgb,
-      var(--tab-group-color) 50%,
-      transparent
-    ) !important;
-  }
-  
-  &>.tab-group-container {
-    :root[zen-sidebar-expanded] &>* {
-      margin-inline-start: unset !important;
-      scale: 1 !important;
+/* === TAB ANIMATIONS === */
+/* Tab hover and active animation with enhanced shadows */
+.tabbrowser-tab {
+  transition: box-shadow 0.2s cubic-bezier(0.4,0,0.2,1), 
+              transform 0.24s cubic-bezier(0.22,1.5,0.36,1),
+              opacity 0.15s cubic-bezier(0.4,0,0.2,1),
+              filter 0.2s ease !important;
+  box-shadow: none !important;
+}
+
+.tabbrowser-tab:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px -4px rgba(30,40,80,0.09);
+  z-index: 2;
+}
+
+tab-group:not([collapsed]) .tabbrowser-tab:hover {
+  transform: translateY(-1px) scale(1.04);
+  z-index: 1;
+  box-shadow: none !important;
+  filter: brightness(1.05);
+}
+
+/* Fade inactive tabs with breathing effect */
+.tabbrowser-tab:not([selected]) {
+  opacity: 0.82;
+  filter: blur(0.2px);
+  animation: tabBreathe 4s ease-in-out infinite;
+}
+
+@keyframes tabBreathe {
+  0%, 100% { opacity: 0.82; }
+  50% { opacity: 0.75; }
+}
+
+/* Enhanced tab opening animation */
+.tabbrowser-tab[fadein] {
+  animation: tabBounceIn 0.34s cubic-bezier(0.68,-0.6, 0.32,1.6);
+}
+
+@keyframes tabBounceIn {
+  0% { opacity: 0; transform: scale(0.86) translateY(4px) rotateX(15deg); }
+  60% { opacity: 1; transform: scale(1.09) translateY(-3px) rotateX(-5deg); }
+  100% { opacity: 1; transform: scale(1.0) translateY(0) rotateX(0); }
+}
+
+/* Enhanced tab closing animation */
+.tabbrowser-tab[closing] {
+  animation: tabShrinkOut 0.19s cubic-bezier(0.68,-0.6, 0.32,1.6) forwards;
+}
+
+@keyframes tabShrinkOut {
+  0% { opacity: 1; transform: scale(1.0) rotateY(0deg); max-width: 100%; }
+  50% { opacity: 0.3; transform: scale(0.9) rotateY(15deg); }
+  100% { opacity: 0; transform: scale(0.7) rotateY(30deg); max-width: 0; }
+}
+
+/* Pinned tab special pulse animation */
+.tabbrowser-tab[pinned="true"] {
+  animation: pinnedPulse 3s ease-in-out infinite;
+}
+
+@keyframes pinnedPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(68, 138, 255, 0.4); }
+  50% { box-shadow: 0 0 0 4px rgba(68, 138, 255, 0.1); }
+}
+
+/* show tab close/reset button only on hover with cool animation */
+:is(.tab-close-button, .tab-reset-button)
+{transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;}
+
+.tabbrowser-tab:not([pinned],[zen-essential])
+.tab-close-button,
+.tabbrowser-tab[pinned]:not([zen-essential])
+.tab-reset-button
+{display: flex !important;}
+
+.tabbrowser-tab:not([pinned]):not(:hover) 
+:is(.tab-close-button, .tab-reset-button){
+  margin-inline-end: -25px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* NAVIGATION BUTTON ANIMATIONS */
+#back-button {
+  transition: transform 0.22s cubic-bezier(0.68,-0.6, 0.32,1.6),
+              box-shadow 0.18s cubic-bezier(0.4,0,0.2,1),
+              opacity 0.15s ease !important;
+  border-radius: 6px;
+}
+
+#back-button:hover {
+  transform: translateX(-2px) translateY(-1px) scale(1.08);
+  box-shadow: 0 4px 12px -3px rgba(30,40,80,0.15);
+}
+
+#back-button:active {
+  transform: translateX(-1px) scale(1.05);
+  transition-duration: 0.1s;
+}
+
+/* Forward button without trail effect */
+#forward-button {
+  transition: transform 0.22s cubic-bezier(0.68,-0.6, 0.32,1.6),
+              box-shadow 0.18s cubic-bezier(0.4,0,0.2,1),
+              opacity 0.15s ease !important;
+  border-radius: 6px;
+}
+
+#forward-button:hover {
+  transform: translateX(2px) translateY(-1px) scale(1.08);
+  box-shadow: 0 4px 12px -3px rgba(30,40,80,0.15);
+}
+
+#forward-button:active {
+  transform: translateX(1px) scale(1.05);
+  transition-duration: 0.1s;
+}
+
+/* Reload button with enhanced spin and pulse */
+#reload-button {
+  transition: transform 0.25s cubic-bezier(0.68,-0.6, 0.32,1.6),
+              box-shadow 0.18s cubic-bezier(0.4,0,0.2,1),
+              opacity 0.15s ease !important;
+  border-radius: 6px;
+  position: relative;
+}
+
+#reload-button:hover {
+  transform: translateY(-2px) scale(1.1) rotate(15deg);
+  box-shadow: 0 5px 14px -4px rgba(30,40,80,0.18);
+  animation: reloadPulse 1s ease-in-out infinite;
+}
+
+@keyframes reloadPulse {
+  0%, 100% { box-shadow: 0 5px 14px -4px rgba(30,40,80,0.18); }
+  50% { box-shadow: 0 5px 14px -4px rgba(68,138,255,0.25); }
+}
+
+#reload-button[loading="true"] {
+  animation: reloadSpin 1s linear infinite;
+}
+
+@keyframes reloadSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Menu button animation */
+@keyframes menuButtonAnimation {
+  0%   { transform: rotate(0deg) scale(1); }
+  30%  { transform: rotate(12deg) scale(1.05); }
+  50%  { transform: rotate(-12deg) scale(1.08); }
+  70%  { transform: rotate(6deg) scale(1.12); }
+  85%  { transform: rotate(-4deg) scale(1.18); }
+  95%  { transform: rotate(2deg) scale(1.22); }
+  100% { transform: rotate(0deg) scale(1.2); }
+}
+
+#PanelUI-menu-button:hover {
+  animation: menuButtonAnimation 0.6s cubic-bezier(.2,.49,.78,1.01) forwards;
+}
+
+/* === CONTEXT MENU ENHANCEMENTS === */
+menuitem {
+  transition: all 0.25s ease-in-out !important;
+}
+
+[hasbeenopened="true"] {
+  toolbarbutton,subviewbutton{
+    toolbarbutton-text {
+      padding: 0px 0px !important;
+      opacity: 1 !important;
+      transition: all 0.25s ease-in-out !important;
     }
   }
+}
 
-  & tab {
-    transition: opacity 0.5s ease !important;
-    /* Hardware acceleration for individual tabs */
-    transform: translateZ(0);
-    will-change: auto;
-  }
-
-  &>vbox {
-    padding-top: 0px !important;
-  }
-
-  /* group icon */
-  & .tab-group-label-container {
-    flex: 0 0 auto !important;
-    position: sticky !important;
-    top: 18 !important;
-    z-index: 1000 !important;
-    margin: 0 !important;
-    height: 24px !important;
-    border-radius: calc(var(--border-radius-medium) + 2px) !important;
-    transition: transform 0.2s ease;
-    transition: background-color 0.2s ease, border-radius 0.2s ease-in-out;
-    display: block;
-    /* Hardware acceleration for label container */
-    transform: translateZ(0);
-    will-change: auto;
-
-    &:after {
-      transition: transform 0.2s ease-out !important;
-      display: none !important;
-      padding: 0px !important;
+[hasbeenopened="true"] {
+  menuitem,
+  menu,.subviewbutton{
+    .menu-text {
+      padding: 1.5px 5px !important;
+      opacity: 1 !important;
+      transition: all 0.25s ease-in-out !important;
     }
 
-    &>label {
-      width: 100% !important;
-      background: transparent !important;
-      border: unset !important;
-      font-weight: 1000 !important;
-      text-align: unset !important;
-      color: var(--sidebar-text-color) !important;
-      padding-left: 23px !important;
-      margin: 0 !important;
-      margin-top: 0 !important;
-      outline: none !important;
-    }
-
-    &>label::before {
-      content: "" !important;
-      position: absolute !important;
-      left: 6px !important;
-      top: 12% !important;
-      width: 18px !important;
-      height: 18px !important;
-      background: var(--sidebar-text-color) !important;
-      mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgOS41MDJWOC43NWEyLjI1IDIuMjUgMCAwIDAtMi4yNS0yLjI1aC01LjcyNWwtMi4zOC0xLjk4QTIuMjUgMi4yNSAwIDAgMCA4LjIwNCA0SDQuMjVBMi4yNSAyLjI1IDAgMCAwIDIgNi4yNWwtLjAwNCAxMS41QTIuMjUgMi4yNSAwIDAgMCA0LjI0NiAyMEgxOC40N2ExLjc1IDEuNzUgMCAwIDAgMS42OTgtMS4zMjVsMS43NS02Ljk5OGExLjc1IDEuNzUgMCAwIDAtMS42OTgtMi4xNzVIMjBaTTQuMjUgNS41aDMuOTU2YzAuMjggMCAwLjU0OSAwLjEwMiAwLjc1IDAuMjg1bDIuNTg4IDIuMTU0YzAuMiAwLjE4MyAwLjQ3IDAuMjg1IDAuNzUgMC4yODVoNS45OTZhMS4wNSAxLjA1IDAgMCAxIDEuMDUgMS4wNXYwLjc1Mkg2LjQyNGEyLjI1IDIuMjUgMCAwIDAtMi4xODMgMS43MDRsLTAuNzQ0IDIuOTc4TDMuNSA2LjI1YTEuMDUgMS4wNSAwIDAgMSAxLjA1LTEuMDVabTEuNDQ3IDYuMDdhMS4wNSAxLjA1IDAgMCAxIDEuMDItMC44MUgyMC4yMmEwLjQ1IDAuNDUgMCAwIDEgMC40MzcgMC41NThsLTEuNzUgNi45OTlhMC40NSAwLjQ1IDAgMCAxLTAuNDM3IDAuMzQxSDQuMjg1YTAuNDUgMC40NSAwIDAgMS0wLjQzNy0wLjU1OGwxLjY1NS02LjYyWiIgZmlsbD0iIzAwMDAwMCIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjAuNSIvPjwvc3ZnPg==");
-      mask-size: contain;
-      mask-repeat: no-repeat;
-      background-size: contain !important;
-      background-repeat: no-repeat !important;
-      background-color: color-mix(
-        in srgb,
-        var(--tab-group-color-invert) 100%,
-        transparent
-      ) !important;
-    }
-  }
-
-  &[collapsed] {
-    overflow: hidden !important;
-    max-height: 3rem !important;
-    transition: transform 0.2s ease-out !important;
-
-    & tab {
-      display: flex !important;
-      opacity: 0 !important;
-      padding: 0 !important;
-      font-size: 0 !important;
-      margin: 0 !important;
-      transition: opacity 0.25s ease-in, font-size 0.25s ease-out, margin 0.25s ease-out, padding 0.25s ease-out !important;
-    }
-
-    & .tab-group-label-container>label {
-      background: transparent !important;
-      border: unset !important;
-      font-weight: 1000 !important;
-      text-align: unset !important;
-      color: var(--sidebar-text-color) !important;
-      padding-left: 23px !important;
-    }
-
-    & .tab-group-label-container>label::before{
-      width: 18px !important;
-      height: 18px !important;
-      mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOC4yMDcgNGMuNDYgMCAuOTA4LjE0MSAxLjI4NC40MDJsLjE1Ni4xMkwxMi4wMjIgNi41aDcuNzI4YTIuMjUgMi4yNSAwIDAgMSAyLjIyOSAxLjkzOGwuMDE2LjE1OC4wMDUuMTU0djlhMi4yNSAyLjI1IDAgMCAxLTIuMDk2IDIuMjQ1TDE5Ljc1IDIwSDQuMjVhMi4yNSAyLjI1IDAgMCAxLTIuMjQ1LTIuMDk2TDIgMTcuNzVWNi4yNWEyLjI1IDIuMjUgMCAwIDEgMi4wOTYtMi4yNDVMNC4yNSA0aDMuOTU3Wm0xLjQ0IDUuOTc5YTIuMjUgMi4yNSAwIDAgMS0xLjI0NC41MTJsLS4xOTYuMDA5LTQuNzA3LS4wMDF2Ny4yNTFjMCAuMzguMjgyLjY5NC42NDguNzQzbC4xMDIuMDA3aDE1LjVhMS4wNSAxLjA1IDAgMCAwIDEuMDQzLS45MDZsLjAwNy0uMTQ0di05YTEuMDUgMS4wNSAwIDAgMC0uOTA2LTEuMDQzTDE5Ljc1IDhoLTcuNzI5TDkuNjQ3IDkuOTc5Wk04LjIwNyA1LjVINC4yNWExLjA1IDEuMDUgMCAwIDAtMS4wNDMuOTA2TDMuNSA2LjI1djIuNzQ5TDguMjA3IDlhMS4wNSAxLjA1IDAgMCAwIC41NTMtLjE1OGwuMTE5LS4wODQgMS44OTEtMS41NzgtMS44OS0xLjU3NWExLjA1IDEuMDUgMCAwIDAtLjUyNy0uMjM0TDguMjA3IDUuNVoiIGZpbGw9IiMwMDAwMDAiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48L3N2Zz4=")
-    }
-  }
-
-  /* Arrow icon */
-  & .tab-group-label-container {
-    transition: transform 0.2s ease;
-
-    &:after {
-      transition: transform 0.2s ease;
-      display: none !important;
-    }
-
-    &>label {
-      display: flex !important;
-      justify-content: space-between !important;
-      background: transparent !important;
-      border: unset !important;
-      border-radius: 0px !important;
-      margin-inline: 6px 4px !important;
-    }
-
-    &>label::after {
-      content: "" !important;
-      position: relative !important;
-      top: 50% !important;
-      transform: translateY(-50%) rotate(180deg) !important;
-      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-      width: 12px !important;
-      height: 12px !important;
-      background: var(--tab-group-color-invert) !important;
-      mask-image: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGQ9Ik00MTMuMSAzMjcuM2wtMS44LTIuMS0xMzYtMTU2LjVjLTQuNi01LjMtMTEuNS04LjYtMTkuMi04LjYtNy43IDAtMTQuNiAzLjQtMTkuMiA4LjZMMTAxIDMyNC45bC0yLjMgMi42Qzk3IDMzMCA5NiAzMzMgOTYgMzM2LjJjMCA4LjcgNy40IDE1LjggMTYuNiAxNS44aDI4Ni44YzkuMiAwIDE2LjYtNy4xIDE2LjYtMTUuOCAwLTMuMy0xLjEtNi40LTIuOS04Ljl6Ii8+PG1ldGFkYXRhPjxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6cmRmcz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wMS9yZGYtc2NoZW1hIyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj48cmRmOkRlc2NyaXB0aW9uIGFib3V0PSJodHRwczovL2ljb25zY291dC5jb20vbGVnYWwjbGljZW5zZXMiIGRjOnRpdGxlPSJhcnJvdyx1cCxiIiBkYzpkZXNjcmlwdGlvbj0iYXJyb3csdXAsYiIgZGM6cHVibGlzaGVyPSJJY29uc2NvdXAiIGRjOmRhdGU9IjIwMTctMDktMjQiIGRjOmZvcm1hdD0iaW1hZ2Uvc3ZnK3htbCIgZGM6bGFuZ3VhZ2U9ImVuIj48ZGM6Y3JlYXRvcj48cmRmOkJhZz48cmRmOmxpPkJlbmphbWluIEogU3BlcnJ5PC9yZGY6bGk+PC9yZGY6QmFnPjwvZGM6Y3JlYXRvcj48L3JkZjpEZXNjcmlwdGlvbj48L3JkZjpSREY+PC9tZXRhZGF0YT48L3N2Zz4=");
-      mask-size: contain;
-    }
-  }
-
-  &[collapsed] {
-    overflow: hidden !important;
-    max-height: 3rem !important;
-
-    & tab {
-      display: flex !important;
-      z-index: -1 !important;
-      opacity: 0 !important;
-      transform: translateY(-10px) !important;
-      transition: opacity 0.25s ease-in, font-size 0.25s ease-out, margin 0.25s ease-out, padding 0.25s ease-out !important;
-
-      .tab-text {
-        overflow: visible !important;
-      }
-    }
-
-    & .tab-group-label-container>label {
-      background: transparent !important;
-      border: unset !important;
-      font-weight: 1000 !important;
-      text-align: unset !important;
-      color: var(--sidebar-text-color) !important;
-    }
-
-    & .tab-group-label-container>label::after {
-      transform: translateY(-50%) rotate(90deg) !important;
-    }
-  }
-
-  &:not([collapsed]) {
-    max-height: 500px !important;
-    overflow: scroll !important;
-    scrollbar-width: none !important;
-
-    & tab:not([zen-glance-tab]) {
+     &:hover > .menu-text, &:hover > .toolbarbutton-text {
+      padding-left: 9px !important;
       padding-right: 1px !important;
     }
   }
+}
 
-  tab-group:has(tab[hidden]) {
-    display: none !important;
+
+/* Enhanced context menu with stagger animation */
+menupopup {
+  animation: contextMenuSlideIn 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transform-origin: top left;
+}
+
+@keyframes contextMenuSlideIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(-4px);
   }
-
-  & tab:not([zen-glance-tab]) {
-    overflow: visible !important;
-
-    &:active {
-      transition: scale 0.03s !important;
-      scale: 1;
-    }
-
-    .tab-group-line {
-      --tab-group-color-invert: transparent !important;
-      --tab-group-color: transparent !important;
-    }
-
-    margin-left: 8px !important;
-  }
-
-  tab::before {
-    background: none !important;
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
 
-tab-group[collapsed] .tab-group-container {
+/* Context menu items with stagger delay */
+menuitem {
+  transition: background-color 0.12s ease,
+              transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.12s ease !important;
+  animation: menuItemSlideIn 0.2s ease-out backwards;
+}
+
+menuitem:nth-child(1) { animation-delay: 0.02s; }
+menuitem:nth-child(2) { animation-delay: 0.04s; }
+menuitem:nth-child(3) { animation-delay: 0.06s; }
+menuitem:nth-child(4) { animation-delay: 0.08s; }
+menuitem:nth-child(5) { animation-delay: 0.10s; }
+menuitem:nth-child(n+6) { animation-delay: 0.12s; }
+
+@keyframes menuItemSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === NOTIFICATION ANIMATIONS === */
+/* Download notification */
+#downloads-notification-anchor {
+  transition: transform 0.3s cubic-bezier(0.68,-0.6, 0.32,1.6);
+}
+
+#downloads-notification-anchor[notification] {
+  animation: downloadBounce 0.6s cubic-bezier(0.68,-0.6, 0.32,1.6);
+}
+@keyframes downloadBounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.2) rotate(-5deg); }
+  60% { transform: scale(0.9) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+#sidebar-box[hidden="true"] {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hardware acceleration for all animated elements */
+.tabbrowser-tab *, 
+#nav-bar toolbarbutton *,
+#PersonalToolbar toolbarbutton *,
+#urlbar *, #searchbar *,
+menupopup *, menuitem *,
+#sidebar-box *, #downloads-notification-anchor * { 
+  backface-visibility: hidden; 
+}
+
+/* ACCESSIBILITY & FUNCTIONALITY PRESERVATION */
+.tabbrowser-tab[dragged],
+.tabbrowser-tab[moving] {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Focus indicators for keyboard navigation */
+#nav-bar toolbarbutton:focus-visible,
+.tabbrowser-tab:focus-visible {
+  outline: 2px solid #448aff;
+  outline-offset: 2px;
+  animation: focusPulse 1s ease-in-out infinite;
+}
+@keyframes focusPulse {
+  0%, 100% { outline-color: #448aff; }
+  50% { outline-color: #64b5f6; }
+}
+
+/* Base styles for tab audio indicators */
+.tabbrowser-tab[soundplaying] .tab-icon-overlay,
+.tabbrowser-tab[muted] .tab-icon-overlay,
+.tabbrowser-tab[activemedia-blocked] .tab-icon-overlay,
+.tabbrowser-tab[soundplaying] .tab-audio-button,
+.tabbrowser-tab[muted] .tab-audio-button,
+.tabbrowser-tab[activemedia-blocked] .tab-audio-button {
+  background: transparent !important;
+  transition: all 0.3s ease !important;
+  opacity: 0.7 !important;
+}
+
+/* Hover states */
+.tabbrowser-tab[soundplaying] .tab-icon-overlay:hover,
+.tabbrowser-tab[muted] .tab-icon-overlay:hover,
+.tabbrowser-tab[activemedia-blocked] .tab-icon-overlay:hover,
+.tabbrowser-tab[soundplaying] .tab-audio-button:hover,
+.tabbrowser-tab[muted] .tab-audio-button:hover,
+.tabbrowser-tab[activemedia-blocked] .tab-audio-button:hover {
+  scale: 1.1 !important;
+  opacity: 1 !important;
+}
+
+/* Non-hover states */
+.tabbrowser-tab[soundplaying] .tab-icon-overlay:not(:hover),
+.tabbrowser-tab[muted] .tab-icon-overlay:not(:hover),
+.tabbrowser-tab[activemedia-blocked] .tab-icon-overlay:not(:hover),
+.tabbrowser-tab[soundplaying] .tab-audio-button:not(:hover),
+.tabbrowser-tab[muted] .tab-audio-button:not(:hover),
+.tabbrowser-tab[activemedia-blocked] .tab-audio-button:not(:hover) {
+  scale: 0.85 !important;
+  opacity: 0.3 !important;
+}
+/* === TOOLBAR BUTTON HOVER ANIMATIONS === */
+/* Settings button animation */
+toolbar toolbarbutton[label="Settings"]:not([open="true"]):not([cui-areatype="menu-panel"]):not(#nav-bar *):hover,
+#nav-bar toolbarbutton[label="Settings"]:not([open="true"]):not([cui-areatype="menu-panel"]):hover {
+  animation: settingsSpin 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes settingsSpin {
+  0% { 
+    transform: rotate(0deg) scale(1); 
+  }
+  25% {
+    transform: rotate(90deg) scale(1.15);
+  }
+  50% { 
+    transform: rotate(180deg) scale(1.1); 
+  }
+  75% {
+    transform: rotate(270deg) scale(1.15);
+  }
+  100% { 
+    transform: rotate(360deg) scale(1); 
+  }
+}
+
+/* History button with clock-like rewind animation */
+#history-panelmenu,
+#PanelUI-history-button {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: transparent !important;
+}
+
+#history-panelmenu:hover,
+#PanelUI-history-button:hover {
+  animation: historyRewind 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  background: transparent !important;
+}
+
+@keyframes historyRewind {
+  0%, 100% { 
+    transform: rotate(0deg) scale(1); 
+  }
+  25% {
+    transform: rotate(-30deg) scale(1.08);
+  }
+  50% { 
+    transform: rotate(-60deg) scale(1.12); 
+  }
+  75% {
+    transform: rotate(-30deg) scale(1.08);
+  }
+}
+
+/* Bookmarks button with magnetic pull effect */
+#BMB_viewBookmarksSidebar,
+#BMB_searchBookmarks,
+#BMB_bookmarksShowAllTop,
+#BMB_bookmarksShowAll {
   display: none !important;
 }
 
-tab-group .tab-group-label-container {
-  display: block;
+#bookmarks-menu-button #BMB_viewBookmarksToolbar {
+  display: none !important;
 }
 
-tab-group .tab-group-label-container .tab-group-label {
-  display: block;
+#BMB_bookmarksPopup menuseparator {
+  display: none;
 }
+
+#bookmarks-menu-button,
+#PanelUI-bookmarks-button {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: transparent !important;
+}
+
+#bookmarks-menu-button:hover,
+#PanelUI-bookmarks-button:hover {
+  animation: bookmarkMagnet 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  background: transparent !important;
+}
+
+/* Stop animation when panel is open */
+#bookmarks-menu-button[open],
+#PanelUI-bookmarks-button[open],
+#bookmarks-menu-button[open]:hover,
+#PanelUI-bookmarks-button[open]:hover {
+  animation: none !important;
+  transform: none !important;
+}
+
+@keyframes bookmarkMagnet {
+  0% { 
+    transform: scale(1) translateY(0); 
+  }
+  100% { 
+    transform: scale(1.15) translateY(-3px); 
+  }
+}
+
+/* Search/Find button with ripple pulse effect */
+#search-container,
+#urlbar-search-button,
+#find-button,
+toolbarbutton[data-l10n-id="toolbar-button-find"],
+#wrapper-find-button {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: transparent !important;
+  position: relative;
+}
+
+#search-container:hover,
+#urlbar-search-button:hover,
+#find-button:hover,
+toolbarbutton[data-l10n-id="toolbar-button-find"]:hover,
+#wrapper-find-button:hover {
+  animation: findRipple 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  background: transparent !important;
+}
+
+@keyframes findRipple {
+  0% { 
+    transform: scale(1); 
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  30% { 
+    transform: scale(0.95); 
+  }
+  45% {
+    transform: scale(1.08);
+  }
+  60% {
+    transform: scale(0.98);
+  }
+  75% {
+    transform: scale(1.04);
+  }
+  100% { 
+    transform: scale(1); 
+  }
+}
+
+/* Downloads button with bounce down animation */
+#downloads-button {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: transparent !important;
+}
+
+#downloads-button:hover {
+  animation: downloadBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  background: transparent !important;
+}
+
+@keyframes downloadBounce {
+  0%, 100% { 
+    transform: translateY(0) scale(1); 
+  }
+  20% {
+    transform: translateY(-6px) scale(1.05);
+  }
+  40% { 
+    transform: translateY(3px) scale(1.15); 
+    filter: brightness(1.3) drop-shadow(0 4px 12px rgba(76, 175, 80, 0.6));
+  }
+  60% {
+    transform: translateY(-2px) scale(1.08);
+  }
+  80% {
+    transform: translateY(1px) scale(1.12);
+  }
+}
+
+/* Active/Click states for all toolbar buttons */
+#PanelUI-menu-button:active,
+#history-panelmenu:active,
+#PanelUI-history-button:active,
+#bookmarks-menu-button:active,
+#PanelUI-bookmarks-button:active,
+#search-container:active,
+#urlbar-search-button:active,
+#downloads-button:active {
+  transform: scale(0.9) !important;
+  transition: all 0.1s ease !important;
+  animation: none !important;
+}
+
+    /*Window Control styling*/
+        @media not (-moz-bool-pref: "zen.view.experimental-no-window-controls") {
+            .titlebar-button {
+                min-height: 13px !important;
+                min-width: 13px !important;
+                padding: 0px !important;
+                height: 13px !important;
+                width: 13px !important;
+
+                align-self: center;
+
+                border-radius: 50px;
+                margin: auto 3px !important;
+                background-color: rgba(200, 200, 200, 0.3) !important;
+                transition: all 200ms ease-in-out;
+            }
+
+            .titlebar-button>image {
+                visibility: hidden !important;
+            }
+
+            .titlebar-buttonbox {
+                align-content: center !important;
+                justify-content: center !important;
+                margin-right: calc(var(--zen-element-separation) / 2) !important;
+            }
+
+            .titlebar-buttonbox-container {
+                align-self: center !important;
+                justify-self: center !important;
+                justify-content: center !important;
+                align-content: center !important;
+                margin-top: auto !important;
+                margin-bottom: auto !important;
+                padding-bottom: auto !important;
+            }
+
+            .titlebar-button:hover {
+                min-height: 20px !important;
+
+                &.titlebar-min:hover {
+                    background-color: color-mix(in srgb, var(--zen-primary-color) 90%, white) !important;
+                    box-shadow: 0 0px 8px color-mix(in srgb, var(--zen-primary-color) 90%, white) !important;
+                }
+
+                &.titlebar-restore:hover {
+                    background-color: color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
+                    box-shadow: 0 0px 8px color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
+                }
+
+                &.titlebar-max:hover {
+                    background-color: color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
+                    box-shadow: 0 0px 8px color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
+                }
+
+                &.titlebar-close:hover {
+                    background-color: color-mix(in srgb, var(--zen-primary-color) 20%, rgb(255, 90, 100)) !important;
+                    box-shadow: 0 0px 8px color-mix(in srgb, var(--zen-primary-color) 20%, rgb(255, 90, 100)) !important;
+                }
+            }
+        }
+
+        @media not (-moz-bool-pref: "zen.view.experimental-no-window-controls") {
+            @media (-moz-bool-pref: "zen.view.experimental-force-window-controls-left") {
+                .titlebar-buttonbox-container {
+                    order: -1 !important;
+                }
+
+                @media (-moz-bool-pref: "neo-theme-window-buttons-inverse") {
+                    :root[zen-single-toolbar="true"] {
+                        .titlebar-buttonbox-container {
+                            order: 9999 !important;
+                        }
+                    }
+                }
+            }
+
+            @media not (-moz-bool-pref: "zen.view.experimental-force-window-controls-left") {
+                @media not (-moz-bool-pref: "neo-theme-window-buttons-inverse") {
+                    :root[zen-single-toolbar="true"] {
+                        .titlebar-buttonbox-container {
+                            order: -1 !important;
+                        }
+                    }
+                }
+            }
+
+            @media -moz-pref("zen.tabs.vertical") {
+                :root:not([zen-single-toolbar="true"]):not([zen-right-side="true"])[zen-window-buttons-reversed="true"]:not([zen-sidebar-expanded="true"]):not([zen-compact-mode="true"]) {
+                    .titlebar-buttonbox {
+                        left: calc(var(--zen-toolbox-padding) * -1 / 2 - 1.5px) !important;
+                    }
+                }
+
+                :root:not([zen-single-toolbar="true"])[zen-right-side="true"]:not([zen-window-buttons-reversed="true"]):not([zen-sidebar-expanded="true"]):not([zen-compact-mode="true"]) {
+                    .titlebar-buttonbox {
+                        margin-right: calc(var(--zen-element-separation) / 2 - 1px) !important;
+                    }
+                }
+            }
+        }
+
+
