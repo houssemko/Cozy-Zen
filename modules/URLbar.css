@@ -8,16 +8,22 @@
 #urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
   backdrop-filter: blur(20px) !important;
   background-color: light-dark(rgba(255, 255, 255, 0.1), rgba(10, 10, 10, 0.85)) !important;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  /* Hardware acceleration for backdrop-filter */
   transform: translateZ(0);
   will-change: backdrop-filter, background-color;
 } 
 
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
-  background-color: light-dark(rgba(255, 255, 255, 0.3), rgba(30, 30, 30, 0.85)) !important;
-  box-shadow: inset 0 0 0 1px  light-dark(rgba(255, 255, 255, 0.3), rgba(75, 75, 75, 0.6)) !important;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  background-color: light-dark(rgba(255, 255, 255, 1), rgba(100, 100, 100, 0.2)) !important;
+  box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(75, 75, 75, 0.5)) !important;
+}
+
+/* Hover animation */
+#urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-background {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  transform:translateZ(2px) scale(1.05) !important;
+  background-color: light-dark(rgba(255, 255, 255, 1), rgba(120, 120, 120, 0.3)) !important;
+  box-shadow: inset 0 0 0 1.25px light-dark(rgba(255, 255, 255, 0.2), rgba(150, 150, 150, 0.5)) !important;
 }
 
 /* Apply transition to the site data icon button */
@@ -32,13 +38,6 @@
 /* Apply negative margin only when urlbar is not floating and not open */
 #urlbar:not([zen-floating-urlbar='true']) #zen-site-data-icon-button {
   margin-inline-start: -25px !important;
-}
-
-/* URLbar container animation */
-#urlbar:not([zen-floating-urlbar='true']):not([open]):hover {
-  transition: all 0.1s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-  transform: translateY(-2px) scale(1.05) !important;
-  background: rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Remove hover effect when zen site data button is open */
@@ -82,8 +81,7 @@
 }
 
 /* Center text in URL bar */
-#urlbar .urlbar-input,
-.urlbar-input-container {
+#urlbar .urlbar-input {
   text-align: center !important;
   position: relative;
 }
@@ -408,3 +406,5 @@
     border-top: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.2)) !important;
   }
 }
+
+
