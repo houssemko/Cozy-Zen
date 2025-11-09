@@ -1,17 +1,92 @@
 /* --- Context Menu --- */
- /* compact menu */
-menupopup > :is(menuitem, menu){
-  height: fit-content !important;
-  padding-block: 2px !important;
+#contentAreaContextMenu {
+  max-width: 280px !important;
 }
 
-:is(menuitem, menu).bookmark-item{
+#tabContextMenu {
+  max-width: 250px !important;
+}
+
+#confirmation-hint {
+  --arrowpanel-color: var(--sidebar-text-color) !important;
+}
+
+/* Style for menu separators */
+menuseparator {
+  &::before {
+    opacity: 0.3;
+  }
+
+  /* Hide the first separator*/
+  &:first-of-type {
+    display: none !important;
+  } 
+  &:nth-of-type(4) {
+    display: none !important;
+  }
+
+  &:nth-of-type(7) {
+    display: none !important;
+  }
+}
+
+/* compact menu */
+menupopup > :is(menuitem, menu) {
+  height: fit-content !important;
+  padding-block: 2px !important;
+  will-change: auto;
+}
+
+:is(menuitem, menu).bookmark-item {
   padding-inline: 8px !important;
-  .menu-iconic-left{margin-inline: 0px 3px !important;}
+  .menu-iconic-left {
+    margin-inline: 0px 3px !important;
+  }
 }
 
 :is(.bookmark-item, #PlacesChevron, #bookmarks-menu-button, #sidebarMenu-popup) 
-:is(menuitem, menu) {margin-inline: 0px !important;}
+:is(menuitem, menu) {
+  margin-inline: 0px !important;
+}
+
+/* Fix padding for extensions-related context menu on Windows */
+menu>.menu-iconic-text,
+menuitem>.menu-iconic-text {
+  padding-inline-start: calc(var(--fp-contextmenu-menuicon-margin-inline) - 10px) !important;
+}
+
+/* Fix padding for "Tabs on the right" & "Compact Mode" options on Windows */
+menuitem[checked="true"]>.menu-iconic-text {
+  padding-inline-start: 10px !important;
+}
+
+#zen-toolbar-context-tabs-right {
+  padding-inline-start: 34px !important;
+}
+
+#zen-toolbar-context-tabs-right[checked="true"] {
+  padding-inline-start: 8px !important;
+}
+
+#zen-context-menu-compact-mode {
+  padding-inline-start: calc(var(--fp-contextmenu-menuitem-padding-inline) + 18px + var(--fp-contextmenu-menuicon-margin-inline)) !important;
+}
+
+#zen-context-menu-compact-mode-hide-sidebar,
+#zen-context-menu-compact-mode-hide-toolbar,
+#zen-context-menu-compact-mode-hide-both {
+  padding-inline-start: 40px !important;
+}
+
+#zen-context-menu-compact-mode-hide-sidebar[checked="true"],
+#zen-context-menu-compact-mode-hide-toolbar[checked="true"],
+#zen-context-menu-compact-mode-hide-both[checked="true"] {
+  padding-inline-start: 16px !important;
+
+  & .menu-iconic-text {
+    padding-inline-start: 2px !important;
+  }
+}
 
 /* Apply Zen workspace gradient to all context menu and panels*/
 menupopup, panel {
@@ -19,6 +94,8 @@ menupopup, panel {
   transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out !important;
   box-shadow: inset 0 0 0 1px transparent !important;
   --panel-background: color-mix(in srgb, var(--zen-primary-color) 20%, #000000a0) !important ;
+  transform: translateZ(0);
+  will-change: auto;
 }
 
 menuitem:hover,
@@ -55,7 +132,7 @@ menu:not(:hover) {
   display: none !important;
 }
 
-#context-zen-change-workspace-tab{
+#context-zen-change-workspace-tab {
   display: none  !important;
 }
 
@@ -150,10 +227,3 @@ menu:not(:hover) {
 #toolbarNavigatorItemsMenuSeparator {
   visibility: collapse !important;
 }
-
-
-/* Style for menu separators */
-menuseparator {
-  &::before {
-    opacity: 0.3;
-  }
