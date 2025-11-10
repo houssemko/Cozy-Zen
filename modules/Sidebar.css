@@ -20,16 +20,13 @@
 #history-panel,
 :root,
 #header {
-  background-color: color-mix(in srgb, var(--zen-primary-color) 5%, #000000a0) !important; 
-  backdrop-filter: blur(10px) !important;
-  border: none !important;
-  box-shadow: none !important;
+  background-color: light-dark(rgba(255, 255, 255, 0.9), rgba(10, 10, 10, 0.85)) !important;
 }
 /* ------------------------- GENERAL SIDEBAR -------------------------- */
 /* Sidebar container styling */
   :root[zen-compact-mode="true"] #titlebar {
+    margin : 1px 1px 1px 1px !important;
     padding: 5px !important;
-    border-radius: 15px !important;
   }
 
 /* --- Compact Sidebar --- */
@@ -38,7 +35,7 @@
   position: absolute !important;
   z-index: -1000;
   filter: blur(0.1px) !important;
-  background-color: light-dark(rgba(255, 255, 255, 0.75), rgba(1, 1, 1, 0.85)) !important;
+  background-color: light-dark(rgba(255, 255, 255, 0.9), rgba(10, 10, 10, 0.85)) !important;
   border-radius: 15px !important;
   opacity: 0 !important;
   transition: opacity 0.2s ease;
@@ -88,10 +85,10 @@ body:has([zen-compact-mode="true"]) .zen-toolbar-background {
     #navigator-toolbox:not([animate="true"]) #titlebar::after {
       content: "";
       position: absolute;
-      background: light-dark(rgba(255, 255, 255, 0.75), rgba(10, 10, 10, 0.9)) !important;
-      box-shadow: 0 1px 3px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
+      background: light-dark(rgba(255, 255, 255, 0.9), rgba(10, 10, 10, 0.9)) !important;
+      box-shadow: 0 0 0 1px light-dark(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)) !important;
       border-radius: 15px !important;
-      backdrop-filter: blur(10px) !important;
+      backdrop-filter: blur(5px) !important;
       pointer-events: none;
     }
     
