@@ -1,14 +1,11 @@
 ---
-
 # 🌿 Cozy-Zen
 My personal, CSS theme for the [Zen Browser](https://zen-browser.app/), Basically Zen Browser with quality of life improvements centered around the Compact Sidebar.
-
 ## 📦 Included Mods
-
 ### ✨ [Context-Menu-Icons (CMI)](https://github.com/Starry-AXQG/Context-Menu-Icons)
 > Adds beautiful FluentUI/ZenUI icons to all context menus — including tabs, bookmarks, extensions, , and zenFolders.  
----
 
+---
 ## 🛠️ Installation
 
 ### 1. Set Up Your `chrome` Folder
