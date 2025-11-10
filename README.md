@@ -1,10 +1,7 @@
 ---
 
 # 🌿 Cozy-Zen
-
 My personal, CSS theme for the [Zen Browser](https://zen-browser.app/), Basically Zen Browser with quality of life improvements centered around the Compact Sidebar.
-
----
 
 ## 📦 Included Mods
 
