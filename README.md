@@ -8,8 +8,6 @@ My personal, hand-crafted CSS theme for the [Zen Browser](https://zen-browser.ap
 
 ### ✨ [Context-Menu-Icons (CMI)](https://github.com/Starry-AXQG/Context-Menu-Icons)
 > Adds beautiful FluentUI/ZenUI icons to all context menus — including tabs, bookmarks, extensions, zenFolders, and zenWorkspaces.  
-- **Icon Packs**: FluentUI (default) or ZenUI
-  
 ---
 
 ## 🛠️ Installation
