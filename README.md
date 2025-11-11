@@ -53,8 +53,8 @@ After copying files and setting preferences, fully restart Zen to apply changes.
 
 Since CMI updates frequently:
 1. Download the latest release from [Starry-AXQG/Context-Menu-Icons](https://github.com/Starry-AXQG/Context-Menu-Icons)
-2. Replace the contents of your `modules/icons/` folder with the new `CMI/` folder
-3. Preserve your customizations by re-applying changes to `CMI-config.css` if needed or Replacing it with your previous one.
+2. Preserve your customizations by re-applying changes to `CMI-config.css` if needed or Replacing it with your previous one.
+3. Replace the contents of your `modules/CMI/` folder with the new `CMI/` folder
 
 > 🔜 *(Future note: Consider using [Sine](https://sine.zen-browser.app/) for auto-updates—but manual install gives full control.)*
 
