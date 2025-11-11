@@ -469,6 +469,7 @@ menupopup *, menuitem *,
   scale: 0.85 !important;
   opacity: 0.3 !important;
 }
+
 /* === TOOLBAR BUTTON HOVER ANIMATIONS === */
 /* Settings button animation */
 toolbar toolbarbutton[label="Settings"]:not([open="true"]):not([cui-areatype="menu-panel"]):not(#nav-bar *):hover,
@@ -508,18 +509,13 @@ toolbar toolbarbutton[label="Settings"]:not([open="true"]):not([cui-areatype="me
 }
 
 @keyframes historyRewind {
-  0%, 100% { 
-    transform: rotate(0deg) scale(1); 
-  }
-  25% {
-    transform: rotate(-30deg) scale(1.08);
-  }
-  50% { 
-    transform: rotate(-60deg) scale(1.12); 
-  }
-  75% {
-    transform: rotate(-30deg) scale(1.08);
-  }
+   0%   { transform: rotate(0deg) scale(1); }
+  30%  { transform: rotate(12deg) scale(1.05); }
+  50%  { transform: rotate(-12deg) scale(1.08); }
+  70%  { transform: rotate(6deg) scale(1.12); }
+  85%  { transform: rotate(-4deg) scale(1.18); }
+  95%  { transform: rotate(2deg) scale(1.22); }
+  100% { transform: rotate(0deg) scale(1.2); }
 }
 
 /* Bookmarks button with magnetic pull effect */
