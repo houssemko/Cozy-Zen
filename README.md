@@ -61,9 +61,9 @@ Since CMI updates frequently:
 ---
 
 ## 🙏 Credits
-
-- **[Context-Menu-Icons](https://github.com/Starry-AXQG/Context-Menu-Icons)** by [Starry-AXQG](https://github.com/Starry-AXQG)  
+ 
 - **[Zen Browser](https://zen-browser.app/)** – The beautiful, Firefox-based browser that makes this possible  
+- **[Context-Menu-Icons](https://github.com/Starry-AXQG/Context-Menu-Icons)** by [Starry-AXQG](https://github.com/Starry-AXQG) 
 - **[Arc-2.0](https://github.com/YashjitPal/Arc-2.0)** by [YashjitPal](https://github.com/YashjitPal)  
 - **[bubble-clean-zen](https://github.com/nieffka/bubble-clean-zen)** by [nieffka](https://github.com/nieffka)
 
