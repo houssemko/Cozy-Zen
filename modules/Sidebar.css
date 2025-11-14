@@ -24,7 +24,7 @@
 }
 
 /* ------------------------- GENERAL SIDEBAR -------------------------- */
-/* Sidebar container styling */
+/* Sidebar container */
 :root[zen-compact-mode="true"] #titlebar {
   margin : 2px 2px 2px 2px !important;
   padding: 5px !important;
@@ -33,14 +33,39 @@
 :root[zen-compact-mode="true"][zen-floating-urlbar="true"] #navigator-toolbox:not(:has(#nav-bar:hover)) {
   opacity: 0 !important;
   pointer-events: none !important;
-  transition: opacity 0.1s ease !important;
-}
-
-:root[zen-compact-mode="true"][zen-floating-urlbar="true"] #nav-bar {
-  opacity: 1 !important;
-  pointer-events: auto !important;
   position: relative !important;
   z-index: 9999 !important;
+  transform: translateX(-100%) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+:root[zen-compact-mode="true"][zen-floating-urlbar="true"][zen-right-side="true"] #navigator-toolbox:not(:has(#nav-bar:hover)) {
+  transform: translateX(100%) !important;
+}
+
+:root[zen-compact-mode="true"][zen-floating-urlbar="true"] #navigator-toolbox:has(#nav-bar:hover) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(0) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+:root[zen-compact-mode="true"][zen-floating-urlbar="true"] #titlebar {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateX(-100%) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+:root[zen-compact-mode="true"][zen-floating-urlbar="true"][zen-right-side="true"] #titlebar {
+  transform: translateX(100%) !important;
+}
+
+:root[zen-compact-mode="true"][zen-floating-urlbar="true"] #titlebar:hover,
+:root[zen-compact-mode="true"][zen-floating-urlbar="true"] #navigator-toolbox:has(#nav-bar:hover) ~ * #titlebar {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(0) !important;
 }
 
 /* --- Compact Sidebar --- */
