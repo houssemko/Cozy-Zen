@@ -1,3 +1,4 @@
+/* ------------------------- SIDEBAR  -------------------------- */
 /* Hardware acceleration & will-change for best performance */
 #sidebar-box,
 #bookmarksPanel.sidebar-panel,
@@ -26,42 +27,16 @@
 /* ------------------------- GENERAL SIDEBAR -------------------------- */
 /* Sidebar container */
 :root[zen-compact-mode="true"] #titlebar {
-  margin : 2px 2px 2px 2px !important;
+  margin : 1px 1px 2px 1px !important;
   padding: 5px !important;
 }
 
-:root[zen-compact-mode="true"][zen-floating-urlbar="true"] #navigator-toolbox:not(:has(#nav-bar:hover)) {
-  opacity: 0 !important;
-  pointer-events: none !important;
-  position: relative !important;
-  z-index: 9999 !important;
-  transform: translateX(-100%) !important;
-  transition: opacity 0.2s ease, transform 0.2s ease !important;
-}
-
-:root[zen-compact-mode="true"][zen-floating-urlbar="true"][zen-right-side="true"] #navigator-toolbox:not(:has(#nav-bar:hover)) {
-  transform: translateX(100%) !important;
-}
-
-:root[zen-compact-mode="true"][zen-floating-urlbar="true"] #navigator-toolbox:has(#nav-bar:hover) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  transform: translateX(0) !important;
-  transition: opacity 0.2s ease, transform 0.2s ease !important;
-}
-
-:root[zen-compact-mode="true"][zen-floating-urlbar="true"] #titlebar {
+:root[zen-compact-mode="true"] #urlbar[open][zen-floating-urlbar="true"] #titlebar{
   opacity: 0 !important;
   pointer-events: none !important;
   transform: translateX(-100%) !important;
-  transition: opacity 0.2s ease, transform 0.2s ease !important;
 }
 
-:root[zen-compact-mode="true"][zen-floating-urlbar="true"][zen-right-side="true"] #titlebar {
-  transform: translateX(100%) !important;
-}
-
-:root[zen-compact-mode="true"][zen-floating-urlbar="true"] #titlebar:hover,
 :root[zen-compact-mode="true"][zen-floating-urlbar="true"] #navigator-toolbox:has(#nav-bar:hover) ~ * #titlebar {
   opacity: 1 !important;
   pointer-events: auto !important;
@@ -69,34 +44,7 @@
 }
 
 /* --- Compact Sidebar --- */
-:root[zen-compact-mode="true"] #browser::after {
-  content: "" !important;
-  position: absolute !important;
-  z-index: -1000;
-  filter: blur(0.1px) !important;
-  background-color: light-dark(rgba(255, 255, 255, 0.9), rgba(10, 10, 10, 0.85)) !important;
-  border-radius: 15px !important;
-  opacity: 0 !important;
-  transition: opacity 0.2s ease;
-}
-
-/* Right-side pseudo background alignment */
-:root[zen-right-side="true"][zen-compact-mode="true"] #browser::after {
-  left: auto !important;
-  right: calc(var(--zen-element-separation) / 0.65) !important;
-}
-
-/* Sidebar on right */
-:root[zen-right-side="true"][zen-compact-mode="true"] #titlebar {
-  left: auto !important;
-  right: calc(var(--zen-element-separation) / 0.9) !important;
-}
-
 /* Show pseudo background when active/hovered */
-:root[zen-compact-mode="true"]:not([zen-floating-urlbar='true']) #browser:has(>#navigator-toolbox:is([zen-has-hover="true"],[zen-user-show=""],[has-popup-menu=""]))::after {
-  opacity: 1 !important;
-}
-
 body:has([zen-compact-mode="true"]) #titlebar::before {
   content: '';
   position: absolute;
@@ -124,8 +72,8 @@ body:has([zen-compact-mode="true"]) .zen-toolbar-background {
     #navigator-toolbox:not([animate="true"]) #titlebar::after {
       content: "";
       position: absolute;
-      background: light-dark(rgba(255, 255, 255, 0.9), rgba(10, 10, 10, 0.9)) !important;
-      box-shadow: 0 0 0 1px light-dark(rgba(255, 255, 255, 0.9), rgba(10, 10, 10, 0.9)) !important;
+      background: light-dark(rgba(255, 255, 255, 0.5), rgba(10, 10, 10, 0.9)) !important;
+      box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.8), rgba(25, 25, 25, 0.8)) !important;
       border-radius: 15px !important;
       backdrop-filter: blur(5px) !important;
       pointer-events: none;
@@ -140,6 +88,19 @@ body:has([zen-compact-mode="true"]) .zen-toolbar-background {
     }
   }
 }
+
+/* Right-side pseudo background alignment */
+:root[zen-right-side="true"][zen-compact-mode="true"] #browser::after {
+  left: auto !important;
+  right: calc(var(--zen-element-separation) / 0.65) !important;
+}
+
+/* Sidebar on right */
+:root[zen-right-side="true"][zen-compact-mode="true"] #titlebar {
+  left: auto !important;
+  right: calc(var(--zen-element-separation) / 0.9) !important;
+}
+
   
   /* hide scrollbar */
   scrollbox {
