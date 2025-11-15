@@ -1,4 +1,8 @@
 /* URLbar styling */
+#urlbar[open].browserSidebarContainer { 
+  transform: translateX(-100%) !important;
+}
+
 #urlbar[open][zen-floating-urlbar='true'] {
   top: 180px !important;
   position: relative; 
