@@ -21,7 +21,7 @@
 #history-panel,
 :root,
 #header {
-  background-color: light-dark(rgba(255, 255, 255, 0.9), rgba(10, 10, 10, 0.85)) !important;
+  background-color: light-dark(rgba(255, 255, 255, 0.9), rgba(10, 10, 10, 0.95)) !important;
 }
 
 /* ------------------------- GENERAL SIDEBAR -------------------------- */
@@ -36,14 +36,6 @@
     border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;
   }
 }
-
-:root[zen-compact-mode="true"] #urlbar[open][zen-floating-urlbar='true']:not([inDOMFullscreen="true"]) .browserSidebarContainer { 
-  opacity: 0 !important;
-  pointer-events: none !important;
-  position: relative !important;
-  z-index: 9999 !important;
-}
-
 
 /* --- Compact Sidebar --- */
 :root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
