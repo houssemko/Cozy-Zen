@@ -112,14 +112,14 @@
 .tabbrowser-tab[pinned]:not([selected="true"]):not([zen-essential="true"]) .tab-stack .tab-background,
 #vertical-pinned-tabs-container:not([selected="true"]) > .zen-workspace-tabs-section tab-group,
 .zen-workspace-pinned-tabs-section:not([selected="true"]) tab-group {
-    background-color: var(--zen-colors-secondary) !important; 
+    background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 50%, black) !important; 
 }
 
 /* Adds border to Pins only */
 .tabbrowser-tab[pinned][selected="true"]:not([zen-essential="true"]) .tab-stack .tab-background,
 #vertical-pinned-tabs-container[selected="true"] > .zen-workspace-tabs-section tab-group,
 .zen-workspace-pinned-tabs-section[selected="true"] tab-group {
-    border: 1px solid light-dark(
+    border: 0.5px solid light-dark(
         color-mix(in srgb, var(--zen-colors-secondary) 80%, black),
         color-mix(in srgb, var(--zen-colors-secondary) 80%, white)
     ) !important;
