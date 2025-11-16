@@ -1,8 +1,4 @@
 /* URLbar styling */
-#urlbar[open].browserSidebarContainer { 
-  transform: translateX(-100%) !important;
-}
-
 #urlbar[open][zen-floating-urlbar='true'] {
   top: 180px !important;
   position: relative; 
@@ -22,7 +18,7 @@
               background-color 0.2s ease-in-out,
               box-shadow 0.2s ease-in-out;
   transform: scale(1);
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 15%, transparent) !important;
   box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(100, 100, 100, 0.5)) !important;
 }
 
@@ -35,7 +31,7 @@
 /* Hover state*/
 #urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-background {
   transform: scale(1.05);
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 40%, transparent) !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 25%, transparent) !important;
   box-shadow: inset 0 0 0 1.25px light-dark(rgba(255, 255, 255, 0.2), rgba(150, 150, 150, 0.5)) !important;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
               background-color 0.2s ease-in-out,
@@ -48,51 +44,30 @@
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Apply transition to the site data icon button */
+/* Site data icon button: base styles and transitions */
 #zen-site-data-icon-button {
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   overflow: visible !important;
-  /* Hardware acceleration for animated button */
   transform: translateZ(0);
   will-change: transform, opacity;
-}
-
-/* Apply negative margin only when urlbar is not floating and not open */
-#urlbar:not([zen-floating-urlbar='true']) #zen-site-data-icon-button {
   margin-inline-start: -25px !important;
 }
 
-/* Remove hover effect when zen site data button is open */
-#urlbar:has(#zen-site-data-icon-button[open]):hover {
-  transform: none;
-}
-
-/* Hide button by default (non-hover state) with scale and rotation */
-#urlbar:not([zen-floating-urlbar='true']) .urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
+/* Hidden state: scaled, rotated, offset */
+#urlbar .urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
   transform: translateX(25px) scale(0.8) rotate(-5deg) !important;
   opacity: 0 !important;
   pointer-events: none !important;
 }
 
-/* Show button on hover with bounce effect */
-#urlbar:not([zen-floating-urlbar='true']) .urlbar-input-container:hover #zen-site-data-icon-button, 
+/* Visible state: on hover or when open */
+#urlbar .urlbar-input-container:hover #zen-site-data-icon-button, 
 #zen-site-data-icon-button[open] {
   transform: translateX(0) scale(1) rotate(0deg) !important;
   opacity: 1 !important;
   pointer-events: auto !important;
 }
 
-/* Add subtle pulse and glow on button hover */
-#zen-site-data-icon-button:hover:not([open]) {
-  transform: scale(1.1) !important;
-  filter: brightness(1.2) drop-shadow(0 0 8px rgba(70, 130, 250, 0.4));
-}
-
-/* Active state with satisfying press effect */
-#zen-site-data-icon-button:active {
-  transform: scale(0.95) !important;
-  transition: all 0.1s ease !important;
-}
 
 /* Hide stuff in the URL bar */
 #urlbar:not([zen-floating-urlbar='true']) #zen-copy-url-button,
@@ -102,10 +77,19 @@
   display: none !important;
 }
 
-/* Center text in URL bar */
-#urlbar .urlbar-input {
+/* Centered Urlbar and Searchbar */
+#urlbar-input,
+.urlbar-input,
+#urlbar .urlbar-input,
+.urlbar-input.textbox-input {
   text-align: center !important;
-  position: relative;
+  direction: ltr !important;
+  padding-left: 0.25em !important;
+  padding-right: 0.25em !important;
+}
+#urlbar-input::placeholder,
+.urlbar-input::placeholder {
+  text-align: center !important;
 }
 
 /* ------------------ Results Rows Styling ------------------ */
