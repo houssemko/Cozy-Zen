@@ -278,34 +278,18 @@ menuitem {
   transition: all 0.25s ease-in-out !important;
 }
 
-[hasbeenopened="true"] {
-  toolbarbutton,subviewbutton{
-    toolbarbutton-text {
-      padding: 0px 0px !important;
-      opacity: 1 !important;
-      transition: all 0.25s ease-in-out !important;
-    }
-  }
+[hasbeenopened="true"] :is(menuitem, menu, .subviewbutton) .menu-text {
+  padding: 1.5px 5px !important;
+  opacity: 1 !important;
+  transition: all 0.25s ease-in-out !important;
 }
 
-[hasbeenopened="true"] {
-  menuitem,
-  menu,.subviewbutton{
-    .menu-text {
-      padding: 1.5px 5px !important;
-      opacity: 1 !important;
-      transition: all 0.25s ease-in-out !important;
-    }
-
-     &:hover > .menu-text, &:hover > .toolbarbutton-text {
-      padding-left: 9px !important;
-      padding-right: 1px !important;
-    }
-  }
+[hasbeenopened="true"] :is(menuitem, menu, .subviewbutton):hover > .menu-text {
+  padding-left: 9px !important;
+  padding-right: 1px !important;
 }
 
 
-/* Enhanced context menu with stagger animation */
 menupopup {
   animation: contextMenuSlideIn 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   transform-origin: top left;
