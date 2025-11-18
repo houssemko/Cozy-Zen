@@ -57,7 +57,4 @@ user_pref("cmi-Hide-Inactive-Items-TabContextMenu", true);
 user_pref("cmi-Center-Bookmark-Items", true);
 user_pref("cmi-fold_menu_item-enable", true);
 user_pref("cmi-Hide-Folder-Icon", false);
-user_pref("cmi-Auto-Hide-BookmarkBar", 1);
 user_pref("cmi-Switch-Icon-Package", 2);
-user_pref("cmi-Switch-Gecko-Branch", 1);
-user_pref("cmi-Switch-PC-Platform", 2);
