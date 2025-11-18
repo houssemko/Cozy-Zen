@@ -30,7 +30,7 @@ menuseparator {
   }
 }
 
-/* compact menu */
+/* === COMPACT MENU === */
 menupopup > :is(menuitem, menu) {
   height: fit-content !important;
   padding-block: 2px !important;
@@ -39,13 +39,13 @@ menupopup > :is(menuitem, menu) {
 
 :is(menuitem, menu).bookmark-item {
   padding-inline: 8px !important;
-  .menu-iconic-left {
-    margin-inline: 0px 3px !important;
-  }
 }
 
-:is(.bookmark-item, #PlacesChevron, #bookmarks-menu-button, #sidebarMenu-popup) 
-:is(menuitem, menu) {
+:is(menuitem, menu).bookmark-item .menu-iconic-left {
+  margin-inline: 0px 3px !important;
+}
+
+:is(.bookmark-item, #PlacesChevron, #bookmarks-menu-button, #sidebarMenu-popup) :is(menuitem, menu) {
   margin-inline: 0px !important;
 }
 
