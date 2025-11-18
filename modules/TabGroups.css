@@ -11,7 +11,6 @@ tab-group:not([split-view-group]) {
   box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
   border: none !important;
   border-radius: var(--border-radius-medium);
-  margin: 2px 2px 2px 2px !important;
   padding: 5px 0px !important;
   max-height: 1000px !important;
   transition: max-height 0.2s ease !important;
