@@ -1,5 +1,7 @@
+@import "modules/Window-Buttons.css";
 @import "modules/Context-Menu.css";
 @import "modules/Animations.css";
+@import "modules/TabStyles.css";
 @import "modules/TabGroups.css";
 @import "modules/Sidebar.css";
 @import "modules/Findbar.css";
