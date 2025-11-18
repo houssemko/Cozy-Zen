@@ -21,14 +21,14 @@
 #history-panel,
 :root,
 #header {
-  background-color: light-dark(rgba(255, 255, 255, 0.9), rgba(10, 10, 10, 0.95)) !important;
+  background-color: light-dark(rgba(255, 255, 255, 0.8), rgba(10, 10, 10, 0.8)) !important;
 }
 
 /* ------------------------- GENERAL SIDEBAR -------------------------- */
 /* Sidebar container */
 :root[zen-compact-mode="true"] #titlebar {
-  margin : 1px 1px 1px 1px !important;
-  padding: 5px !important;
+  margin : 1px 1px 2px 1px !important;
+  padding: 6px !important;
 }
 
 :root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) {
