@@ -6,6 +6,6 @@
 @import "modules/Sidebar.css";
 @import "modules/Findbar.css";
 @import "modules/URLbar.css";
-
+/* CMI configs */
 @import "modules/CMI/CMI-config.css";
 @import "modules/CMI/icons.css";
