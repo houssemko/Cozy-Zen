@@ -1,4 +1,10 @@
-/* --- Context Menu --- */
+/* === COMPACT MENU === */
+menupopup > :is(menuitem, menu) {
+  height: fit-content !important;
+  padding-block: 2px !important;
+  will-change: auto;
+}
+
 #contentAreaContextMenu {
   max-width: 280px !important;
 }
@@ -30,24 +36,6 @@ menuseparator {
   }
 }
 
-/* === COMPACT MENU === */
-menupopup > :is(menuitem, menu) {
-  height: fit-content !important;
-  padding-block: 2px !important;
-  will-change: auto;
-}
-
-:is(menuitem, menu).bookmark-item {
-  padding-inline: 8px !important;
-}
-
-:is(menuitem, menu).bookmark-item .menu-iconic-left {
-  margin-inline: 0px 3px !important;
-}
-
-:is(.bookmark-item, #PlacesChevron, #bookmarks-menu-button, #sidebarMenu-popup) :is(menuitem, menu) {
-  margin-inline: 0px !important;
-}
 
 /* Apply Zen workspace gradient to all context menu and panels*/
 menupopup, panel {
@@ -59,11 +47,7 @@ menupopup, panel {
 }
 
 menuitem:hover,
-menu:hover,
-menuitem:hover:active,
-menu:hover:active,
-menuitem[_moz-menuactive="true"],
-menu[_moz-menuactive="true"] {
+menu:hover {
   background-color: color-mix(in srgb, AccentColor 30%, rgba(255, 255, 255, 0.08)) !important;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, AccentColor 40%, rgba(255, 255, 255, 0.3)) !important;
 }
@@ -82,7 +66,7 @@ menu:not(:hover) {
 
 #context_zen-add-essential>.menu-text {
   display: none !important;
-}box-shadow: inset 0 0 0 1px color-mix(in srgb, AccentColor 40%, rgba(255, 255, 255, 0.3)) !important
+}
 
 #context_bookmarkTab::before {
   content: "Bookmark Tab" !important;
