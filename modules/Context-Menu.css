@@ -1,4 +1,8 @@
 /* === COMPACT MENU === */
+:root {
+  --arrowpanel-menuitem-padding-block: 2px !important;
+} 
+
 menupopup > :is(menuitem, menu) {
   height: fit-content !important;
   padding-block: 2px !important;
