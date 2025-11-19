@@ -21,16 +21,9 @@ menupopup > :is(menuitem, menu) {
 menuseparator {
   &::before {
     opacity: 0.3;
-  }
-
-  /* Hide the first separator*/
-  &:first-of-type {
-    display: none !important;
-  } 
-  &:nth-of-type(4) {
-    display: none !important;
-  }
-
+}
+  &:first-of-type,
+  &:nth-of-type(3),
   &:nth-of-type(7) {
     display: none !important;
   }
