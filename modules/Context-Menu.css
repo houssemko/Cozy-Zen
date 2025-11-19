@@ -41,8 +41,8 @@ menupopup, panel {
 
 menuitem:hover,
 menu:hover {
-  background-color: color-mix(in srgb, AccentColor 20%, rgba(255, 255, 255, 0.08)) !important;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, AccentColor 40%, rgba(255, 255, 255, 0.3)) !important;
+  background-color: color-mix(in srgb, AccentColor 30%, transparent) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, AccentColor 40%, transparent) !important;
 }
 
 menuitem:not(:hover),
