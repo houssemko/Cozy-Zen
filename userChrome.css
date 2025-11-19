@@ -1,3 +1,7 @@
+/* CMI configs */
+@import "modules/CMI/CMI-config.css";
+@import "modules/CMI/icons.css";
+/* Modules */
 @import "modules/Window-Buttons.css";
 @import "modules/Context-Menu.css";
 @import "modules/Animations.css";
@@ -6,6 +10,3 @@
 @import "modules/Sidebar.css";
 @import "modules/Findbar.css";
 @import "modules/URLbar.css";
-/* CMI configs */
-@import "modules/CMI/CMI-config.css";
-@import "modules/CMI/icons.css";
