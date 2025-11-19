@@ -43,7 +43,7 @@ user_pref("widget.gtk.rounded-bottom-corners.enabled", true);
 /**Zen-UI***/
 user_pref("zen.view.experimental-force-window-controls-left", true);
 user_pref("zen.workspaces.show-workspace-indicator", false);
-user_pref("zen.view.grey-out-inactive-windows", false);
+user_pref("zen.view.grey-out-inactive-windows", true);
 user_pref("zen.theme.content-element-separation", 1);
 user_pref("zen.urlbar.show-protections-icon", false);
 user_pref("zen.view.hide-window-controls", false);
