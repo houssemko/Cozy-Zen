@@ -13,12 +13,6 @@ tooltip {
   will-change: auto;
 }
 
-/* Dim uUnloaded Tabs */
-.tab-icon-image[pending="true"] {
-    filter: brightness(60%) !important;
-    opacity: 0.8 !important;
-}
-
 /* Tab hover and active animation with enhanced shadows */
 .tabbrowser-tab[pinned]:not([zen-essential="true"]) {       
 padding-top: 2px !important;  
