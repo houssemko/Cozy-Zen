@@ -8,7 +8,7 @@
 
 #urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
   backdrop-filter: blur(20px) !important;
-  background-color: color-mix(rgba(1, 1, 1, 0.9), transparent) !important;
+  background-color: color-mix(rgba(1, 1, 1, 0.1), transparent) !important;
   transform: translateZ(0);
 }
 
@@ -20,12 +20,8 @@
 }
 
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 20%, transparent) !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 10%, transparent) !important;
   box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(100, 100, 100, 0.5)) !important;
-}
-
-#urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-input-container {
-  background-color: transparent !important;
 }
 
 /* --- Hover State --- */
@@ -36,7 +32,7 @@
 }
 
 #urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-background {
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 35%, transparent) !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important;
   box-shadow: inset 0 0 0 1.25px light-dark(rgba(255, 255, 255, 0.2), rgba(150, 150, 150, 0.5)) !important;
 }
 
@@ -395,7 +391,7 @@
   /* Make borders more visible */
   .urlbarView-body-inner,
   .search-one-offs {
-    border-top: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.2)) !important;
+    border-top: 0 0 0 1px inset light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.2)) !important;
   }
 }
 
