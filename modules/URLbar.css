@@ -1,15 +1,8 @@
 /* URLbar styling */
 /* --- Floating Mode --- */
-#urlbar[open][zen-floating-urlbar='true'] {
-  top: 180px !important;
-  position: relative;
-  min-width: auto !important;
-}
-
 #urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
-  backdrop-filter: blur(20px) !important;
-  background-color: color-mix(rgba(1, 1, 1, 0.1), transparent) !important;
-  transform: translateZ(0);
+  backdrop-filter: blur(10px) !important;
+  background-color: ight-dark(rgba(100, 100, 100, 0.1), rgba(1, 1, 1, 0.95)) !important;
 }
 
 /* --- Base Styles --- */
@@ -20,7 +13,7 @@
 }
 
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 10%, transparent) !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 15%, transparent) !important;
   box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(100, 100, 100, 0.5)) !important;
 }
 
@@ -88,11 +81,10 @@
 }
 
 /* New Animations */
-/* Basic performance optimization */
 /* Clean button effects */
 .urlbar-icon:hover {
   transform: scale(1.2);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
 }
 
@@ -211,11 +203,11 @@
   }
 
   .urlbarView-title-separator::before {
-    color: rgba(20, 20, 20, 0.2) !important;
+    color: rgba(20, 20, 20, 0.5) !important;
     opacity: 1 !important;
 
     @media (prefers-color-scheme: dark) {
-      color: rgba(235, 235, 235, 0.2) !important;
+      color: rgba(235, 235, 235, 0.5) !important;
     }
   }
 
@@ -241,7 +233,7 @@
   .urlbarView-action,
   .urlbarView-button,
   .searchbar-engine-one-off-item {
-    --urlbar-box-focus-bgcolor: color-mix(in srgb, currentColor 16%, transparent);
+    --urlbar-box-focus-bgcolor: color-mix(in srgb, currentColor 30%, transparent);
     transition: background-color 0.2s ease !important;
   }
 }
@@ -353,17 +345,17 @@
 
   .urlbarView-row-inner .urlbarView-url {
     /* url span */
-    color: light-dark(var(--zen-colors-primary), var(--zen-colors-primary-foreground)) !important;
+    color: var(--zen-colors-primary-foreground) !important;
   }
 
   .urlbarView-row:hover .urlbarView-row-inner,
   .urlbarView-row-inner[selected] {
     .urlbarView-no-wrap .urlbarView-favicon {
-      background-color: color-mix(in srgb, light-dark(var(--zen-primary-color), var(--zen-colors-primary-foreground)) 50%, transparent) !important;
+      background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 80%, transparent) !important;
     }
 
     .urlbarView-url {
-      color: light-dark(var(--zen-colors-primary), var(--zen-colors-primary-foreground)) !important;
+      color: var(--zen-colors-primary-foreground) !important;
     }
   }
 
