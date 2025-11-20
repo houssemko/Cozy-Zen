@@ -1,71 +1,58 @@
 /* URLbar styling */
+/* --- Floating Mode --- */
 #urlbar[open][zen-floating-urlbar='true'] {
   top: 180px !important;
-  position: relative; 
-  min-width: auto !important; 
+  position: relative;
+  min-width: auto !important;
 }
 
 #urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
-  backdrop-filter: blur(15px) !important;
-  background-color: light-dark(rgba(255, 255, 255, 0.1), rgba(10, 10, 10, 0.85)) !important;
+  backdrop-filter: blur(20px) !important;
+  background-color: color-mix(rgba(1, 1, 1, 0.9), transparent) !important;
   transform: translateZ(0);
-  will-change: backdrop-filter, background-color;
-} 
+}
 
-/* Default state*/
-#urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
-  transition: transform 0.2s ease-in-out,
-              background-color 0.2s ease-in-out,
-              box-shadow 0.2s ease-in-out;
+/* --- Base Styles --- */
+#urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background,
+#urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-input-container {
   transform: scale(1);
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
   background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 20%, transparent) !important;
   box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(100, 100, 100, 0.5)) !important;
 }
 
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-input-container {
-  transition: transform 0.2s ease-in-out;
-  transform: scale(1);
   background-color: transparent !important;
 }
 
-/* Hover state*/
-#urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-background {
-  transform: translateY(-2px) scale(1.05);
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 35%, transparent) !important;
-  box-shadow: inset 0 0 0 1.25px light-dark(rgba(255, 255, 255, 0.2), rgba(150, 150, 150, 0.5)) !important;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-              background-color 0.2s ease-in-out,
-              box-shadow 0.2s ease-in-out;
-}
-
+/* --- Hover State --- */
+#urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-background,
 #urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-input-container {
   transform: translateY(-2px) scale(1.05);
-  background-color: transparent !important; 
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); 
 }
 
-/* Site data icon button: base styles and transitions */
+#urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-background {
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 35%, transparent) !important;
+  box-shadow: inset 0 0 0 1.25px light-dark(rgba(255, 255, 255, 0.2), rgba(150, 150, 150, 0.5)) !important;
+}
+
+/* Zen site icon */
 #zen-site-data-icon-button {
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-  overflow: visible !important;
-  transform: translateZ(0);
-  will-change: transform, opacity;
   margin-inline-start: -25px !important;
-}
-
-/* Hidden state: scaled, rotated, offset */
-#urlbar .urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
-  transform: translateX(25px) scale(0.8) rotate(-5deg) !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-/* Visible state: on hover or when open */
-#urlbar .urlbar-input-container:hover #zen-site-data-icon-button, 
-#zen-site-data-icon-button[open] {
-  transform: translateX(0) scale(1) rotate(0deg) !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   opacity: 1 !important;
+  transform: translateX(0) scale(1) rotate(0deg) !important;
   pointer-events: auto !important;
+}
+
+#urlbar .urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
+  opacity: 0 !important;
+  transform: translateX(25px) scale(0.8) rotate(-5deg) !important;
+  pointer-events: none !important;
 }
 
 
@@ -170,7 +157,7 @@
 
     .urlbarView-title,
     .urlbarView-url {
-      font-weight: 800 !important;
+      font-weight: 500 !important;
       margin-top: auto !important;
       margin-bottom: auto !important;
     }
@@ -290,7 +277,7 @@
 
     .urlbarView-title,
     .urlbarView-url {
-      font-weight: 800 !important;
+      font-weight: 500 !important;
       margin-top: auto !important;
       margin-bottom: auto !important;
     }
