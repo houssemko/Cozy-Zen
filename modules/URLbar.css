@@ -55,7 +55,6 @@
   pointer-events: none !important;
 }
 
-
 /* Hide stuff in the URL bar */
 #urlbar:not([zen-floating-urlbar='true']) #zen-copy-url-button,
 #urlbar:not([zen-floating-urlbar='true']) #urlbar-zoom-button,
