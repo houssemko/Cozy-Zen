@@ -1,14 +1,13 @@
 /* URLbar styling */
 /* --- Floating Mode --- */
 #urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
-  backdrop-filter: blur(10px) !important;
-  background-color: ight-dark(rgba(100, 100, 100, 0.1), rgba(1, 1, 1, 0.95)) !important;
+  backdrop-filter: blur(20px) !important;
+  background-color: light-dark(rgba(100, 100, 100, 0.5), rgba(10, 10, 10, 0.8)) !important;
 }
 
 /* --- Base Styles --- */
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background,
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-input-container {
-  transform: scale(1);
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
