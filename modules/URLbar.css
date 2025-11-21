@@ -52,35 +52,11 @@
 }
 
 /* Centered Urlbar and Searchbar */
-#urlbar-input,
-.urlbar-input,
-#urlbar .urlbar-input,
-.urlbar-input.textbox-input {
-  text-align: center !important;
-  direction: ltr !important;
-  padding-left: 0.25em !important;
-  padding-right: 0.25em !important;
-}
-#urlbar-input::placeholder,
-.urlbar-input::placeholder {
+#urlbar .urlbar-input{
   text-align: center !important;
 }
 
 /* ------------------ Results Rows Styling ------------------ */
-/* Remove favicon background when row is selected */
-.urlbarView-row-inner[selected] .urlbarView-favicon {
-  background: none !important;
-}
-
-/* Invert search icon for dark mode */
-@media (prefers-color-scheme: dark) {
-  .urlbarView-favicon[src="chrome://global/skin/icons/search-glass.svg"] {
-    filter: invert(1);
-  }
-}
-
-/* New Animations */
-/* Clean button effects */
 .urlbar-icon:hover {
   transform: scale(1.2);
   background: rgba(255, 255, 255, 0.5);
@@ -225,7 +201,7 @@
   .urlbarView-row:hover .urlbarView-row-inner,
   .urlbarView-row-inner[selected] {
     .urlbarView-no-wrap .urlbarView-favicon {
-      background-color: color-mix(in srgb, light-dark(var(--zen-primary-color), var(--zen-colors-primary-foreground)) 50%, transparent) !important;
+      background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 50%, transparent) !important;
     }
   }
 
@@ -322,11 +298,11 @@
   }
 
   .urlbarView-title-separator::before {
-    color: rgba(20, 20, 20, 0.2) !important;
+    color: rgba(20, 20, 20, 0.5) !important;
     opacity: 1 !important;
 
     @media (prefers-color-scheme: dark) {
-      color: rgba(235, 235, 235, 0.2) !important;
+      color: rgba(235, 235, 235, 0.5) !important;
     }
   }
 
@@ -361,7 +337,7 @@
   .urlbarView-action,
   .urlbarView-button,
   .searchbar-engine-one-off-item {
-    --urlbar-box-focus-bgcolor: color-mix(in srgb, currentColor 16%, transparent);
+    --urlbar-box-focus-bgcolor: color-mix(in srgb, currentColor 30%, transparent);
     transition: background-color 0.2s ease !important;
     /* Hardware acceleration for animated icons/buttons */
     transform: translateZ(0);
@@ -382,7 +358,7 @@
   /* Make borders more visible */
   .urlbarView-body-inner,
   .search-one-offs {
-    border-top: 0 0 0 1px inset light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.2)) !important;
+    border-top: 0 0 0 1px inset light-dark(rgba(20, 20, 20, 0.5), rgba(235, 235, 235, 0.5)) !important;
   }
 }
 
