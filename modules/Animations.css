@@ -433,6 +433,21 @@ html[zen-single-toolbar="true"] {
   }
 
   /* Downloads & Bookmarks */
+  #BMB_viewBookmarksSidebar,
+#BMB_searchBookmarks,
+#BMB_bookmarksShowAllTop,
+#BMB_bookmarksShowAll {
+  display: none !important;
+}
+
+#bookmarks-menu-button #BMB_viewBookmarksToolbar {
+  display: none !important;
+}
+
+#BMB_bookmarksPopup menuseparator {
+  display: none;
+}
+
   :is(#downloads-button, #bookmarks-menu-button):hover :is(.toolbarbutton-badge-stack, .toolbarbutton-icon) {
     animation: bounce-down 0.5s ease-out;
   }
