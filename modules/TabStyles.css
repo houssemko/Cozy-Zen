@@ -1,3 +1,4 @@
+/* === TAB Styling === */
 /* Adds a background to Pinned tabs */
 .tabbrowser-tab[pinned]:not([selected="true"]):not([zen-essential="true"]) .tab-stack .tab-background {
     background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important; 
@@ -6,8 +7,8 @@
 /* Selected-pinned-Tabs */
 .tabbrowser-tab[pinned]([selected="true"]):not([zen-essential="true"]) .tab-stack .tab-background  {
   background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 35%, transparent) !important;
-}
-
+  box-shadow : 0 0 0 1px inset color-mix(in srgb, var(--toolbar-color) 50%, transparent) !important;
+ }
 
 /* show tab close/reset button only on hover with cool animation */
 :is(.tab-close-button, .tab-reset-button)
@@ -25,7 +26,6 @@
   opacity: 0 !important;
   pointer-events: none !important;
 }
-
 
 /* ------------------------- QUIETIFY SOUND ICON ------------------------- */
 .tab-audio-button {
@@ -49,7 +49,7 @@
         top: 0px !important;
         right: 0px !important;
         scale: 0.9 !important;
-        opacity: 0.5 !important;
+        opacity: 0.7 !important;
         margin: 0px 3px !important;
         background: none !important;
         pointer-events: auto !important;
