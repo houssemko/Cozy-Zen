@@ -19,24 +19,17 @@ tooltip {
 }
 
 .tabbrowser-tab {
-  position: relative;     
+  position: fixed;     
   overflow: visible;       
   transition: box-shadow 0.2s cubic-bezier(0.4,0,0.2,1),
               opacity 0.15s cubic-bezier(0.4,0,0.2,1),
               filter 0.2s ease !important;
   box-shadow: none !important;
-  transform: translateZ(0);
-  will-change: transform;
   z-index: 0;
 }
 
-.tabbrowser-tab:hover .tab-inner {
-  transform: translateY(-1.5px) scale(1.05);
-}
-
 .tabbrowser-tab:hover {
-  box-shadow: 0 4px 12px -4px rgba(30,40,80,0.09);
-  z-index: 1; 
+  transform: translateY(-1.5px) scale(1.05);
 }
 
 /* Fade inactive tabs with breathing effect */
