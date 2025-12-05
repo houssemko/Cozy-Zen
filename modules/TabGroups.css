@@ -6,10 +6,11 @@
 }
 
 tab-group:not([split-view-group]) {
+  isolation: isolate;
   display: grid !important;
   background: color-mix(in srgb, var(--tab-group-color-invert) 15%, transparent) !important;
   box-shadow:  0 0 0 1px inset color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
-  margin: 1px 1px 2px 2px !important;
+  margin: 1px 1px 3px 3px !important;
   border-radius: var(--border-radius-medium);
   padding: 5px 0px !important;
   max-height: 1000px !important;
@@ -25,32 +26,19 @@ tab-group:not([split-view-group]) {
   
   &[collapsed]:hover {
     background-color: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
-    transform: translateY(-2px) scale(1.05) ;
-    box-shadow: 0 4px 12px -4px rgba(30,40,80,0.09);
-    z-index: 2;
+    transform: translateY(-1px) scale(1.03) ;
   }
- 
 
-  &:after {
-    display: none;
-    padding: 0px !important;
-    background-color: color-mix(
-      in srgb,
-      var(--tab-group-color) 50%,
-      transparent
-    ) !important;
-  }
-  
   &>.tab-group-container {
     :root[zen-sidebar-expanded] &>* {
       margin-inline-start: unset !important;
-      scale: 1 !important;
+      margin-inline-end: unset !important;
+      scale: 0.98 !important;
     }
   }
-
+  
   & tab {
     transition: opacity 0.5s ease !important;
-    /* Hardware acceleration for individual tabs */
     transform: translateZ(0);
     will-change: auto;
   }
@@ -58,7 +46,7 @@ tab-group:not([split-view-group]) {
   &>vbox {
     padding-top: 0px !important;
   }
-
+  
   /* group icon */
   & .tab-group-label-container {
     flex: 0 0 auto !important;
@@ -180,10 +168,10 @@ tab-group:not([split-view-group]) {
   &[collapsed] {
     overflow: hidden !important;
     max-height: 3rem !important;
-
+    
     & tab {
       display: flex !important;
-      z-index: -1 !important;
+      pointer-events: none !important;
       opacity: 0 !important;
       transform: translateY(-10px) !important;
       transition: opacity 0.25s ease-in, font-size 0.25s ease-out, margin 0.25s ease-out, padding 0.25s ease-out !important;
@@ -242,8 +230,12 @@ tab-group:not([split-view-group]) {
 }
 
 tab-group[collapsed] .tab-group-container {
-  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
 }
+
 
 tab-group .tab-group-label-container {
   display: block;
