@@ -55,6 +55,14 @@ menu:not(:hover) {
 }
 
 /* Debloat tab name */
+menuitem.badge-new::after {
+  display: none !important;
+}
+
+#context_zen-add-essential::after {
+  display: none !important;
+}
+
 #context_zen-add-essential::before {
   content: "Add to Essentials" !important;
 }
@@ -115,8 +123,10 @@ menu:not(:hover) {
 #context-print-selection,
 #context-searchselect-private,
 #context-openlinkinusercontext-menu,
+#context-openlinkinnewcontainercontext-menu,
 #context-openlinkprivate,
 #context-bookmarklink,
+#context-openlink,
 #context-stripOnShareLink[disabled="true"],
 #context-inspect,
 #inspect-separator,
