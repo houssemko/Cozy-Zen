@@ -1,16 +1,31 @@
 /* === TAB ANIMATIONS === */
-/* Hardware acceleration & will-change for best performance */
-#tabbrowser-tabs,
-.tabbrowser-tab,
-#nav-bar toolbarbutton,
-#PersonalToolbar toolbarbutton,
-#urlbar,
-#searchbar,
-menupopup,
-panel,
-tooltip {
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.tabbrowser-tab *,
+#nav-bar toolbarbutton *,
+#PersonalToolbar toolbarbutton *,
+#urlbar *,
+#searchbar *,
+menupopup *,
+menuitem *,
+#sidebar-box *,
+#downloads-notification-anchor * {
+  backface-visibility: hidden;
+}
+.zen-floating-urlbar,
+.zen-floating-status-bar {
   transform: translateZ(0);
-  will-change: auto;
+  will-change: transform, opacity;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease-out;
+  contain: layout style paint;
 }
 
 /* Tab hover and active animation with enhanced shadows */
@@ -21,15 +36,14 @@ tooltip {
 .tabbrowser-tab {
   position: fixed;     
   overflow: visible;       
-  transition: box-shadow 0.2s cubic-bezier(0.4,0,0.2,1),
-              opacity 0.15s cubic-bezier(0.4,0,0.2,1),
-              filter 0.2s ease !important;
+   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   box-shadow: none !important;
   z-index: 0;
 }
 
 .tabbrowser-tab:hover {
   transform: translateY(-1.5px) scale(1.05);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Fade inactive tabs with breathing effect */
@@ -80,7 +94,7 @@ tooltip {
 /* NAVIGATION BUTTON ANIMATIONS */
 #back-button {
   transition: transform 0.22s cubic-bezier(0.68,-0.6, 0.32,1.6),
-              box-shadow 0.18s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
               opacity 0.15s ease !important;
   border-radius: 6px;
 }
@@ -98,7 +112,7 @@ tooltip {
 /* Forward button without trail effect */
 #forward-button {
   transition: transform 0.22s cubic-bezier(0.68,-0.6, 0.32,1.6),
-              box-shadow 0.18s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
               opacity 0.15s ease !important;
   border-radius: 6px;
 }
@@ -116,7 +130,7 @@ tooltip {
 /* Reload button with enhanced spin and pulse */
 #reload-button {
   transition: transform 0.25s cubic-bezier(0.68,-0.6, 0.32,1.6),
-              box-shadow 0.18s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
               opacity 0.15s ease !important;
   border-radius: 6px;
   position: relative;
