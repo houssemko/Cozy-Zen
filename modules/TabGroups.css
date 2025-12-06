@@ -16,7 +16,6 @@ tab-group:not([split-view-group]) {
   max-height: 1000px !important;
   transition: max-height 0.2s ease !important;
   overflow: hidden !important;
-  /* Hardware acceleration for animated group */
   transform: translateZ(0);
   will-change: auto;
   
