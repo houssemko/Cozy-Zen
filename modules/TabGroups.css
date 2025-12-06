@@ -6,8 +6,7 @@
 }
 
 tab-group:not([split-view-group]) {
-  isolation: isolate;
-  display: grid !important;
+  display: block !important;
   background: color-mix(in srgb, var(--tab-group-color-invert) 15%, transparent) !important;
   box-shadow:  0 0 0 1px inset color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
   margin: 1px 1px 2px 1px !important;
@@ -18,16 +17,28 @@ tab-group:not([split-view-group]) {
   overflow: hidden !important;
   transform: translateZ(0);
   will-change: auto;
-  
   @media (-moz-pref("zen.view.sidebar-expanded")) {
     width: var(--tab-max-width) !important;
   }
-  
+   
   &[collapsed]:hover {
     background-color: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
     transform: translateY(-1px) scale(1.03) ;
   }
 
+ /* Make collapsed groups fully draggable */
+  &[collapsed] {
+    cursor: grab !important;
+    
+    &:hover {
+      cursor: grab !important;
+    }
+    
+    &[dragging] {
+      cursor: grabbing !important;
+    }
+  }
+  
   &>.tab-group-container {
     :root[zen-sidebar-expanded] &>* {
       margin-inline-start: unset !important;
@@ -35,7 +46,7 @@ tab-group:not([split-view-group]) {
       scale: 0.98 !important;
     }
   }
-  
+   
   & tab {
     transition: opacity 0.5s ease !important;
     transform: translateZ(0);
@@ -45,7 +56,7 @@ tab-group:not([split-view-group]) {
   &>vbox {
     padding-top: 0px !important;
   }
-  
+   
   /* group icon */
   & .tab-group-label-container {
     flex: 0 0 auto !important;
@@ -167,7 +178,7 @@ tab-group:not([split-view-group]) {
   &[collapsed] {
     overflow: hidden !important;
     max-height: 3rem !important;
-    
+     
     & tab {
       display: flex !important;
       pointer-events: none !important;
@@ -229,17 +240,14 @@ tab-group:not([split-view-group]) {
 }
 
 tab-group[collapsed] .tab-group-container {
+  position: relative !important;
   visibility: hidden !important;
-  pointer-events: none !important;
   height: 0 !important;
   min-height: 0 !important;
-}
-
-
-tab-group .tab-group-label-container {
-  display: block;
+  transform: none !important;
+  display: block !important;
 }
 
 tab-group .tab-group-label-container .tab-group-label {
-  display: block;
+  display: block !important;
 }
