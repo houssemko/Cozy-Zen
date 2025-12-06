@@ -26,18 +26,6 @@ tab-group:not([split-view-group]) {
     transform: translateY(-1px) scale(1.03) ;
   }
 
- /* Make collapsed groups fully draggable */
-  &[collapsed] {
-    cursor: grab !important;
-    
-    &:hover {
-      cursor: grab !important;
-    }
-    
-    &[dragging] {
-      cursor: grabbing !important;
-    }
-  }
   
   &>.tab-group-container {
     :root[zen-sidebar-expanded] &>* {
@@ -59,17 +47,12 @@ tab-group:not([split-view-group]) {
    
   /* group icon */
   & .tab-group-label-container {
-    flex: 0 0 auto !important;
-    position: sticky !important;
-    top: 18 !important;
-    z-index: 1000 !important;
     margin: 0 !important;
     height: 24px !important;
     border-radius: calc(var(--border-radius-medium) + 2px) !important;
     transition: transform 0.2s ease;
     transition: background-color 0.2s ease, border-radius 0.2s ease-in-out;
     display: block;
-    /* Hardware acceleration for label container */
     transform: translateZ(0);
     will-change: auto;
 
@@ -240,7 +223,6 @@ tab-group:not([split-view-group]) {
 }
 
 tab-group[collapsed] .tab-group-container {
-  position: relative !important;
   visibility: hidden !important;
   height: 0 !important;
   min-height: 0 !important;
