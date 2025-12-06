@@ -42,7 +42,7 @@ menuitem *,
 }
 
 .tabbrowser-tab:hover {
-  transform: translateY(-1.5px) scale(1.05);
+  transform: translateY(-1.5px) scale(1.03) !important;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
