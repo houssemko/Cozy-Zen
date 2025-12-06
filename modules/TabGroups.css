@@ -28,12 +28,10 @@ tab-group:not([split-view-group]) {
 
   
   &>.tab-group-container {
-    :root[zen-sidebar-expanded] &>* {
       margin-inline-start: unset !important;
       margin-inline-end: unset !important;
-      scale: 0.98 !important;
+      display: block;
     }
-  }
    
   & tab {
     transition: opacity 0.5s ease !important;
@@ -47,6 +45,7 @@ tab-group:not([split-view-group]) {
    
   /* group icon */
   & .tab-group-label-container {
+    position: relative !important;
     margin: 0 !important;
     height: 24px !important;
     border-radius: calc(var(--border-radius-medium) + 2px) !important;
@@ -227,7 +226,6 @@ tab-group[collapsed] .tab-group-container {
   height: 0 !important;
   min-height: 0 !important;
   transform: none !important;
-  display: block !important;
 }
 
 tab-group .tab-group-label-container .tab-group-label {
