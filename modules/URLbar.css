@@ -3,12 +3,14 @@
 #urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
   backdrop-filter: blur(20px) !important;
   background-color: light-dark(rgba(100, 100, 100, 0.5), rgba(10, 10, 10, 0.8)) !important;
+  pointer-events: auto !important;
 }
 
 /* --- Base Styles --- */
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background,
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-input-container {
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  pointer-events: auto !important;
 }
 
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
@@ -43,6 +45,29 @@
   pointer-events: none !important;
 }
 
+/* Extensions list*/
+#zen-site-data-addons {
+    display: block !important;
+
+#overflowed-extensions-list,
+    & #unified-extensions-area,
+    & .unified-extensions-list,
+    & #zen-site-data-new-addon-button-container {
+        &>* {
+            width: 100% !important;
+            height: auto !important;
+            justify-content: normal !important;
+            align-items: normal !important;
+            margin-top: 5px !important;
+        }
+
+.unified-extensions-item-name {
+            display: block !important;
+        }
+    }
+}
+.unified-extensions-item-action-button .toolbarbutton-text { display: flex !important; }
+
 /* Hide stuff in the URL bar */
 #urlbar:not([zen-floating-urlbar='true']) #zen-copy-url-button,
 #urlbar:not([zen-floating-urlbar='true']) #urlbar-zoom-button,
@@ -57,6 +82,42 @@
 }
 
 /* ------------------ Results Rows Styling ------------------ */
+/* Individual result appear animation */
+.urlbarView-row {
+  --animation-duration: .5s;
+  --animation-duration-subtle: 0.5s;
+  --animation-delay: 0.05s;
+  --animation-delay-offset: 0s;
+}
+
+@keyframes individual-result-appear {
+  100% {
+    opacity: 1;
+    scale: 1;
+    background: transparent;
+  }
+}
+
+@keyframes individual-result-appear-subtle {
+  0% {
+    opacity: 1;
+    scale: 1;
+    background: transparent;
+  }
+
+  60% {
+    scale: 1.05;
+    background: light-dark(var(--zen-primary-bg), var(--zen-colors-primary));
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+    background: transparent;
+  }
+}
+
+
 .urlbar-icon:hover {
   transform: scale(1.2);
   background: rgba(255, 255, 255, 0.5);
