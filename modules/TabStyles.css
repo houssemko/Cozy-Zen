@@ -14,17 +14,12 @@
 :is(.tab-close-button, .tab-reset-button)
 {transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;}
 
-.tabbrowser-tab:not([pinned],[zen-essential])
-.tab-close-button,
-.tabbrowser-tab[pinned]:not([zen-essential])
-.tab-reset-button
-{display: flex !important;}
-
-.tabbrowser-tab:not([pinned]):not(:hover) 
+.tabbrowser-tab :not(:hover) 
 :is(.tab-close-button, .tab-reset-button){
   margin-inline-end: -25px !important;
   opacity: 0 !important;
   pointer-events: none !important;
+  display: flex !important;
 }
 
 /* ------------------------- QUIETIFY SOUND ICON ------------------------- */
