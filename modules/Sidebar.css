@@ -34,7 +34,7 @@
 :root[zen-compact-mode="true"] #titlebar {
   margin : 1px 1px 1px 1px !important;
   padding: 5px !important;
-  pointer-events: auto !important;
+  isolation: isolate;
 }
 
 :root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) {
