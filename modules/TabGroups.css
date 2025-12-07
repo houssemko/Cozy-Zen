@@ -44,7 +44,7 @@ tab-group:not([split-view-group]) {
     border-radius: calc(var(--border-radius-medium) + 2px) !important;
     transition: transform 0.2s ease;
     transition: background-color 0.2s ease, border-radius 0.2s ease-in-out;
-    display: block;
+    display: block !important;
     transform: translateZ(0);
     will-change: auto;
 
@@ -220,8 +220,4 @@ tab-group[collapsed] .tab-group-container {
   height: 0 !important;
   min-height: 0 !important;
   transform: none !important;
-}
-
-tab-group .tab-group-label-container .tab-group-label {
-  display: block !important;
 }
