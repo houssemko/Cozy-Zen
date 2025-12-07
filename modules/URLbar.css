@@ -3,14 +3,13 @@
 #urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
   backdrop-filter: blur(20px) !important;
   background-color: light-dark(rgba(100, 100, 100, 0.5), rgba(10, 10, 10, 0.8)) !important;
-  pointer-events: auto !important;
+  isolation: isolate;
 }
 
 /* --- Base Styles --- */
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background,
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-input-container {
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  pointer-events: auto !important;
 }
 
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
@@ -35,8 +34,6 @@
   margin-inline-start: -25px !important;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   opacity: 1 !important;
-  transform: translateX(0) scale(1) rotate(0deg) !important;
-  pointer-events: auto !important;
 }
 
 #urlbar .urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
