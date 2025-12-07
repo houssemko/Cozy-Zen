@@ -33,7 +33,7 @@ If you haven’t already, enable `userChrome.css` support in Zen:
                └── CMI-config.css  ← ✅ customization file (edit this!)
    ```
 
-> 💡 **Important**: The `CMI-config.css` file **must be inside** the `icons/` folder for CMI to load properly.
+> 💡 **Important**: The `CMI-config.css` file **must be inside** the `CMI/` folder for CMI to load properly.
 
 ### 3. Enable Required Preference
 In `about:config`, ensure this setting is **enabled**:
@@ -42,7 +42,7 @@ svg.context-properties.content.enabled = true
 ```
 > ⚠️ CMI will **not run** without this.
 
-### 4. Place `user.js` inside your [Zen profile folder]
+### 4. Place `user.js` inside your [Zen profile folder] or add the text inside to the end of your existing `user.js` file.
 ### 5. Restart Zen Browser
 After copying files and setting preferences, fully restart Zen to apply changes.
 
