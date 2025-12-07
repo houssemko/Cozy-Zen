@@ -6,13 +6,13 @@
 }
 
 tab-group:not([split-view-group]) {
-  display: block !important;
+  display: grid !important;
   background: color-mix(in srgb, var(--tab-group-color-invert) 15%, transparent) !important;
   box-shadow:  0 0 0 1px inset color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent) !important;
   margin: 2px 0 2px 0 !important;
   border-radius: var(--border-radius-medium);
   padding: 5px 2px !important;
-  max-height: 1000px !important;
+  max-height: 700px !important;
   transition: max-height 0.2s ease !important;
   overflow: hidden !important;
   transform: translateZ(0);
@@ -25,13 +25,6 @@ tab-group:not([split-view-group]) {
     background-color: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
     transform: translateY(-1px) scale(1.03) ;
   }
-
-  
-  &>.tab-group-container {
-      margin-inline-start: unset !important;
-      margin-inline-end: unset !important;
-      display: block;
-    }
    
   & tab {
     transition: opacity 0.5s ease !important;
@@ -213,7 +206,7 @@ tab-group:not([split-view-group]) {
       --tab-group-color: transparent !important;
     }
 
-    margin-left: 7px !important;
+    margin-left: 3px !important;
     margin-right: 1px !important;
   }
 
