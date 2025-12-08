@@ -196,17 +196,12 @@ tab-group:not([split-view-group]) {
   & tab:not([zen-glance-tab]) {
     overflow: visible !important;
 
-    &:active {
-      transition: scale 0.03s !important;
-      scale: 1;
-    }
-
     .tab-group-line {
       --tab-group-color-invert: transparent !important;
       --tab-group-color: transparent !important;
     }
 
-    margin-left: 3px !important;
+    margin-left: 2px !important;
     margin-right: 1px !important;
   }
 
