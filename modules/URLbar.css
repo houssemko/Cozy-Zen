@@ -3,13 +3,14 @@
 #urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
   backdrop-filter: blur(20px) !important;
   background-color: light-dark(rgba(100, 100, 100, 0.5), rgba(10, 10, 10, 0.8)) !important;
-  isolation: isolate;
+  isolation: isolate !important;
 }
 
 /* --- Base Styles --- */
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background,
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-input-container {
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  isolation: isolate !important;
 }
 
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
@@ -44,26 +45,29 @@
 
 /* Extensions list*/
 #zen-site-data-addons {
-    display: block !important;
+  display: block !important;
+}
 
 #overflowed-extensions-list,
-    & #unified-extensions-area,
-    & .unified-extensions-list,
-    & #zen-site-data-new-addon-button-container {
-        &>* {
-            width: 100% !important;
-            height: auto !important;
-            justify-content: normal !important;
-            align-items: normal !important;
-            margin-top: 5px !important;
-        }
-
-.unified-extensions-item-name {
-            display: block !important;
-        }
-    }
+#zen-site-data-addons #unified-extensions-area,
+#zen-site-data-addons .unified-extensions-list,
+#zen-site-data-addons #zen-site-data-new-addon-button-container {
+  & > * {
+    width: 100% !important;
+    height: auto !important;
+    justify-content: normal !important;
+    align-items: normal !important;
+    margin-top: 5px !important;
+  }
 }
-.unified-extensions-item-action-button .toolbarbutton-text { display: flex !important; }
+
+#zen-site-data-addons .unified-extensions-item-name {
+  display: block !important;
+}
+
+.unified-extensions-item-action-button .toolbarbutton-text {
+  display: flex !important;
+}
 
 /* Hide stuff in the URL bar */
 #urlbar:not([zen-floating-urlbar='true']) #zen-copy-url-button,
@@ -74,7 +78,7 @@
 }
 
 /* Centered Urlbar and Searchbar */
-#urlbar .urlbar-input{
+#urlbar .urlbar-input {
   text-align: center !important;
 }
 
@@ -114,7 +118,6 @@
   }
 }
 
-
 .urlbar-icon:hover {
   transform: scale(1.2);
   background: rgba(255, 255, 255, 0.5);
@@ -139,12 +142,12 @@
   }
 
   &[breakout-extend] {
-      animation-name: urlbar-appear;
-      animation-duration: var(--animation-duration);
+    animation-name: urlbar-appear;
+    animation-duration: var(--animation-duration);
 
-      @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
-        animation-name: urlbar-appear-sideways;
-      }
+    @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
+      animation-name: urlbar-appear-sideways;
+    }
 
     #urlbar-input {
       margin-left: 2px !important;
@@ -154,9 +157,9 @@
         margin-left: 4px !important;
       }
     }
+  }
 
-  &:is([pageproxystate="invalid"]):is([usertyping]) {
-
+  &[breakout-extend]:is([pageproxystate="invalid"]):is([usertyping]) {
     .urlbarView-row,
     .urlbarView-row .urlbarView-type-icon {
       animation: none !important;
@@ -166,7 +169,6 @@
   
   .urlbarView-row {
     transition: transform 0.2s ease;
-    /* Hardware acceleration for animated rows */
     transform: translateZ(0);
     will-change: transform, background;
 
@@ -188,7 +190,7 @@
     }
 
     .urlbarView-button {
-      display: inline-block !important;
+      display: none !important;
       min-width: 0 !important;
       min-height: 0 !important;
       width: 0 !important;
@@ -197,127 +199,6 @@
       margin-right: 0 !important;
       opacity: 0;
       transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease, margin 0.2s ease, background-color 0.2s ease !important;
-      display: none !important;
-    }
-
-    .urlbarView-favicon {
-      transition: background-color 0.2s ease !important;
-    }
-
-    &:active {
-      transform: scale(0.95, 0.95);
-    }
-
-    &[selected] {
-      background: transparent !important;
-    }
-
-    &:hover {
-      background: transparent !important;
-
-      .urlbarView-row-inner {
-        background: var(--urlbarView-hover-background) !important;
-      }
-
-      .urlbarView-button {
-        max-width: 24px !important;
-        max-height: 24px !important;
-        width: 24px !important;
-        height: 24px !important;
-        opacity: 1;
-        margin-left: 2px !important;
-        margin-right: 2px !important;
-      }
-    }
-
-    .urlbarView-row-inner[selected] {
-      background: var(--urlbarView-hover-background) !important;
-    }
-  }
-
-  .urlbarView-title-separator::before {
-    color: rgba(20, 20, 20, 0.5) !important;
-    opacity: 1 !important;
-
-    @media (prefers-color-scheme: dark) {
-      color: rgba(235, 235, 235, 0.5) !important;
-    }
-  }
-
-  .urlbarView-row[has-action]:is([type="switchtab"],
-    [type="remotetab"],
-    [type="clipboard"]) {
-    .urlbarView-action {
-      margin-left: 8px !important;
-    }
-
-    .urlbarView-title-separator::before {
-      opacity: 0 !important;
-    }
-  }
-
-  .urlbarView-row:hover .urlbarView-row-inner,
-  .urlbarView-row-inner[selected] {
-    .urlbarView-no-wrap .urlbarView-favicon {
-      background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 50%, transparent) !important;
-    }
-  }
-
-  .urlbarView-action,
-  .urlbarView-button,
-  .searchbar-engine-one-off-item {
-    --urlbar-box-focus-bgcolor: color-mix(in srgb, currentColor 30%, transparent);
-    transition: background-color 0.2s ease !important;
-  }
-}
-
-#urlbar-results,
-#PopupAutoCompleteRichResult,
-.autocomplete-richlistbox {
-  overflow-y: auto !important;
-  padding-right: 18px !important;
-  margin-right: -18px !important;
-}
-
-.urlbarView-body-outer {
-  overflow-x: hidden !important;
-}
-}
-
-  .urlbarView-row {
-    transition: transform 0.2s ease;
-    /* Hardware acceleration for animated rows */
-    transform: translateZ(0);
-    will-change: transform, background;
-
-    .urlbarView-row-inner {
-      border-radius: 8px !important;
-      transition: background 0.2s ease;
-    }
-
-    .urlbarView-title,
-    .urlbarView-url {
-      font-weight: 500 !important;
-      margin-top: auto !important;
-      margin-bottom: auto !important;
-    }
-
-    .urlbarView-title-separator {
-      margin-top: auto !important;
-      margin-bottom: auto !important;
-    }
-
-    .urlbarView-button {
-      display: inline-block !important;
-      min-width: 0 !important;
-      min-height: 0 !important;
-      width: 0 !important;
-      height: 0 !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      opacity: 0;
-      transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease, margin 0.2s ease, background-color 0.2s ease !important;
-      display: none !important;
     }
 
     .urlbarView-favicon {
@@ -377,7 +258,6 @@
   }
 
   .urlbarView-row-inner .urlbarView-url {
-    /* url span */
     color: var(--zen-colors-primary-foreground) !important;
   }
 
@@ -397,26 +277,21 @@
   .searchbar-engine-one-off-item {
     --urlbar-box-focus-bgcolor: color-mix(in srgb, currentColor 30%, transparent);
     transition: background-color 0.2s ease !important;
-    /* Hardware acceleration for animated icons/buttons */
     transform: translateZ(0);
     will-change: background-color;
   }
 
-  /* Results URL display */
   .urlbarView-url {
     --urlbarView-second-line-indent: calc(var(--urlbarView-icon-margin-start) + var(--urlbarView-icon-margin-end) + var(--urlbarView-favicon-width) + 2px);
     color: var(--zen-colors-primary-foreground) !important;
   }
 
-  /* Wrapped indents fix */
   .urlbarView-action {
     --urlbarView-second-line-indent: calc(var(--urlbarView-icon-margin-start) + var(--urlbarView-icon-margin-end) + var(--urlbarView-favicon-width) + 2px);
   }
 
-  /* Make borders more visible */
   .urlbarView-body-inner,
   .search-one-offs {
     border-top: 0 0 0 1px inset light-dark(rgba(20, 20, 20, 0.5), rgba(235, 235, 235, 0.5)) !important;
   }
 }
-
