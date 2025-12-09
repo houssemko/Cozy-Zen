@@ -5,6 +5,7 @@
 #sidebar-header,
 #history-panel,
 :root,
+--sidebar-text-color: rgba(255, 255, 255, 1) !important;
 #header,
 #navigator-toolbox:not([animate="true"]) #titlebar::before,
 #navigator-toolbox:not([animate="true"]) #titlebar::after,
