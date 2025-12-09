@@ -10,7 +10,6 @@
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background,
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-input-container {
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  isolation: isolate !important;
 }
 
 #urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
@@ -237,7 +236,7 @@
   }
 
   .urlbarView-title-separator::before {
-    color: rgba(20, 20, 20, 0.5) !important;
+    color: rgba(50, 50, 50, 0.8) !important;
     opacity: 1 !important;
 
     @media (prefers-color-scheme: dark) {
@@ -292,6 +291,6 @@
 
   .urlbarView-body-inner,
   .search-one-offs {
-    border-top: 0 0 0 1px inset light-dark(rgba(20, 20, 20, 0.5), rgba(235, 235, 235, 0.5)) !important;
+    border-top: 0 0 0 1px inset light-dark(rgba(50, 50, 50, 0.8), rgba(235, 235, 235, 0.5)) !important;
   }
 }
