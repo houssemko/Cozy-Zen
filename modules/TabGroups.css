@@ -7,7 +7,7 @@ tab-group:not([split-view-group]) {
   margin: 2px 0 2px 0 !important;
   border-radius: var(--border-radius-medium);
   padding: 5px 2px !important;
-  transition: max-height 0.2s ease !important;
+  transition: all 0.2s ease !important;
   overflow: hidden !important;
   transform: translateZ(0);
   will-change: auto;
@@ -95,7 +95,7 @@ tab-group:not([split-view-group]) {
       margin: 0 !important;
       height: 0 !important;
       min-height: 0 !important;
-      transition: opacity 0.25s ease-in, font-size 0.25s ease-out, margin 0.25s ease-out, padding 0.25s ease-out, height 0.25s ease-out !important;
+      transition: all 0.25s ease !important;
     }
 
     & .tab-group-label-container>label {
@@ -156,7 +156,7 @@ tab-group:not([split-view-group]) {
       opacity: 0 !important;
       height: 0 !important;
       min-height: 0 !important;
-      transition: opacity 0.25s ease-in, font-size 0.25s ease-out, margin 0.25s ease-out, padding 0.25s ease-out, height 0.25s ease-out !important;
+      transition: all 0.25s ease !important;
 
       .tab-text {
         overflow: visible !important;
