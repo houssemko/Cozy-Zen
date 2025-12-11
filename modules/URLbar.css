@@ -16,12 +16,6 @@
   box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(100, 100, 100, 0.5)) !important;
 }
 
-/* Disable transitions when the window is in fullscreen or restoring */
-:root[inDOMFullscreen="true"] #urlbar .urlbar-input-container,
-:root[inFullscreen="true"] #urlbar .urlbar-input-container {
-  transition: none !important;
-}
-
 /* --- Hover State --- */
 #urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-background,
 #urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-input-container {
@@ -241,11 +235,11 @@
   }
 
   .urlbarView-title-separator::before {
-    color: rgba(50, 50, 50, 0.8) !important;
+    color: rgba(100, 100, 100, 0.8) !important;
     opacity: 1 !important;
 
     @media (prefers-color-scheme: dark) {
-      color: rgba(235, 235, 235, 0.8) !important;
+      color: rgba(255, 255, 255, 0.9) !important;
     }
   }
 
@@ -296,6 +290,6 @@
 
   .urlbarView-body-inner,
   .search-one-offs {
-    border-top: 0 0 0 1px inset light-dark(rgba(50, 50, 50, 0.8), rgba(235, 235, 235, 0.8)) !important;
+    border-top: 0 0 0 1px inset light-dark(rgba(100, 100, 100, 0.8), rgba(255, 255, 255, 0.8)) !important;
   }
 }
