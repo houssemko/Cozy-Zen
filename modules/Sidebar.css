@@ -31,9 +31,11 @@ background-color: light-dark(rgba(100, 100, 100, 0.5), rgba(5, 5, 5, 0.9)) !impo
 }
 
 /* ------------------------- Compact SIDEBAR -------------------------- */
-   .browserSidebarContainer {
+:root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) {
+  .browserSidebarContainer {
     border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;  
   }
+}
   :root[zen-compact-mode="true"] {
    #navigator-toolbox:not([animate="true"]) #titlebar::before,
     #navigator-toolbox:not([animate="true"]) #titlebar::after {
