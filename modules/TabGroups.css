@@ -18,6 +18,7 @@ tab-group:not([split-view-group]) {
    
   &[collapsed]:hover {
     background-color: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
+    box-shadow:  0 0 0 1px inset color-mix(in srgb, var(--tab-group-color-invert) 50%, transparent) !important;
     transform: translateY(-1px) scale(1.03) ;
   }
    
