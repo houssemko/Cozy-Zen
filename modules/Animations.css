@@ -1,14 +1,5 @@
 /* === TAB ANIMATIONS === */
 /* Performance optimizations */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
 .tabbrowser-tab *,
 #nav-bar toolbarbutton *,
 #PersonalToolbar toolbarbutton *,
@@ -34,7 +25,7 @@ menuitem *,
 }
 
 .tabbrowser-tab {
-  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition: all 0.1s ease !important;
   box-shadow: none !important;
   z-index: 0;
 }
