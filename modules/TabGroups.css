@@ -1,3 +1,32 @@
+/* Folder */
+zen-folder {
+  margin: 2px 2px 2px 2px !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important;
+  border-radius: var(--border-radius-medium);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+ 
+ &:hover {
+    background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 35%, transparent) !important;
+    transform: translateY(-2px) scale(1.02);
+  }
+    
+  & > .tab-group-label-container {
+    & > label {
+      margin: 0 0 0 0 !important;
+      font-weight: 500 !important;
+      text-align: unset !important;
+      color: var(--sidebar-text-color) !important;
+      background-color: transparent !important;
+      outline: none !important;
+    }
+
+    & .tab-group-folder-icon {
+      scale: 0.85;
+      margin-top: 1px !important;
+    }
+  }
+}
+
 /* Tab Group */
 tab-group:not([split-view-group]) {
   display: flex !important;
