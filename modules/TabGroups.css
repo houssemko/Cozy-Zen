@@ -39,16 +39,7 @@ tab-group:not([split-view-group]) {
   transform: translateZ(0);
   will-change: auto;
   
-  & tab {
-    transform: translateZ(0);
-    will-change: auto;
-    position: relative !important;
-  }
-
-  &>vbox {
-    padding-top: 0px !important;
-  }
-   
+  
   /* group icon */
   & .tab-group-label-container {
     position: relative !important;
