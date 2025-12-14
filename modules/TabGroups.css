@@ -7,7 +7,7 @@ zen-folder {
  
  &:hover {
     background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 35%, transparent) !important;
-    transform: translateY(-2px) scale(1.02);
+    transform: translateY(-1px) scale(1.05);
   }
     
   & > .tab-group-label-container {
@@ -44,13 +44,7 @@ tab-group:not([split-view-group]) {
       width: var(--tab-min-width) !important;
       margin: calc(var(--zen-element-separation) / 2) auto !important;
     }
-   
-  &[collapsed]:hover {
-    background-color: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
-    box-shadow:  0 0 0 1px inset color-mix(in srgb, var(--tab-group-color-invert) 50%, transparent) !important;
-    transform: translateY(-1px) scale(1.03) ;
-  }
-   
+     
   & tab {
     transition: opacity 0.5s ease !important;
     transform: translateZ(0);
@@ -116,7 +110,13 @@ tab-group:not([split-view-group]) {
     overflow: hidden !important;
     max-height: 3rem !important;
     transition: transform 0.2s ease-out !important;
-
+ 
+ &:hover { 
+    background-color: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
+    box-shadow:  0 0 0 1px inset color-mix(in srgb, var(--tab-group-color-invert) 50%, transparent) !important;
+    transform: translateY(-1px) scale(1.03) ;
+  }
+  
     & tab {
       display: flex !important;
       opacity: 0 !important;
@@ -231,7 +231,6 @@ tab-group:not([split-view-group]) {
       --tab-group-color-invert: transparent !important;
       --tab-group-color: transparent !important;
     }
-    margin-right: 1px !important;
   }
 
   tab::before {
