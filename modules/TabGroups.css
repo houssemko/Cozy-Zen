@@ -38,13 +38,8 @@ tab-group:not([split-view-group]) {
   overflow: hidden !important;
   transform: translateZ(0);
   will-change: auto;
-   @media not (-moz-pref("zen.view.sidebar-expanded")) {
-      width: var(--tab-min-width) !important;
-      margin: calc(var(--zen-element-separation) / 2) auto !important;
-    }
-     
+  
   & tab {
-    transition: opacity 0.5s ease !important;
     transform: translateZ(0);
     will-change: auto;
     position: relative !important;
@@ -229,6 +224,7 @@ tab-group:not([split-view-group]) {
       --tab-group-color-invert: transparent !important;
       --tab-group-color: transparent !important;
     }
+    margin-right: 1px !important;
   }
 
   tab::before {
