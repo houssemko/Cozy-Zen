@@ -163,32 +163,7 @@ tab-group:not([split-view-group]) {
   &[collapsed] {
     overflow: hidden !important;
     max-height: 3rem !important;
-     
-    & tab {
-      display: flex !important;
-      pointer-events: none !important;
-      opacity: 0 !important;
-      height: 0 !important;
-      min-height: 0 !important;
-      transition: all 0.25s ease !important;
-
-      .tab-text {
-        overflow: visible !important;
-      }
-    }
-
-    & .tab-group-label-container>label {
-      background: transparent !important;
-      border: unset !important;
-      font-weight: 1000 !important;
-      text-align: unset !important;
-      color: var(--sidebar-text-color) !important;
-    }
-
-    & .tab-group-label-container>label::after {
-      transform: translateY(-50%) rotate(90deg) !important;
-    }
-  }
+ }
 
   &:not([collapsed]) {
     max-height: calc(4rem + (7 * var(--tab-min-height)))!important;
@@ -202,26 +177,10 @@ tab-group:not([split-view-group]) {
 
     & tab:not([zen-glance-tab]) {
       padding-right: 1px !important;
+      overflow: hidden !important;
+      margin-right: 0.5px !important;
     }
-  }
-
-  tab-group:has(tab[hidden]) {
-    display: none !important;
-  }
-
-  & tab:not([zen-glance-tab]) {
-    overflow: hidden !important;
-    .tab-group-line {
-      --tab-group-color-invert: transparent !important;
-      --tab-group-color: transparent !important;
-    }
-    margin-right: 1px !important;
-  }
-
-  tab::before {
-    background: none !important;
-  }
-}
+ }
 
 tab-group[collapsed] .tab-group-container {
   visibility: hidden !important;
