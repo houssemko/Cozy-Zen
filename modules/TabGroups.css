@@ -8,20 +8,9 @@ zen-folder {
     background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 35%, transparent) !important;
   }
     
-  & > .tab-group-label-container {
-    & > label {
-      margin: 0 0 0 0 !important;
-      font-weight: 500 !important;
-      text-align: unset !important;
-      color: var(--sidebar-text-color) !important;
-      background-color: transparent !important;
-      outline: none !important;
-    }
-
     & .tab-group-folder-icon {
       scale: 0.85;
       margin-top: 1px !important;
-    }
   }
 }
 
