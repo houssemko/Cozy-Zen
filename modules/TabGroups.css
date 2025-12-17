@@ -190,8 +190,8 @@ tab-group:not([split-view-group]) {
     }
 
     & tab:not([zen-glance-tab]) {
-      padding-right: 1px !important;
       overflow: hidden !important;
+      margin-right: 0.5px !important;
     }
 }
 
