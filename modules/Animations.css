@@ -23,13 +23,15 @@ menuitem *,
   padding-top: 2px !important;  
 }
 
-.tabbrowser-tab {
+.tabbrowser-tab,
+#tabs-newtab-button {
   transition: all 0.1s ease !important;
   box-shadow: none !important;
   z-index: 0;
 }
 
-.tabbrowser-tab:hover {
+.tabbrowser-tab:hover,
+#tabs-newtab-button:hover {
   transform: translateY(-2px) scale(1.04) !important;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -453,18 +455,6 @@ html[zen-single-toolbar="true"] {
 
   :is(#downloads-button, #bookmarks-menu-button):hover :is(.toolbarbutton-badge-stack, .toolbarbutton-icon) {
     animation: bounce-down 0.5s ease-out;
-  }
-
-  /* New Tab */
-  :is(#new-tab-button, #zen-create-new-button):hover .toolbarbutton-icon {
-    animation: scale-pop 0.5s ease-out;
-  }
-  :is(#new-tab-button, #zen-create-new-button) .toolbarbutton-icon {
-    transition: transform 0.15s ease-in-out;
-    transform-origin: center;
-  }
-  :is(#new-tab-button, #zen-create-new-button):active .toolbarbutton-icon {
-    transform: scale(0.65);
   }
 
   /* Find Button  */
