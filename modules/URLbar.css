@@ -5,9 +5,13 @@
   background-color: light-dark(rgba(100, 100, 100, 0.2), rgba(5, 5, 5, 0.8)) !important;
 }
 
+#urlbar[open][zen-floating-urlbar='true'] .urlbar-input {
+  color: light-dark(var(--zen-colors-primary-foreground), white) !important;
+}
+
 /* --- Base Styles --- */
-#urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-background,
-#urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-input-container {
+#urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background,
+#urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-input-container {
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
@@ -38,7 +42,6 @@
 #urlbar .urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
   opacity: 0 !important;
   transform: translateX(25px) scale(0.8) rotate(-5deg) !important;
-  pointer-events: none !important;
 }
 
 #urlbar-go-button {
@@ -51,32 +54,6 @@
   &:not([open]) #urlbar-go-button {
     display: none !important;
   }
-}
-
-/* Extensions list*/
-#zen-site-data-addons {
-  display: block !important;
-}
-
-#overflowed-extensions-list,
-#zen-site-data-addons #unified-extensions-area,
-#zen-site-data-addons .unified-extensions-list,
-#zen-site-data-addons #zen-site-data-new-addon-button-container {
-  & > * {
-    width: 100% !important;
-    height: auto !important;
-    justify-content: normal !important;
-    align-items: normal !important;
-    margin-top: 5px !important;
-  }
-}
-
-#zen-site-data-addons .unified-extensions-item-name {
-  display: block !important;
-}
-
-.unified-extensions-item-action-button .toolbarbutton-text {
-  display: flex !important;
 }
 
 /* Hide stuff in the URL bar */
