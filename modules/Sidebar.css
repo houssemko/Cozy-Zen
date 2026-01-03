@@ -4,16 +4,13 @@
 #bookmarksPanel.sidebar-panel,
 #sidebar-header,
 #history-panel,
-:root,
---sidebar-text-color: rgba(255, 255, 255, 1) !important;
 #header,
 #navigator-toolbox:not([animate="true"]) #titlebar::before,
 #navigator-toolbox:not([animate="true"]) #titlebar::after,
 #browser,
 .browserStack {
-  position: relative !important;
   transform: translateZ(0);
-  will-change: auto;
+  will-change: transform;
 }
 
 /* Main browser container */
@@ -24,8 +21,9 @@
 }
 
 #tabbrowser-tabbox {
-    overflow: hidden !important;
-    box-shadow: 4px 4px 16px rgba(0,0,0,0.3) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 4px 4px 16px rgba(0,0,0,0.3) !important;
 }
 
 /* Panels Translucency*/
@@ -36,6 +34,10 @@
 :root,
 #header {
 background-color: light-dark(rgba(100, 100, 100, 0.9), rgba(5, 5, 5, 0.9)) !important;
+}
+
+:root {
+  --sidebar-text-color: rgba(255, 255, 255, 1) !important;
 }
 
 :root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) {
