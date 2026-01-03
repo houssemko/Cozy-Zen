@@ -9,15 +9,23 @@
 #header,
 #navigator-toolbox:not([animate="true"]) #titlebar::before,
 #navigator-toolbox:not([animate="true"]) #titlebar::after,
-#browser::after {
-  transform: translateZ(0);
-  will-change: auto;
-}
-
+#browser,
 .browserStack {
   position: relative !important;
   transform: translateZ(0);
   will-change: auto;
+}
+
+/* Main browser container */
+#browser,
+#browser > stack,
+#browser > stack > vbox {
+  overflow: hidden !important;
+}
+
+#tabbrowser-tabbox {
+    overflow: hidden !important;
+    box-shadow: 4px 4px 16px rgba(0,0,0,0.3) !important;
 }
 
 /* Panels Translucency*/
