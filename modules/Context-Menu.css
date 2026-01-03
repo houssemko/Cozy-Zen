@@ -6,7 +6,7 @@
 menupopup > :is(menuitem, menu) {
   height: fit-content !important;
   padding-block: 2px !important;
-  will-change: auto;
+  will-change: transform;
 }
 
 #contentAreaContextMenu {
@@ -35,10 +35,11 @@ menuseparator {
 /* Translucency */
 menupopup, panel {
   background-color: transparent !important;
+  backdrop-filter: blur(10px) !important;
   transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out !important;
   --panel-background: light-dark(rgba(255, 255, 255, 0.8), rgba(10, 10, 10, 0.8)) !important;
   transform: translateZ(0);
-  will-change: auto;
+  will-change: transform;
 }
 
 menuitem:hover,
