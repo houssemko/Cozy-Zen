@@ -34,7 +34,7 @@ tab-group:not([split-view-group]) {
   transition: all 0.2s ease !important;
   overflow: hidden !important;
   transform: translateZ(0);
-  will-change: auto;
+  will-change: transform;
   
   
   /* group icon */
@@ -47,7 +47,7 @@ tab-group:not([split-view-group]) {
     transition: background-color 0.2s ease, border-radius 0.2s ease-in-out;
     display: block !important;
     transform: translateZ(0);
-    will-change: auto;
+    will-change: transform;
 
     &:after {
       transition: transform 0.2s ease-out !important;
