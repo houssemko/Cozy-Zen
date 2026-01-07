@@ -2,7 +2,7 @@
 /* --- Floating Mode --- */
 #urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
   backdrop-filter: blur(10px) !important;
-  background-color: light-dark(rgba(30, 30, 30, 0.4), rgba(5, 5, 5, 0.8)) !important;
+  background-color: light-dark(rgba(30, 30, 30, 0.2), rgba(5, 5, 5, 0.9)) !important;
   box-shadow: light-dark(0 4px 12px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.5)) !important;
 }
 
