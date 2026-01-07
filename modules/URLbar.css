@@ -1,30 +1,30 @@
 /* URLbar styling */
 /* --- Floating Mode --- */
-#urlbar[open][zen-floating-urlbar='true'] .urlbar-background {
+#urlbar[open] .urlbar-background {
   backdrop-filter: blur(10px) !important;
   background-color: light-dark(rgba(30, 30, 30, 0.2), rgba(5, 5, 5, 0.9)) !important;
   box-shadow: light-dark(0 4px 12px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.5)) !important;
 }
 
 /* --- Base Styles --- */
-#urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background,
-#urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-input-container {
+#urlbar:not([open]) .urlbar-background,
+#urlbar:not([open]) .urlbar-input-container {
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-#urlbar:not([zen-floating-urlbar='true']):not([open]) .urlbar-background {
+#urlbar:not([open]) .urlbar-background {
   background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 15%, transparent) !important;
   box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(100, 100, 100, 0.5)) !important;
 }
 
 /* --- Hover State --- */
-#urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-background,
-#urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-input-container {
+#urlbar:not([open]):hover .urlbar-background,
+#urlbar:not([open]):hover .urlbar-input-container {
   transform: translateY(-2px) scale(1.05);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); 
 }
 
-#urlbar:not([zen-floating-urlbar='true']):not([open]):hover .urlbar-background {
+#urlbar:not([open]):hover .urlbar-background {
   background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important;
   box-shadow: inset 0 0 0 1.25px light-dark(rgba(255, 255, 255, 0.2), rgba(150, 150, 150, 0.5)) !important;
 }
@@ -47,17 +47,38 @@
   height: 22px !important;
   width: 22px !important;
 }
-#urlbar {
-  &:not([open]) #urlbar-go-button {
-    display: none !important;
-  }
+
+/* Extension list */
+
+#zen-site-data-addons {
+    display: block !important;
+
+#overflowed-extensions-list,
+    & #unified-extensions-area,
+    & .unified-extensions-list,
+    & #zen-site-data-new-addon-button-container {
+        &>* {
+            width: 100% !important;
+            height: auto !important;
+            justify-content: normal !important;
+            align-items: normal !important;
+            margin-top: 5px !important;
+        }
+
+.unified-extensions-item-name {
+            display: block !important;
+        }
+    }
 }
 
+.unified-extensions-item-action-button .toolbarbutton-text { display: flex !important; }
+
 /* Hide stuff in the URL bar */
-#urlbar:not([zen-floating-urlbar='true']) #zen-copy-url-button,
-#urlbar:not([zen-floating-urlbar='true']) #urlbar-zoom-button,
-#urlbar:not([zen-floating-urlbar='true']) #identity-icon-box,
-#urlbar:not([zen-floating-urlbar='true']) #page-action-buttons {
+#urlbar :not([open]) #urlbar-go-button,
+#urlbar :not([open]) #zen-copy-url-button,
+#urlbar :not([open]) #urlbar-zoom-button,
+#urlbar :not([open]) #identity-icon-box,
+#urlbar :not([open]) #page-action-buttons {
   display: none !important;
 }
 
@@ -67,9 +88,8 @@
 }
 
 /* ------------------ Results Rows Styling ------------------ */
-/* Individual result appear animation */
 .urlbarView-row {
-  --animation-duration: .5s;
+  --animation-duration: 0.5s;
   --animation-duration-subtle: 0.5s;
   --animation-delay: 0.05s;
   --animation-delay-offset: 0s;
@@ -89,12 +109,10 @@
     scale: 1;
     background: transparent;
   }
-
   60% {
     scale: 1.05;
     background: light-dark(var(--zen-primary-bg), var(--zen-colors-primary));
   }
-
   100% {
     opacity: 1;
     scale: 1;
@@ -150,7 +168,7 @@
       opacity: 1 !important;
     }
   }
-  
+
   .urlbarView-row {
     transition: transform 0.2s ease;
     transform: translateZ(0);
@@ -228,9 +246,7 @@
     }
   }
 
-  .urlbarView-row[has-action]:is([type="switchtab"],
-    [type="remotetab"],
-    [type="clipboard"]) {
+  .urlbarView-row[has-action]:is([type="switchtab"], [type="remotetab"], [type="clipboard"]) {
     .urlbarView-action {
       margin-left: 8px !important;
     }
@@ -247,7 +263,11 @@
   .urlbarView-row:hover .urlbarView-row-inner,
   .urlbarView-row-inner[selected] {
     .urlbarView-no-wrap .urlbarView-favicon {
-      background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 80%, transparent) !important;
+      background-color: color-mix(
+        in srgb,
+        var(--zen-colors-primary-foreground) 80%,
+        transparent
+      ) !important;
     }
 
     .urlbarView-url {
@@ -265,16 +285,23 @@
   }
 
   .urlbarView-url {
-    --urlbarView-second-line-indent: calc(var(--urlbarView-icon-margin-start) + var(--urlbarView-icon-margin-end) + var(--urlbarView-favicon-width) + 2px);
+    --urlbarView-second-line-indent: calc(
+      var(--urlbarView-icon-margin-start) + var(--urlbarView-icon-margin-end) +
+        var(--urlbarView-favicon-width) + 2px
+    );
     color: var(--zen-colors-primary-foreground) !important;
   }
 
   .urlbarView-action {
-    --urlbarView-second-line-indent: calc(var(--urlbarView-icon-margin-start) + var(--urlbarView-icon-margin-end) + var(--urlbarView-favicon-width) + 2px);
+    --urlbarView-second-line-indent: calc(
+      var(--urlbarView-icon-margin-start) + var(--urlbarView-icon-margin-end) +
+        var(--urlbarView-favicon-width) + 2px
+    );
   }
 
   .urlbarView-body-inner,
   .search-one-offs {
-    border-top: 0 0 0 1px inset light-dark(rgba(150, 150, 150, 0.9), rgba(255, 255, 255, 0.9)) !important;
+    border-top: 0 0 0 1px inset
+      light-dark(rgba(150, 150, 150, 0.9), rgba(255, 255, 255, 0.9)) !important;
   }
 }
