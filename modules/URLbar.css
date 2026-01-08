@@ -74,11 +74,11 @@
 .unified-extensions-item-action-button .toolbarbutton-text { display: flex !important; }
 
 /* Hide stuff in the URL bar */
-#urlbar :not([open]) #urlbar-go-button,
-#urlbar :not([open]) #zen-copy-url-button,
-#urlbar :not([open]) #urlbar-zoom-button,
-#urlbar :not([open]) #identity-icon-box,
-#urlbar :not([open]) #page-action-buttons {
+#urlbar:not([open]) #urlbar-go-button,
+#urlbar:not([open]) #zen-copy-url-button,
+#urlbar:not([open]) #urlbar-zoom-button,
+#urlbar:not([open]) #identity-icon-box,
+#urlbar:not([open]) #page-action-buttons {
   display: none !important;
 }
 
