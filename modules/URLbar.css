@@ -2,7 +2,7 @@
 /* --- Floating Mode --- */
 #urlbar[open] .urlbar-background {
   backdrop-filter: blur(10px) !important;
-  background-color: light-dark(rgba(30, 30, 30, 0.2), rgba(5, 5, 5, 0.9)) !important;
+  background-color: light-dark(rgba(30, 30, 30, 0.2), rgba(5, 5, 5, 0.8)) !important;
   box-shadow: light-dark(0 4px 12px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.5)) !important;
 }
 
@@ -25,7 +25,7 @@
 }
 
 #urlbar:not([open]):hover .urlbar-background {
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 20%, transparent) !important;
   box-shadow: inset 0 0 0 1.25px light-dark(rgba(255, 255, 255, 0.2), rgba(150, 150, 150, 0.5)) !important;
 }
 
@@ -74,11 +74,7 @@
 .unified-extensions-item-action-button .toolbarbutton-text { display: flex !important; }
 
 /* Hide stuff in the URL bar */
-#urlbar:not([open]) #urlbar-go-button,
-#urlbar:not([open]) #zen-copy-url-button,
-#urlbar:not([open]) #urlbar-zoom-button,
-#urlbar:not([open]) #identity-icon-box,
-#urlbar:not([open]) #page-action-buttons {
+#urlbar:not([open]) :is(#urlbar-go-button, #zen-copy-url-button, #urlbar-zoom-button, #identity-icon-box, #page-action-buttons) {
   display: none !important;
 }
 
@@ -181,7 +177,7 @@
 
     .urlbarView-title,
     .urlbarView-url {
-      font-weight: 500 !important;
+      font-weight: 700 !important;
       margin-top: auto !important;
       margin-bottom: auto !important;
     }
@@ -251,13 +247,13 @@
       margin-left: 8px !important;
     }
 
-    .urlbarView-title-separator::before {
+    .urlbarView-title-separator::bevarfore {
       opacity: 0 !important;
     }
   }
 
   .urlbarView-row-inner .urlbarView-url {
-    color: var(--zen-colors-primary-foreground) !important;
+    color: color-mix(var(--zen-colors-primary-foreground) 60% ,white) !important;
   }
 
   .urlbarView-row:hover .urlbarView-row-inner,
@@ -271,7 +267,7 @@
     }
 
     .urlbarView-url {
-      color: var(--zen-colors-primary-foreground) !important;
+      color: color-mix(var(--zen-colors-primary-foreground) 30% ,white) !important;
     }
   }
 
