@@ -49,7 +49,6 @@
 }
 
 /* Extension list */
-
 #zen-site-data-addons {
     display: block !important;
 
@@ -82,6 +81,37 @@
 #urlbar .urlbar-input {
   text-align: center !important;
 }
+
+/* ------------------ Links Animation ------------------ */
+@keyframes url-links-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  60% {
+    transform: scale(1.0);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#urlbar-results .urlbarView-row {
+  opacity: 0;
+  animation: url-links-appear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Staggered delay (50ms) for 5 results */
+#urlbar-results .urlbarView-row:nth-child(1) { animation-delay: 0s; }
+#urlbar-results .urlbarView-row:nth-child(2) { animation-delay: 0.05s; }
+#urlbar-results .urlbarView-row:nth-child(3) { animation-delay: 0.1s; }
+#urlbar-results .urlbarView-row:nth-child(4) { animation-delay: 0.15s; }
+#urlbar-results .urlbarView-row:nth-child(5) { animation-delay: 0.2s; }
+
 
 /* ------------------ Results Rows Styling ------------------ */
 .urlbarView-row {
