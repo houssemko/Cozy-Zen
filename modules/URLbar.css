@@ -267,7 +267,7 @@
     }
 
     .urlbarView-url {
-      color: color-mix(var(--zen-colors-primary-foreground) 30% ,white) !important;
+      color: color-mix(var(--zen-colors-primary-foreground) 50% ,white) !important;
     }
   }
 
