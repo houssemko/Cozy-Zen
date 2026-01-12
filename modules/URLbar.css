@@ -1,7 +1,7 @@
 /* URLbar styling */
 /* --- Floating Mode --- */
 #urlbar[open] .urlbar-background {
-  backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(20px) !important;
   background-color: light-dark(rgba(30, 30, 30, 0.2), rgba(5, 5, 5, 0.8)) !important;
   box-shadow: light-dark(0 4px 12px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.5)) !important;
 }
@@ -49,6 +49,7 @@
 }
 
 /* Extension list */
+
 #zen-site-data-addons {
     display: block !important;
 
@@ -81,37 +82,6 @@
 #urlbar .urlbar-input {
   text-align: center !important;
 }
-
-/* ------------------ Links Animation ------------------ */
-@keyframes url-links-appear {
-  0% {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  60% {
-    transform: scale(1.0);
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-#urlbar-results .urlbarView-row {
-  opacity: 0;
-  animation: url-links-appear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Staggered delay (50ms) for 5 results */
-#urlbar-results .urlbarView-row:nth-child(1) { animation-delay: 0s; }
-#urlbar-results .urlbarView-row:nth-child(2) { animation-delay: 0.05s; }
-#urlbar-results .urlbarView-row:nth-child(3) { animation-delay: 0.1s; }
-#urlbar-results .urlbarView-row:nth-child(4) { animation-delay: 0.15s; }
-#urlbar-results .urlbarView-row:nth-child(5) { animation-delay: 0.2s; }
-
 
 /* ------------------ Results Rows Styling ------------------ */
 .urlbarView-row {
@@ -167,32 +137,6 @@
 #urlbar {
   .urlbarView {
     overflow: initial !important;
-  }
-
-  &[breakout-extend] {
-    animation-name: urlbar-appear;
-    animation-duration: var(--animation-duration);
-
-    @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
-      animation-name: urlbar-appear-sideways;
-    }
-
-    #urlbar-input {
-      margin-left: 2px !important;
-      margin-right: 0 !important;
-
-      @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
-        margin-left: 4px !important;
-      }
-    }
-  }
-
-  &[breakout-extend]:is([pageproxystate="invalid"]):is([usertyping]) {
-    .urlbarView-row,
-    .urlbarView-row .urlbarView-type-icon {
-      animation: none !important;
-      opacity: 1 !important;
-    }
   }
 
   .urlbarView-row {
@@ -265,12 +209,7 @@
   }
 
   .urlbarView-title-separator::before {
-    color: rgba(150, 150, 150, 0.9) !important;
-
-    @media (prefers-color-scheme: dark) {
-      color: rgba(255, 255, 255, 0.9) !important;
-    }
-  }
+    color: white !important; }
 
   .urlbarView-row[has-action]:is([type="switchtab"], [type="remotetab"], [type="clipboard"]) {
     .urlbarView-action {
