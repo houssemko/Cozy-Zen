@@ -49,29 +49,30 @@
 }
 
 /* Extension list */
-
 #zen-site-data-addons {
-    display: block !important;
-
-#overflowed-extensions-list,
-    & #unified-extensions-area,
-    & .unified-extensions-list,
-    & #zen-site-data-new-addon-button-container {
-        &>* {
-            width: 100% !important;
-            height: auto !important;
-            justify-content: normal !important;
-            align-items: normal !important;
-            margin-top: 5px !important;
-        }
-
-.unified-extensions-item-name {
-            display: block !important;
-        }
-    }
+  display: block !important;
 }
 
-.unified-extensions-item-action-button .toolbarbutton-text { display: flex !important; }
+#overflowed-extensions-list,
+#zen-site-data-addons #unified-extensions-area,
+#zen-site-data-addons .unified-extensions-list,
+#zen-site-data-addons #zen-site-data-new-addon-button-container {
+  &>* {
+    width: 100% !important;
+    height: auto !important;
+    justify-content: normal !important;
+    align-items: normal !important;
+    margin-top: 5px !important;
+  }
+
+  .unified-extensions-item-name {
+    display: block !important;
+  }
+}
+
+.unified-extensions-item-action-button .toolbarbutton-text {
+  display: flex !important;
+}
 
 /* Hide stuff in the URL bar */
 #urlbar:not([open]) :is(#urlbar-go-button, #zen-copy-url-button, #urlbar-zoom-button, #identity-icon-box, #page-action-buttons) {
@@ -83,45 +84,14 @@
   text-align: center !important;
 }
 
-/* ------------------ Results Rows Styling ------------------ */
-.urlbarView-row {
-  --animation-duration: 0.5s;
-  --animation-duration-subtle: 0.5s;
-  --animation-delay: 0.05s;
-  --animation-delay-offset: 0s;
-}
-
-@keyframes individual-result-appear {
-  100% {
-    opacity: 1;
-    scale: 1;
-    background: transparent;
-  }
-}
-
-@keyframes individual-result-appear-subtle {
-  0% {
-    opacity: 1;
-    scale: 1;
-    background: transparent;
-  }
-  60% {
-    scale: 1.05;
-    background: light-dark(var(--zen-primary-bg), var(--zen-colors-primary));
-  }
-  100% {
-    opacity: 1;
-    scale: 1;
-    background: transparent;
-  }
-}
-
+/* Icon hover effect */
 .urlbar-icon:hover {
   transform: scale(1.2);
   background: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
 }
 
+/* Scrollbar styling */
 #urlbar-results,
 #PopupAutoCompleteRichResult,
 .autocomplete-richlistbox {
@@ -134,6 +104,7 @@
   overflow-x: hidden !important;
 }
 
+/* Results rows styling */
 #urlbar {
   .urlbarView {
     overflow: initial !important;
@@ -141,7 +112,6 @@
 
   .urlbarView-row {
     transition: transform 0.2s ease;
-    transform: translateZ(0);
     will-change: transform, background;
 
     .urlbarView-row-inner {
@@ -163,12 +133,6 @@
 
     .urlbarView-button {
       display: none !important;
-      min-width: 0 !important;
-      min-height: 0 !important;
-      width: 0 !important;
-      height: 0 !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
       opacity: 0;
       transition: all 0.2s ease !important;
     }
@@ -178,7 +142,7 @@
     }
 
     &:active {
-      transform: scale(0.95, 0.95);
+      transform: scale(0.95);
     }
 
     &[selected] {
@@ -193,8 +157,7 @@
       }
 
       .urlbarView-button {
-        max-width: 24px !important;
-        max-height: 24px !important;
+        display: block !important;
         width: 24px !important;
         height: 24px !important;
         opacity: 1;
@@ -209,7 +172,8 @@
   }
 
   .urlbarView-title-separator::before {
-    color: white !important; }
+    color: white !important;
+  }
 
   .urlbarView-row[has-action]:is([type="switchtab"], [type="remotetab"], [type="clipboard"]) {
     .urlbarView-action {
@@ -222,21 +186,17 @@
   }
 
   .urlbarView-row-inner .urlbarView-url {
-    color: color-mix(var(--zen-colors-primary-foreground) 70% ,white) !important;
+    color: color-mix(in srgb, var(--zen-colors-primary-foreground) 70%, white) !important;
   }
 
   .urlbarView-row:hover .urlbarView-row-inner,
   .urlbarView-row-inner[selected] {
     .urlbarView-no-wrap .urlbarView-favicon {
-      background-color: color-mix(
-        in srgb,
-        var(--zen-colors-primary-foreground) 80%,
-        transparent
-      ) !important;
+      background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 80%, transparent) !important;
     }
 
     .urlbarView-url {
-      color: color-mix(var(--zen-colors-primary-foreground) 50% ,white) !important;
+      color: color-mix(in srgb, var(--zen-colors-primary-foreground) 50%, white) !important;
     }
   }
 }
