@@ -216,7 +216,7 @@
       margin-left: 8px !important;
     }
 
-    .urlbarView-title-separator::bevarfore {
+    .urlbarView-title-separator::before {
       opacity: 0 !important;
     }
   }
@@ -238,35 +238,5 @@
     .urlbarView-url {
       color: color-mix(var(--zen-colors-primary-foreground) 50% ,white) !important;
     }
-  }
-
-  .urlbarView-action,
-  .urlbarView-button,
-  .searchbar-engine-one-off-item {
-    --urlbar-box-focus-bgcolor: color-mix(in srgb, currentColor 30%, transparent);
-    transition: background-color 0.2s ease !important;
-    transform: translateZ(0);
-    will-change: background-color;
-  }
-
-  .urlbarView-url {
-    --urlbarView-second-line-indent: calc(
-      var(--urlbarView-icon-margin-start) + var(--urlbarView-icon-margin-end) +
-        var(--urlbarView-favicon-width) + 2px
-    );
-    color: var(--zen-colors-primary-foreground) !important;
-  }
-
-  .urlbarView-action {
-    --urlbarView-second-line-indent: calc(
-      var(--urlbarView-icon-margin-start) + var(--urlbarView-icon-margin-end) +
-        var(--urlbarView-favicon-width) + 2px
-    );
-  }
-
-  .urlbarView-body-inner,
-  .search-one-offs {
-    border-top: 0 0 0 1px inset
-      light-dark(rgba(150, 150, 150, 0.9), rgba(255, 255, 255, 0.9)) !important;
   }
 }
