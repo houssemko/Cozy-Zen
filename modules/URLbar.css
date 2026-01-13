@@ -97,7 +97,6 @@
 
 /* Results rows styling */
 #urlbar {
-
   .urlbarView-row {
     transition: transform 0.2s ease;
     will-change: transform, background;
@@ -139,14 +138,19 @@
     }
   }
 
-  .urlbarView-title-separator::before {
+  .urlbarView-title-separator {
     color: white !important;
-  }
   }
 
   .urlbarView-row-inner .urlbarView-url {
-    color: color-mix(in srgb, var(--zen-colors-primary-foreground) 70%, white) !important;
+    color: color-mix(in srgb, var(--zen-colors-primary-foreground) 80%, white) !important;
   }
+  
+.urlbarView-row:hover .urlbarView-row-inner,
+  .urlbarView-row-inner[selected] {
+    .urlbarView-no-wrap .urlbarView-favicon {
+      background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 80%, transparent) !important;
+    }
 
     .urlbarView-url {
       color: color-mix(in srgb, var(--zen-colors-primary-foreground) 50%, white) !important;
