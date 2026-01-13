@@ -8,24 +8,18 @@ findbar {
   height: auto !important;
   flex-wrap: wrap;
   border-radius: 12px;
-  background: rgba(0, 0, 0, 0.25) !important;
-  border: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
+  background: rgba(10, 10, 10, 0.2) !important;
+  border: 1px solid light-dark(rgba(10, 10, 10, 0.2), rgba(235, 235, 235, 0.3)) !important;
   opacity: 1;
   transition: background 0.2s ease, opacity 0.2s ease, visibility 0.2s ease,
   top 0.2s ease, box-shadow 0.2s ease !important;
   backdrop-filter: blur(20px);
-  /* Hardware acceleration for findbar */
-  transform: translateZ(0);
-  will-change: auto;
   
   & .findbar-container {
     flex-wrap: wrap;
     overflow-x: auto !important;
     height: auto !important;
     row-gap: 10px;
-    /* Hardware acceleration for container */
-    transform: translateZ(0);
-    will-change: auto;
 
     & > :first-child {
       width: 100% !important;
@@ -61,9 +55,6 @@ findbar {
 
 .findbar-closebutton, .findbar-find-previous, .findbar-find-next {
   scale: 1 !important;
-  /* Hardware acceleration for buttons */
-  transform: translateZ(0);
-  will-change: auto;
   &:hover {
     transform: scale(1.08) !important;
   }
