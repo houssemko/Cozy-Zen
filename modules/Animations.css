@@ -1,10 +1,4 @@
 /* === TAB ANIMATIONS === */
-
-.zen-floating-urlbar,
-.zen-floating-status-bar {
-  contain: layout style paint;
-}
-
 /* Tab hover and active animation */
 .tabbrowser-tab[pinned]:not([zen-essential="true"]) {       
   padding-top: 2px !important;  
