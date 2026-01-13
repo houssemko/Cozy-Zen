@@ -1,12 +1,4 @@
 /* ------------------------- SIDEBAR  -------------------------- */
-/* Hardware acceleration & will-change for best performance */
-#sidebar-box,
-#bookmarksPanel.sidebar-panel,
-#sidebar-header,
-#history-panel,
-#header,
-#navigator-toolbox,
-#titlebar,
 .browserStack {
   transform: translateZ(0);
   will-change: transform;
