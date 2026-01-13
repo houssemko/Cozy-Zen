@@ -96,7 +96,7 @@
 }
 
 /* Results rows styling */
-#urlbar {
+#urlbar[open] {
   .urlbarView-row {
     transition: transform 0.2s ease;
     will-change: transform, background;
