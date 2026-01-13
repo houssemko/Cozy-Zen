@@ -32,10 +32,7 @@ tab-group:not([split-view-group]) {
   border-radius: var(--border-radius-medium);
   padding: 5px 2px !important;
   transition: all 0.2s ease !important;
-  overflow: hidden !important;
-  transform: translateZ(0);
-  will-change: transform;
-  
+  overflow: hidden !important;  
   
   /* group icon */
   & .tab-group-label-container {
@@ -99,14 +96,7 @@ tab-group:not([split-view-group]) {
   }
   
     & tab {
-      display: flex !important;
-      opacity: 0 !important;
-      padding: 0 !important;
-      font-size: 0 !important;
-      margin: 0 !important;
-      height: 0 !important;
-      min-height: 0 !important;
-      transition: all 0.25s ease !important;
+      display: none !important;
     }
 
     & .tab-group-label-container>label {
@@ -162,12 +152,7 @@ tab-group:not([split-view-group]) {
     max-height: 3rem !important;
      
     & tab {
-      display: flex !important;
-      pointer-events: none !important;
-      opacity: 0 !important;
-      height: 0 !important;
-      min-height: 0 !important;
-      transition: all 0.25s ease !important;
+      display: none !important;
 
       .tab-text {
         overflow: visible !important;
