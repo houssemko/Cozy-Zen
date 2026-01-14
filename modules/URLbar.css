@@ -2,7 +2,7 @@
 /* --- Floating Mode --- */
 #urlbar[open] .urlbar-background {
   backdrop-filter: blur(20px) !important;
-  background-color: light-dark(rgba(20, 20, 20, 0.1), rgba(5, 5, 5, 0.9)) !important;
+  background-color: light-dark(rgba(20, 20, 20, 0.2), rgba(5, 5, 5, 0.8)) !important;
   box-shadow: light-dark(0 4px 12px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.5)) !important;
 }
 
