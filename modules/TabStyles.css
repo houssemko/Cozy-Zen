@@ -5,9 +5,9 @@
 }
 
 /* Selected-pinned-Tabs */
-.tabbrowser-tab[pinned]([selected="true"]):not([zen-essential="true"]) .tab-background  {
+.tabbrowser-tab[pinned]:is([selected="true"], [multiselected="true"]):not([zen-essential="true"]) .tab-background {
   background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 50%, transparent) !important;
- }
+}
  
    .zen-essentials-container {
     .tabbrowser-tab:is([selected],[visuallyselected]) .tab-background {
