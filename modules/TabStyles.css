@@ -1,13 +1,21 @@
 /* === TAB Styling === */
 /* Adds a background to Pinned tabs */
-.tabbrowser-tab[pinned]:not([selected="true"]):not([zen-essential="true"]) .tab-stack .tab-background {
+.tabbrowser-tab[pinned]:not([selected="true"]):not([zen-essential="true"]) .tab-background {
     background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important; 
 }
 
 /* Selected-pinned-Tabs */
-.tabbrowser-tab[pinned]([selected="true"]):not([zen-essential="true"]) .tab-stack .tab-background  {
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 35%, transparent) !important;
+.tabbrowser-tab[pinned]([selected="true"]):not([zen-essential="true"]) .tab-background  {
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 50%, transparent) !important;
  }
+ 
+   .zen-essentials-container {
+    .tabbrowser-tab:is([selected],[visuallyselected]) .tab-background {
+      &::before {
+        opacity: 0.7;
+      }
+    }
+  }
 
 /* show tab close/reset button only on hover with cool animation */
 .tab-close-button
