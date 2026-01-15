@@ -48,11 +48,12 @@
   isolation: isolate;
 }
 
-#navigator-toolbox:not([animate="true"]) #titlebar {
-  background-color: light-dark(rgba(30, 30, 30, 0.1), rgba(5, 5, 5, 0.9)) !important;
-      box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(50, 50, 50, 0.8)) !important;
-      border-radius: 15px !important;
-      backdrop-filter: blur(10px) !important;
+
+ #navigator-toolbox:not([animate="true"]) #titlebar::before {
+        background-color: light-dark(rgba(30, 30, 30, 0.1), rgba(5, 5, 5, 0.9)) !important;
+        box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(50, 50, 50, 0.8)) !important;
+        border-radius: 15px !important;
+        backdrop-filter: blur(10px) !important;
     }
 
 .zen-toolbar-background {
@@ -189,3 +190,4 @@ panel[type="arrow"][position] > vbox > scrollbox {
   margin: 0px !important;
   border-radius: 8px;
 }
+
