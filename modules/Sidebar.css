@@ -1,4 +1,4 @@
-/* ------------------------- SIDEBAR  -------------------------- */
+/* ------------------------- General settings  -------------------------- */
 .browserStack {
   transform: translateZ(0);
   will-change: transform;
@@ -29,12 +29,6 @@
 
 :root {
   --sidebar-text-color: white !important;
-}
-
-:root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) {
-  .browserSidebarContainer {
-    border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;  
-  }
 }
 
 /* -------------------------- COMPACT SIDEBAR -------------------------- */
@@ -76,6 +70,12 @@
  /* -------------------- SINGLE TOOLBAR -------------------- */
 
   @media (-moz-pref("zen.view.compact.hide-tabbar")) {
+  :root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) {
+  .browserSidebarContainer {
+    border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;  
+  }
+}
+
     :root[zen-single-toolbar="true"][zen-compact-mode="true"] #titlebar {
       top: calc(var(--zen-element-separation) / 0.99) !important;
       left: calc(var(--zen-element-separation) / 0.9) !important;
