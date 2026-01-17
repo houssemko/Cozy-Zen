@@ -188,9 +188,9 @@
       height: calc(100% - (var(--zen-element-separation) * 2.9)) !important;
       /* Re-apply blur & visuals */
       background: light-dark(rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0.4)) !important;
-      backdrop-filter: blur(32px) saturate(140%) !important;
-      padding: 8px !important;
-      border-radius: 11px !important;
+      backdrop-filter: blur(10px) saturate(140%) !important;
+      padding: 5px !important;
+      border-radius: 15px !important;
       scale: 1 !important;
     }
 
