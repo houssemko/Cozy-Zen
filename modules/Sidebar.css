@@ -31,7 +31,7 @@
   --sidebar-text-color: white !important;
 }
 
-/* -------------------------- COMPACT SIDEBAR -------------------------- */
+/* -------------------------- SIDEBAR Only -------------------------- */
   #titlebar::before {
   content: '';
   position: absolute;
@@ -44,7 +44,7 @@
 }
 
 .zen-toolbar-background {
-  opacity: var(--zen-grainy-background-opacity, 1);
+  opacity: var(--zen-grainy-background-opacity);
 }
 
 
