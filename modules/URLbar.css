@@ -1,45 +1,46 @@
 /* URLbar styling */
 /* --- Floating Mode --- */
 #urlbar[open] .urlbar-background {
-  backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) saturate(140%) !important;
   background-color: light-dark(rgba(20, 20, 20, 0.2), rgba(5, 5, 5, 0.8)) !important;
   box-shadow: light-dark(0 4px 12px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.5)) !important;
 }
 
 /* --- Base Styles --- */
-#urlbar:not([open]) .urlbar-background,
-#urlbar:not([open]) .urlbar-input-container {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-#urlbar:not([open]) .urlbar-background {
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 15%, transparent) !important;
-  box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(100, 100, 100, 0.5)) !important;
-}
-
+  #urlbar:not([open]) {
+    .urlbar-background,
+    .urlbar-input-container {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+    .urlbar-background {
+      background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 15%, transparent) !important;
+      box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(100, 100, 100, 0.5)) !important;
+    }
+    
 /* --- Hover State --- */
-#urlbar:not([open]):hover .urlbar-background,
-#urlbar:not([open]):hover .urlbar-input-container {
-  transform: translateY(-2px) scale(1.05);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); 
-}
-
-#urlbar:not([open]):hover .urlbar-background {
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 20%, transparent) !important;
-  box-shadow: inset 0 0 0 1.25px light-dark(rgba(255, 255, 255, 0.2), rgba(150, 150, 150, 0.5)) !important;
-}
-
+    &:hover {
+      .urlbar-background,
+      .urlbar-input-container {
+        transform: translateY(-1px) scale(1.05);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .urlbar-background {
+        background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 20%, transparent) !important;
+        box-shadow: inset 0 0 0 1.25px light-dark(rgba(255, 255, 255, 0.2), rgba(150, 150, 150, 0.5)) !important;
+      }
+    }
+  }
+  
 /* Zen site icon */
-#zen-site-data-icon-button {
-  margin-inline-start: -25px !important;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-  opacity: 1 !important;
-}
+  #zen-site-data-icon-button {
+    margin-inline-start: -25px !important;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    opacity: 1 !important;
+  }
 
-#urlbar .urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
-  opacity: 0 !important;
-  transform: translateX(25px) scale(0.8) rotate(-5deg) !important;
-}
+  #urlbar .urlbar-input-container:not(:hover) #zen-site-data-icon-button:not([open]) {
+    opacity: 0 !important;
+    transform: translateX(25px) scale(0.8) rotate(-5deg) !important;
+  }
 
 #urlbar-go-button {
   display: flex !important;
