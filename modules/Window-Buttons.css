@@ -11,17 +11,14 @@
         background-color: rgba(200, 200, 200, 0.3) !important;
         transition: all 200ms ease-in-out;
     }
-
     .titlebar-button {
         color: transparent !important;
     }
-
     .titlebar-buttonbox {
         align-content: center !important;
         justify-content: center !important;
         margin-right: calc(var(--zen-element-separation) / 2) !important;
     }
-
     .titlebar-buttonbox-container {
         align-self: center !important;
         justify-self: center !important;
@@ -31,32 +28,31 @@
         margin-bottom: auto !important;
         padding-bottom: 1px !important;
     }
-
     .titlebar-button:hover {
         min-height: 20px !important;
-
         &.titlebar-min:hover {
             background-color: color-mix(in srgb, var(--zen-primary-color) 90%, white) !important;
             box-shadow: 0 0px 8px color-mix(in srgb, var(--zen-primary-color) 90%, white) !important;
         }
-
         &.titlebar-restore:hover {
             background-color: color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
             box-shadow: 0 0px 8px color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
         }
-
         &.titlebar-max:hover {
             background-color: color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
             box-shadow: 0 0px 8px color-mix(in srgb, var(--zen-primary-color) 60%, white) !important;
         }
-
         &.titlebar-close:hover {
             background-color: color-mix(in srgb, var(--zen-primary-color) 20%, rgb(255, 90, 100)) !important;
             box-shadow: 0 0px 8px color-mix(in srgb, var(--zen-primary-color) 20%, rgb(255, 90, 100)) !important;
         }
     }
+    
+    /* Move to right when zen-right-side is true */
+    :root[zen-right-side="true"] .titlebar-buttonbox-container {
+        order: 999 !important;
+    }
 }
-
 @media not (-moz-bool-pref: "zen.view.experimental-no-window-controls") {
     @media (-moz-bool-pref: "zen.view.experimental-force-window-controls-left") {
         .titlebar-buttonbox-container {
