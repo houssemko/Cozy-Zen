@@ -1,18 +1,5 @@
 /* ------------------------- General settings  -------------------------- */
-/* Bleeding corner */
-:root[zen-single-toolbar="true"] {
-  html:not([sizemode="fullscreen"]) {
-
-    .browserStack,
-    browser {
-      clip-path: inset(0 round var(--zen-native-inner-radius));
-    }
-  }
-}
-
 /* Performance optimizations */
-#titlebar,
-#navigator-toolbox,
 #searchbar,
 menupopup,
 menuitem,
@@ -46,22 +33,38 @@ menuitem,
   box-shadow: 4px 4px 16px rgba(0,0,0,0.3) !important;
 }
 
-/* Panels Translucency*/
+/* UI Translucency*/
+#zen-main-app-wrapper,
 #sidebar-box,
 #bookmarksPanel.sidebar-panel,
 #sidebar-header,
 #history-panel,
 :root,
 #header {
-  background-color: light-dark(rgba(30, 30, 30, 0.1), rgba(5, 5, 5, 0.9)) !important;
+  background : transparent !important;
+  background-color: light-dark(rgba(30, 30, 30, 0.2), rgba(5, 5, 5, 0.8)) !important;
 }
 
 :root {
   --sidebar-text-color: white !important;
 }
 
+  #zen-media-controls-toolbar > toolbaritem:nth-child(1) {
+    background-color: #0000002a !important;
+    backdrop-filter: blur(10px) !important;
+  }
+  
+  #zen-media-controls-toolbar.playing {
+    toolbaritem {
+      background-color: light-dark(#fffd, #0000001a) !important;
+    }
+  }
+  #zen-media-controls-toolbar::after {
+    visibility: hidden !important;
+  }
+
 /* -------------------------- SIDEBAR Only -------------------------- */
-  #titlebar::before {
+:root[zen-compact-mode="true"] #titlebar::before {
   content: '';
   position: absolute;
   top: 0;
@@ -74,11 +77,10 @@ menuitem,
 }
 
 .zen-toolbar-background {
-  opacity: var(--zen-grainy-background-opacity);
+  opacity: var(--zen-grainy-background-opacity,0.5);
 }
 
-
-#navigator-toolbox:not([animate="true"]) #titlebar::before {
+:root[zen-compact-mode="true"] #navigator-toolbox:not([animate="true"]) #titlebar::before {
   background-color: light-dark(rgba(30, 30, 30, 0.1), rgba(5, 5, 5, 0.9)) !important;
   box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(50, 50, 50, 0.8)) !important;
   border-radius: var(--zen-native-inner-radius) !important;
@@ -322,42 +324,6 @@ menuitem,
       right: calc(var(--zen-element-separation) / 1.1) !important;
     }
   }
- 
- /* Padding toolbar */
-:root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
-  @media (not -moz-pref("zen.view.shift-down-site-on-hover")) and (not ((-moz-pref("zen.view.experimental-no-window-controls") or (not -moz-pref("zen.view.hide-window-controls"))) and -moz-pref("zen.view.use-single-toolbar"))) {
-    & .browserSidebarContainer:is(.deck-selected, [zen-split="true"]) .browserContainer {
-      #tabbrowser-tabpanels[has-toolbar-hovered] & {
-        --margin-top-fix: unset !important;
-      }
-    }
-  }
-}
-
-:root:not([zen-single-toolbar="true"], [zen-compact-mode="true"]) {
-  toolbar .toolbarbutton-1,
-  #nav-bar-customization-target {
-    padding: 1px !important;
-  }
-
-  #zen-sidebar-top-buttons,
-  #zen-sidebar-top-buttons-customization-target {
-    & toolbarbutton:not(.titlebar-button) {
-      margin-left: -3px !important;
-    }
-  }
-}
-
-:root:not([zen-single-toolbar="true"]) #urlbar:not([breakout-extend="true"]) .urlbar-input-container:not([pageproxystate="invalid"]) {
-  & #identity-box {
-    order: unset !important;
-  }
-}
-
-#notification-popup-box {
-  height: unset !important;
-}
-
 
 /* hide scrollbar */
   scrollbox {
@@ -411,26 +377,6 @@ panel[type="arrow"][position] > vbox > scrollbox {
     max-width: 300px !important;
     overflow-y: auto !important;
 }
-
-
-/* Reduce navbar container height to only cover nav-bar */
-#zen-appcontent-navbar-container {
-  height: calc(var(--urlbar-min-height) + var(--toolbarbutton-outer-padding) * 0.5) !important;
-  overflow: visible !important;
-}
-
-  /* Hover effects */
-  #personal-bookmarks #PlacesToolbarItems>toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
-    filter: brightness(1.5);
-  }
-
-  #personal-bookmarks #PlacesToolbarItems>toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):hover:active {
-    filter: brightness(3);
-  }
-
-  #personal-bookmarks #PlacesToolbarItems>toolbarbutton.bookmark-item[open="true"] {
-    filter: brightness(3);
-  }
 
 /* --- Better customize toolbar by Tanay-Kar --- */
 #customization-container {
