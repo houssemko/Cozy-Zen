@@ -34,17 +34,19 @@ menuitem,
 }
 
 /* UI Translucency*/
-#zen-main-app-wrapper,
 #sidebar-box,
 #bookmarksPanel.sidebar-panel,
 #sidebar-header,
 #history-panel,
 :root,
 #header {
-  background : transparent !important;
   background-color: light-dark(rgba(30, 30, 30, 0.2), rgba(5, 5, 5, 0.8)) !important;
 }
 
+:not([inDOMFullscreen="true"]) #zen-main-app-wrapper {
+  background-color: light-dark(rgba(30, 30, 30, 0.2), rgba(5, 5, 5, 0.8)) !important;
+}  
+  
 :root {
   --sidebar-text-color: white !important;
 }
@@ -86,16 +88,16 @@ menuitem,
   border-radius: var(--zen-native-inner-radius) !important;
   backdrop-filter: blur(10px) !important;
   }
-
- /* -------------------- SINGLE TOOLBAR -------------------- */
-
-  @media (-moz-pref("zen.view.compact.hide-tabbar")) {
-  :root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) {
+  
+:root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) {
   .browserSidebarContainer {
     border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;  
   }
 }
+  
+ /* -------------------- SINGLE TOOLBAR -------------------- */
 
+  @media (-moz-pref("zen.view.compact.hide-tabbar")) {
     :root[zen-single-toolbar="true"][zen-compact-mode="true"] #titlebar {
       top: calc(var(--zen-element-separation) / 0.99) !important;
       left: calc(var(--zen-element-separation) / 0.9) !important;
@@ -164,7 +166,6 @@ menuitem,
   }
 
   /* -------------------- MULTI TOOLBAR -------------------- */
-
   @media (-moz-pref("zen.view.compact.hide-tabbar")) {
     :root[zen-sidebar-expanded="true"]:not([zen-single-toolbar="true"])[zen-compact-mode="true"] #titlebar {
       top: calc(var(--zen-element-separation) / 0.99) !important;
