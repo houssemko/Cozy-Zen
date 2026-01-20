@@ -1,13 +1,9 @@
-/**********************************************************************
- Recommended advanced configs                                                       
-**********************************************************************/
-
 /** MOZILLA UI ***/
+user_pref("browser.tabs.allow_transparent_browser",true);
 user_pref("browser.tabs.groups.enabled",true);
 user_pref("browser.taskbarTabs.enabled",true);
 user_pref("browser.urlbar.weather.featureGate", true);
 user_pref("browser.urlbar.groupLabels.enabled", true);
-user_pref("browser.tabs.allow_transparent_browser", true);
 user_pref("svg.context-properties.content.enabled", true);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.newtabpage.activity-stream.system.showWeather", true);
@@ -48,6 +44,7 @@ user_pref("zen.theme.content-element-separation", 1);
 user_pref("zen.urlbar.show-protections-icon", false);
 user_pref("zen.view.hide-window-controls", false);
 user_pref("zen.theme.styled-status-panel", true);
+user_pref("zen.widget.linux.transparency", true);
 user_pref("zen.urlbar.replace-newtab", false);
 user_pref("zen.theme.accent-color", #3D3846);
 
@@ -57,4 +54,6 @@ user_pref("cmi-Hide-Inactive-Items-TabContextMenu", true);
 user_pref("cmi-Center-Bookmark-Items", true);
 user_pref("cmi-fold_menu_item-enable", true);
 user_pref("cmi-Hide-Folder-Icon", false);
+user_pref("cmi-Auto-Hide-BookmarkBar", 0);
 user_pref("cmi-Switch-Icon-Package", 2);
+
