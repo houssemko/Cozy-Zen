@@ -8,29 +8,8 @@ menuitem,
   backface-visibility: hidden;
 }
 
-.zen-floating-urlbar,
-.zen-floating-status-bar {
-  transform: translateZ(0);
-  will-change: transform, opacity;
-  contain: layout style paint;
-}
-
 .browserStack {
   transform: translateZ(0);
-  will-change: transform;
-}
-
-/* Main browser container */
-#browser,
-#browser > stack,
-#browser > stack > vbox {
-  overflow: hidden !important;
-}
-
-#tabbrowser-tabbox {
-  position: relative !important;
-  overflow: hidden !important;
-  box-shadow: 4px 4px 16px rgba(0,0,0,0.3) !important;
 }
 
 /* UI Translucency*/
