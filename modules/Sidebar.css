@@ -78,7 +78,7 @@ menuitem,
 }
 
 :root[zen-compact-mode="true"] #navigator-toolbox:not([animate="true"]) #titlebar::before {
-  background-color: light-dark(rgba(20, 20, 20, 0.2), rgba(0, 0, 0, 0.8));
+  background-color: light-dark(rgba(10, 10, 10, 0.1), rgba(0, 0, 0, 0.9));
   box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(50, 50, 50, 0.8));
   border-radius: var(--zen-native-inner-radius);
   backdrop-filter: blur(20px) saturate(140%);
