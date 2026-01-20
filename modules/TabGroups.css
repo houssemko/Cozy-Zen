@@ -1,17 +1,14 @@
 /* Folder */
 zen-folder {
   margin: 2px 2px 2px 2px !important;
+  padding: 3px !important;
   background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 20%, transparent) !important;
   border-radius: var(--border-radius-medium);
   border: 1px solid color-mix(in srgb, var(--toolbox-textcolor) 8%, transparent) !important;
   
- &:hover {
-    background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 35%, transparent) !important;
-   border: 1px solid color-mix(in srgb, var(--toolbox-textcolor) 15%, transparent) !important;
-  }
-     &>.tab-group-container {
+ &>.tab-group-container {
       :root[zen-sidebar-expanded] &>* {
-        --zen-folder-indent: 1px !important;
+        --zen-folder-indent: 0px !important;
         scale: 0.97 !important;
       }
     }
