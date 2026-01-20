@@ -183,6 +183,7 @@ tab-group:not([split-view-group]) {
       overflow: hidden !important;
       margin-right: 0.5px !important;
     }
+  }
 }
 
 tab-group[collapsed] .tab-group-container {
