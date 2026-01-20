@@ -84,7 +84,7 @@ menuitem,
   backdrop-filter: blur(20px) saturate(140%);
   }
   
-:root[zen-compact-mode="true"]:not([inDOMFullscreen="true"]) {
+:root[zen-compact-mode="true"] {
   .browserSidebarContainer {
     border-radius: 0 0 var(--zen-element-separation) var(--zen-element-separation) !important;  
   }
