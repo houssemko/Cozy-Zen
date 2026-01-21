@@ -44,9 +44,8 @@ user_pref("zen.theme.content-element-separation", 1);
 user_pref("zen.urlbar.show-protections-icon", false);
 user_pref("zen.view.hide-window-controls", false);
 user_pref("zen.theme.styled-status-panel", true);
-user_pref("zen.widget.linux.transparency", false);
+user_pref("zen.widget.linux.transparency", true);
 user_pref("zen.urlbar.replace-newtab", false);
-user_pref("zen.tabs.use-legacy-drag-and-drop", false);
 user_pref("zen.tabs.rename-tabs", false);
 
 /** context-menu ***/
