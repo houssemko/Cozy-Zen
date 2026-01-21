@@ -1,17 +1,4 @@
 /* === TAB ANIMATIONS === */
-/* Performance optimizations */
-.tabbrowser-tab *,
-#nav-bar toolbarbutton *,
-#PersonalToolbar toolbarbutton *,
-#urlbar *,
-#searchbar *,
-menupopup *,
-menuitem *,
-#sidebar-box *,
-#downloads-notification-anchor * {
-  backface-visibility: hidden;
-}
-
 /* Tab hover and active animation with enhanced shadows */
 .tabbrowser-tab[pinned]:not([zen-essential="true"]) {       
   padding-top: 2px !important;  
@@ -156,10 +143,6 @@ menuitem *,
 }
 
 /* === CONTEXT MENU ENHANCEMENTS === */
-menuitem {
-  transition: all 0.25s ease-in-out !important;
-}
-
 [hasbeenopened="true"] :is(menuitem, menu, .subviewbutton) .menu-text {
   padding: 1.5px 5px !important;
   opacity: 1 !important;
@@ -240,16 +223,6 @@ menuitem:nth-child(n+6) { animation-delay: 0.12s; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* Hardware acceleration for all animated elements */
-.tabbrowser-tab *, 
-#nav-bar toolbarbutton *,
-#PersonalToolbar toolbarbutton *,
-#urlbar *, #searchbar *,
-menupopup *, menuitem *,
-#sidebar-box *, #downloads-notification-anchor * { 
-  backface-visibility: hidden; 
 }
 
 /* ACCESSIBILITY & FUNCTIONALITY PRESERVATION */
@@ -351,11 +324,6 @@ menupopup *, menuitem *,
   75% { transform: scale(0.95); }
   100% { transform: scale(1); }
 }
-
-
-/* ------------------ BUTTONS IN SINGLE TOOLBAR MODE ------------------ */
-
-html[zen-single-toolbar="true"] {
 
   /* Base Styling & Radius */
   #preferences-button,
@@ -468,4 +436,3 @@ html[zen-single-toolbar="true"] {
   #zen-sidebar-top-buttons-customization-target .toolbarbutton-1> :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
     border-radius: 9.5px !important;
   }
-}
