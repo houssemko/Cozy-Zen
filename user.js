@@ -1,18 +1,18 @@
 /** MOZILLA UI ***/
-user_pref("browser.tabs.allow_transparent_browser",true);
-user_pref("browser.tabs.groups.enabled",true);
-user_pref("browser.taskbarTabs.enabled",true);
+user_pref("browser.tabs.allow_transparent_browser", true);
+user_pref("browser.tabs.groups.enabled", true);
+user_pref("browser.taskbarTabs.enabled", true);
 user_pref("browser.urlbar.weather.featureGate", true);
 user_pref("browser.urlbar.groupLabels.enabled", true);
 user_pref("svg.context-properties.content.enabled", true);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.newtabpage.activity-stream.system.showWeather", true);
 user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
-user_pref("widget.wayland.opaque-region.enabled",true);
+user_pref("widget.wayland.opaque-region.enabled", true);
 user_pref("dom.element.animate.enabled", true);
 user_pref("dom.viewTransitions.enabled", true);
 user_pref("accessibility.force_disabled", 1);
-user_pref("browser.uidensity", 1)
+user_pref("browser.uidensity", 1);
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
@@ -44,9 +44,10 @@ user_pref("zen.theme.content-element-separation", 1);
 user_pref("zen.urlbar.show-protections-icon", false);
 user_pref("zen.view.hide-window-controls", false);
 user_pref("zen.theme.styled-status-panel", true);
-user_pref("zen.widget.linux.transparency", true);
+user_pref("zen.widget.linux.transparency", false);
 user_pref("zen.urlbar.replace-newtab", false);
-user_pref("zen.theme.accent-color", #3D3846);
+user_pref("zen.tabs.use-legacy-drag-and-drop", false);
+user_pref("zen.tabs.rename-tabs", false);
 
 /** context-menu ***/
 user_pref("cmi-Hide-Inactive-Items-ContentAreaContextMenu", true);
