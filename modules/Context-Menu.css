@@ -34,8 +34,7 @@ menuseparator {
 
 /* Style */
 menupopup, panel {
-  background-color: transparent !important;
-  background: light-dark(rgba(10, 10, 10, 0.2), rgba(0, 0, 0, 0.8)) !important;
+  background-color:light-dark(rgba(10, 10, 10, 0.2), rgba(0, 0, 0, 0.8)) !important;
 }
 
 menuitem:hover {
