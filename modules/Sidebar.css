@@ -1,29 +1,21 @@
 /* ------------------------- General settings  -------------------------- */
-/* Performance optimizations */
-#searchbar,
-menupopup,
-menuitem,
-#sidebar-box,
-#downloads-notification-anchor {
-  backface-visibility: hidden;
-}
-
-.browserStack {
+/* UI Translucency*/
+.browserStack,
+browser {
+  clip-path: inset(0);
   transform: translateZ(0);
 }
 
-/* UI Translucency*/
 #sidebar-box,
 #bookmarksPanel.sidebar-panel,
 #sidebar-header,
 #history-panel,
-:root,
 #header {
-  background-color: light-dark(rgba(30, 30, 30, 0.2), rgba(5, 5, 5, 0.8)) !important;
+  background-color: light-dark(rgba(10, 10, 10, 0.5), rgba(0, 0, 0, 0.9)) !important;
 }
 
 :not([inDOMFullscreen="true"]) #zen-main-app-wrapper {
-  background-color: light-dark(rgba(30, 30, 30, 0.2), rgba(5, 5, 5, 0.8)) !important;
+  background-color: light-dark(rgba(10, 10, 10, 0.5), rgba(0, 0, 0, 0.8)) !important;
 }  
   
 :root {
@@ -50,16 +42,23 @@ menuitem,
     scrollbar-width: none !important;
   }
   
-/* Hides Top Toolbar (single toolbar) */
+
   :root[zen-single-toolbar="true"] #zen-appcontent-navbar-wrapper {
     max-height: var(--zen-element-separation) !important;
     margin-top: 0px;
   }
-
+  
+/* Workspace indicator */
  .zen-current-workspace-indicator {
   display: none !important;
 }
 
+#zen-workspaces-button .subviewbutton:not([active="true"]) {
+  display: none!important;
+}
+#zen-workspaces-button:hover .subviewbutton:not([active="true"]) {
+  display: flex!important;
+}
 
 /* -------------------------- SIDEBAR Only -------------------------- */
 :root[zen-compact-mode="true"] #titlebar::before {
@@ -78,10 +77,11 @@ menuitem,
 }
 
 :root[zen-compact-mode="true"] #navigator-toolbox:not([animate="true"]) #titlebar::before {
-  background-color: light-dark(rgba(10, 10, 10, 0.1), rgba(0, 0, 0, 0.9));
+  background-color: light-dark(rgba(10, 10, 10, 0.8), rgba(0, 0, 0, 0.9));
   box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(50, 50, 50, 0.8));
   border-radius: var(--zen-native-inner-radius);
-  backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(10px) saturate(140%);
+  will-change: backdrop-filter;
   }
   
 :root[zen-compact-mode="true"] {
@@ -172,3 +172,4 @@ panel[type="arrow"][position] > vbox > scrollbox {
   margin: 0px !important;
   border-radius: 8px;
 }
+/* Hides Top Toolbar (single toolbar) */
