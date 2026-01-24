@@ -72,64 +72,24 @@ panel {
   }
 }
 
-/* Debloat tab name */
-menuitem.badge-new::after {
-  display: none !important;
-}
+/* Set pseudo-element content */
+#context_zen-add-essential::before { content: "Add to Essentials" !important; }
+#context_bookmarkTab::before { content: "Bookmark Tab" !important; }
+#context_zenSplitTabs::before { content: "Split Tab..." !important; }
+#context_zen-replace-pinned-url-with-current::before { content: "Replace Pinned URL" !important; }
+#context-searchselect-private::before { content: "Search in a Private Window" !important; }
 
-#context_zen-add-essential::after {
-  display: none !important;
-}
-
-#context_zen-add-essential::before {
-  content: "Add to Essentials" !important;
-}
-
-#context_zen-add-essential>.menu-text {
-  display: none !important;
-}
-
-#context_bookmarkTab::before {
-  content: "Bookmark Tab" !important;
-}
-
-#context_bookmarkTab>.menu-text {
-  display: none !important;
-}
-
-#context-zen-change-workspace-tab {
-  display: none  !important;
-}
-
-#context-zen-change-workspace-tab::after {
-  display: none !important;
-}
-
-#context-zen-change-workspace-tab>.menu-text {
-  display: none !important;
-}
-
-#context_zenSplitTabs::before {
-  content: "Split Tab..." !important;
-}
-
-#context_zenSplitTabs>.menu-text {
-  display: none !important;
-}
-
-#context_zen-replace-pinned-url-with-current::before {
-  content: "Replace Pinned URL" !important;
-}
-
-#context_zen-replace-pinned-url-with-current>.menu-text {
-  display: none !important;
-}
-
-#context-searchselect-private::before {
-  content: "Search in a Private Window" !important;
-}
-
-#context-searchselect-private>.menu-text {
+/* Hide elements and pseudo-elements */
+menuitem.badge-new::after,
+#context_zen-add-essential::after,
+#context-zen-change-workspace-tab,
+#context-zen-change-workspace-tab::after,
+#context-zen-change-workspace-tab > .menu-text,
+#context_zen-add-essential > .menu-text,
+#context_bookmarkTab > .menu-text,
+#context_zenSplitTabs > .menu-text,
+#context_zen-replace-pinned-url-with-current > .menu-text,
+#context-searchselect-private > .menu-text {
   display: none !important;
 }
 
