@@ -12,7 +12,6 @@
 
   /* Hover State */
   &:hover {
-    :root[zen-single-toolbar="true"] & {
       .urlbar-background,
       .urlbar-input-container {
         transform: translateY(-1px) scale(1.05);
