@@ -142,60 +142,50 @@
   animation: menuButtonAnimation 0.6s cubic-bezier(.2,.49,.78,1.01) forwards;
 }
 
-/* === CONTEXT MENU ENHANCEMENTS (OPTIMIZED) === */
-menupopup {
-  --menu-animation-duration: 0.1s;
-  --item-animation-duration: 0.2s;
-  --stagger-delay: 0.02s;
-  will-change: transform, opacity;
-  animation: contextMenuSlideIn var(--menu-animation-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
-  transform-origin: top left;
-}
-
+/* === CONTEXT MENU ENHANCEMENTS === */
 /* Base style for menu items */
-menuitem, menu, .subviewbutton {
-  will-change: transform, opacity;
-  transition: background-color 0.12s ease, 
-              transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.12s ease !important;
-  animation: menuItemSlideIn var(--item-animation-duration) ease-out backwards;
-}
-
 menuitem, menu, .subviewbutton:hover > .menu-text {
   padding-left: 9px !important;
   padding-right: 1px !important;
   transition: padding 0.1s ease-out;
 }
 
-/* Staggered Animation */
-menuitem:nth-child(1) { animation-delay: calc(var(--stagger-delay) * 1); }
-menuitem:nth-child(2) { animation-delay: calc(var(--stagger-delay) * 2); }
-menuitem:nth-child(3) { animation-delay: calc(var(--stagger-delay) * 3); }
-menuitem:nth-child(4) { animation-delay: calc(var(--stagger-delay) * 4); }
-menuitem:nth-child(5) { animation-delay: calc(var(--stagger-delay) * 5); }
-menuitem:nth-child(n+6) { animation-delay: calc(var(--stagger-delay) * 6); }
+/* Enhanced context menu with stagger animation */
+menupopup {
+  animation: contextMenuSlideIn 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transform-origin: top left;
+}
 
-/* Keyframe Definitions */
 @keyframes contextMenuSlideIn {
   0% {
     opacity: 0;
     transform: scale(0.92) translateY(-4px);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
 }
 
+/* Context menu items with stagger delay */
+menuitem {
+  transition: background-color 0.12s ease,
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.12s ease !important;
+  animation: menuItemSlideIn 0.2s ease-out backwards;
+}
+
+menuitem:nth-child(1) { animation-delay: 0.02s; }
+menuitem:nth-child(2) { animation-delay: 0.04s; }
+menuitem:nth-child(3) { animation-delay: 0.06s; }
+menuitem:nth-child(4) { animation-delay: 0.08s; }
+menuitem:nth-child(5) { animation-delay: 0.10s; }
+menuitem:nth-child(n+6) { animation-delay: 0.12s; }
+
 @keyframes menuItemSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  0% { opacity: 0; transform: translateX(-10px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
 /* Download notification */
