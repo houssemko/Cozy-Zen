@@ -6,7 +6,7 @@
 menupopup > :is(menuitem, menu) {
   height: fit-content !important;
   padding-block: 2px !important;
-
+  will-change: auto;
 }
 
 #contentAreaContextMenu {
@@ -32,16 +32,25 @@ menuseparator {
   }
 }
 
-/* Style */
+/* Translucency */
 menupopup, panel {
-  background-color:light-dark(rgba(10, 10, 10, 0.2), rgba(0, 0, 0, 0.8)) !important;
+  background-color: transparent !important;
+  transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out !important;
+  --panel-background: light-dark(rgba(255, 255, 255, 0.8), rgba(10, 10, 10, 0.8)) !important;
 }
 
-menuitem:hover {
+menuitem:hover,
+menu:hover {
   background-color: color-mix(in srgb, AccentColor 30%, transparent) !important;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, AccentColor 50%, transparent) !important;
 }
 
+menuitem:not(:hover),
+menu:not(:hover) {
+  background-color: transparent !important;
+  border-radius: 15px !important;
+  box-shadow: inset 0 0 0 1px transparent !important;
+}
 
 /* Debloat tab name */
 menuitem.badge-new::after {
