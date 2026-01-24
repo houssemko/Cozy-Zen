@@ -1,25 +1,11 @@
 /* ------------------------- General settings  -------------------------- */
 /* UI Translucency*/
-.browserStack,
-browser {
-  clip-path: inset(0);
-  transform: translateZ(0);
-}
-
 #sidebar-box,
 #bookmarksPanel.sidebar-panel,
 #sidebar-header,
 #history-panel,
 #header {
   background-color: light-dark(rgba(10, 10, 10, 0.5), rgba(0, 0, 0, 0.9)) !important;
-}
-
-:not([inDOMFullscreen="true"]) #zen-main-app-wrapper {
-  background-color: light-dark(rgba(10, 10, 10, 0.5), rgba(0, 0, 0, 0.8)) !important;
-}  
-  
-:root {
-  --sidebar-text-color: white !important;
 }
 
 /* Media Player */
