@@ -4,21 +4,11 @@
   transform: translateZ(0);
 }
 
-#sidebar-box,
-#bookmarksPanel.sidebar-panel,
-#sidebar-header,
-#history-panel,
-#header {
-  background-color: light-dark(rgba(10, 10, 10, 0.5), rgba(0, 0, 0, 0.9)) !important;
-}
-
-:not([inDOMFullscreen="true"]) #zen-main-app-wrapper {
+:root,
+  #zen-main-app-wrapper {
+  --sidebar-text-color: white !important;
   background-color: light-dark(rgba(10, 10, 10, 0.5), rgba(0, 0, 0, 0.8)) !important;
 }  
-  
-:root {
-  --sidebar-text-color: white !important;
-}
 
 /* Media Player */
   #zen-media-controls-toolbar > toolbaritem:nth-child(1) {
