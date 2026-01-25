@@ -6,7 +6,7 @@
 
 :root,
   #zen-main-app-wrapper {
-  --sidebar-text-color: white !important;
+  --sidebar-text-color: white ;
   background-color: light-dark(rgba(10, 10, 10, 0.5), rgba(0, 0, 0, 0.8)) !important;
 }  
 
@@ -20,9 +20,6 @@
     toolbaritem {
       background-color: light-dark(#fffd, #0000001a) !important;
     }
-  }
-  #zen-media-controls-toolbar::after {
-    visibility: hidden !important;
   }
 
 /* hide scrollbar */
@@ -116,6 +113,22 @@ panel[type="arrow"][position] > vbox > scrollbox {
     overflow-y: auto !important;
 }
 
+/* Cleaner bookmark menu */
+#BMB_viewBookmarksSidebar,
+#BMB_searchBookmarks,
+#BMB_bookmarksShowAllTop,
+#BMB_bookmarksShowAll {
+  display: none !important;
+}
+
+#bookmarks-menu-button #BMB_viewBookmarksToolbar {
+  display: none !important;
+}
+
+#BMB_bookmarksPopup menuseparator {
+  display: none;
+}
+
 /* --- Better customize toolbar by Tanay-Kar --- */
 #customization-container {
   position: absolute;
@@ -160,4 +173,3 @@ panel[type="arrow"][position] > vbox > scrollbox {
   margin: 0px !important;
   border-radius: 8px;
 }
-/* Hides Top Toolbar (single toolbar) */
