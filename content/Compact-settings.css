@@ -1,0 +1,54 @@
+@-moz-document url-prefix("about:preferences"), url-prefix("about:settings") {
+  #preferences-stack {
+    vbox.navigation {
+      position: absolute !important;
+      height: 100vh !important;
+      z-index: 20 !important;
+      width: auto !important;
+      padding: 10px !important;
+      #searchInput,
+      #categories,
+      vbox.sidebar-footer-list {
+        transition: width 150ms ease-in-out !important;
+        width: 40px !important;
+        overflow-x: hidden !important;
+        white-space: nowrap !important; 
+      }
+      .sidebar-footer-label {
+        transition: opacity 150ms ease-in-out !important;
+        opacity: 0 !important;
+      }
+      &:has(#searchInput:focus),
+      &:hover {
+        #categories,
+        #searchInput,
+        .sidebar-footer-list {
+          width: 250px !important;
+        }
+        .sidebar-footer-label {
+          opacity: 1 !important;
+        }
+      }
+      #searchInput {
+        margin: 20px 0 !important;
+        padding-left: 12px !important;
+      }
+      #categories {
+        margin: 0 !important;
+        padding: 0 !important;
+        .category {
+          margin-left: 10px !important;
+          padding: 0 8px !important;
+          width: 250px !important;
+        }
+      }
+      vbox.sidebar-footer-list {
+        margin-left: 13px !important;
+        .sidebar-footer-icon {
+          margin: 0 8px !important;
+          scale: 1.4 !important;
+        }
+      }
+    }
+  }
+}
