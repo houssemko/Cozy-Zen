@@ -1,39 +1,12 @@
 /* === COMPACT MENU === */
-:root {
-  --arrowpanel-menuitem-padding-block: 2px !important;
-} 
-
-menupopup > :is(menuitem, menu) {
-  height: fit-content !important;
-  padding-block: 2px !important;
-  will-change: auto;
-}
-
-#contentAreaContextMenu {
-  max-width: 280px !important;
-}
-
-#tabContextMenu {
-  max-width: 250px !important;
-}
-
-#confirmation-hint {
-  --arrowpanel-color: var(--sidebar-text-color) !important;
-}
-
-/* Style for menu separators */
-menuseparator {
-  &::before {
-    opacity: 0.3;
- }
-  &:nth-of-type(4),
-  &:nth-of-type(7) {
-    display: none !important;
-  }
-}
+:root { --arrowpanel-menuitem-padding-block: 2.5px !important;} 
+#contentAreaContextMenu { max-width: 280px !important;}
+#tabContextMenu { max-width: 250px !important; }
 
 /* Menu Item Styles */
 :is(menuitem, menu, .subviewbutton) {
+  height: fit-content !important;
+  padding-block: 2.5px !important;
   /* Base state */
   & .menu-text {
     padding: 1.5px 5px !important;
@@ -45,6 +18,18 @@ menuseparator {
   &:hover > .menu-text {
     padding-left: 9px !important;
     padding-right: 1px !important;
+  }
+}
+
+/* Style for menu separators */
+menuseparator {
+  &::before {
+    opacity: 0.3;
+ }
+  &:nth-of-type(2),
+  &:nth-of-type(4),
+  &:nth-of-type(7) {
+    display: none !important;
   }
 }
 
@@ -78,6 +63,7 @@ panel {
 #context_zenSplitTabs::before { content: "Split Tab..." !important; }
 #context_zen-replace-pinned-url-with-current::before { content: "Replace Pinned URL" !important; }
 #context-searchselect-private::before { content: "Search in a Private Window" !important; }
+
 
 /* Hide elements and pseudo-elements */
 menuitem.badge-new::after,
@@ -140,8 +126,6 @@ menuitem.badge-new::after,
 
 /* Sidebar toolbar options */
 #toggle_toolbar-menubar,
-#toolbar-context-undoCloseTab,
-#toolbar-context-selectAllTabs,
 #toolbar-context-bookmarkSelectedTab,
 #toolbar-context-bookmarkSelectedTabs,
 #toolbar-context-reloadSelectedTab,
