@@ -5,9 +5,8 @@
 }
 
 :root,
-  #zen-main-app-wrapper {
-  --sidebar-text-color: white ;
-  background-color: light-dark(rgba(10, 10, 10, 0.5), rgba(0, 0, 0, 0.8)) !important;
+:not([inDOMFullscreen="true"]) #zen-main-app-wrapper {
+  background-color: light-dark(rgba(10, 10, 10, 0.3), rgba(0, 0, 0, 0.7)) !important;
 }  
 
 /* Media Player */
@@ -35,16 +34,31 @@
   
 /* Workspace indicator */
  .zen-current-workspace-indicator {
-  display: none !important;
-}
-
-#zen-workspaces-button .subviewbutton:not([active="true"]) {
   display: none!important;
 }
-#zen-workspaces-button:hover .subviewbutton:not([active="true"]) {
-  display: flex!important;
+
+/* Base state */
+#zen-workspaces-button .subviewbutton:not([active="true"]) {
+  opacity: 0 !important;
+  max-width: 0 !important;
+  margin-inline: 0 !important;
+  padding-inline: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  transition: 
+    opacity 0.15s ease-in-out, 
+    max-width 0.15s ease-in-out, 
+    margin 0.15s ease-in-out, 
+    padding 0.15s ease-in-out !important;
 }
 
+/* Hover state */
+#zen-workspaces-button:hover .subviewbutton:not([active="true"]) {
+  opacity: 1 !important;
+  max-width: 100px !important;
+  margin-inline: 2px !important; 
+  pointer-events: auto !important;
+}
 /* -------------------------- SIDEBAR Only -------------------------- */
 :root[zen-compact-mode="true"] #titlebar::before {
   content: '';
@@ -62,7 +76,7 @@
 }
 
 :root[zen-compact-mode="true"] #navigator-toolbox:not([animate="true"]) #titlebar::before {
-  background-color: light-dark(rgba(10, 10, 10, 0.8), rgba(0, 0, 0, 0.9));
+  background-color: light-dark(rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.9));
   box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(50, 50, 50, 0.8));
   border-radius: var(--zen-native-inner-radius);
   backdrop-filter: blur(10px) saturate(140%);
@@ -81,6 +95,15 @@
 #appMenu-new-private-window-button2,
 #appMenu-new-private-window-button2 + toolbarseparator {
 display: none !important;
+}
+
+/* for collapsed toolbar */
+:root:not([zen-sidebar-expanded="true"]):not([zen-single-toolbar="true"])
+#TabsToolbar-customization-target .unified-extensions-item {
+  width: 24px !important;
+  height: 32px !important;
+  margin-inline: 6px !important; /* fake side padding */
+  margin-block: 2px !important;  /* vertical spacing */
 }
 
 /* Limit height and width of history panel */
