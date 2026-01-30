@@ -59,7 +59,8 @@
   margin-inline: 2px !important; 
   pointer-events: auto !important;
 }
-/* -------------------------- SIDEBAR Only -------------------------- */
+
+/* -------------------------- Compact Sidebar -------------------------- */
 :root[zen-compact-mode="true"] #titlebar::before {
   content: '';
   position: absolute;
@@ -95,15 +96,6 @@
 #appMenu-new-private-window-button2,
 #appMenu-new-private-window-button2 + toolbarseparator {
 display: none !important;
-}
-
-/* for collapsed toolbar */
-:root:not([zen-sidebar-expanded="true"]):not([zen-single-toolbar="true"])
-#TabsToolbar-customization-target .unified-extensions-item {
-  width: 24px !important;
-  height: 32px !important;
-  margin-inline: 6px !important; /* fake side padding */
-  margin-block: 2px !important;  /* vertical spacing */
 }
 
 /* Limit height and width of history panel */
