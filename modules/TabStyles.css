@@ -1,23 +1,98 @@
 /* === TAB Styling === */
-/* Adds a background to Pinned tabs */
-.tabbrowser-tab[pinned]:not([selected="true"]):not([zen-essential="true"]) .tab-background {
-    background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important; 
-}
-
-/* Selected-pinned-Tabs */
-.tabbrowser-tab[pinned]:is([selected="true"], [multiselected="true"]):not([zen-essential="true"]) .tab-background {
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 50%, transparent) !important;
-}
- 
-   .zen-essentials-container {
+  /* Colouring Essentials */
+       .zen-essentials-container {
     .tabbrowser-tab:is([selected],[visuallyselected]) .tab-background {
       &::before {
         opacity: 0.7;
       }
     }
-  }
+   }
+
+  /* Adds a little bg to the pinned tabs */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --pins-bg-percentage: 40%;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --pins-bg-percentage: 7%;
+      }
+    }
+
+    .zen-workspace-pinned-tabs-section:not(
+      :has([zen-dragtarget], zen-folder .tab-group-label-container[zen-dragtarget])
+    ) {
+      /* background color of pinned tabs in a normal state (not hovered/selected) */
+      .tabbrowser-tab[pinned] .tab-stack .tab-background {
+        background-color: color-mix(
+          in srgb,
+          white var(--pins-bg-percentage),
+          transparent
+        ) !important;
+      }
+
+      /* background color when hovering */
+      .tabbrowser-tab[pinned]:hover .tab-stack .tab-background {
+        background-color: color-mix(
+          in srgb,
+          white calc(var(--pins-bg-percentage) + 3%),
+          transparent
+        ) !important;
+      }
+
+      /* background color when selected */
+      .tabbrowser-tab[pinned][selected="true"] .tab-stack .tab-background,
+      .tabbrowser-tab[pinned][multiselected="true"] .tab-stack .tab-background {
+        background-color: color-mix(
+          in srgb,
+          white calc(var(--pins-bg-percentage) + 16%),
+          transparent
+        ) !important;
+      }
+
+      /* background color when selected and hovering*/
+      .tabbrowser-tab[pinned][selected="true"]:hover .tab-stack .tab-background,
+      .tabbrowser-tab[pinned][multiselected="true"]:hover .tab-stack .tab-background {
+        background-color: color-mix(
+          in srgb,
+          white calc(var(--pins-bg-percentage) + 18%),
+          transparent
+        ) !important;
+      }
+    }
+
+    .tabbrowser-tab[pinned]:not([zen-essential]) .tab-background {
+      transition: background-color var(--uc-pins-transition-speed) ease;
+    }
+
+    .tabbrowser-tab[zen-essential] .tab-background {
+      transition: background-color var(--uc-essentials-transition-speed) ease;
+    }
+
+  /* Adds border to Pins/Essentials (when toggled) */
+    .tabbrowser-tab[pinned]:not([zen-essential="true"]) .tab-stack .tab-background,
+    #vertical-pinned-tabs-container > .zen-workspace-tabs-section tab-group,
+    .zen-workspace-pinned-tabs-section tab-group {
+      border: 1px solid
+        light-dark(
+          color-mix(in srgb, var(--zen-colors-secondary) 80%, black),
+          color-mix(in srgb, var(--zen-colors-secondary) 80%, white)
+        ) !important;
+    }
 
 /* show tab close/reset button only on hover with cool animation */
+.tab-reset-pin-button {
+   border-radius: var(--zen-native-inner-radius) !important;
+   background-color: rgba(255, 255, 255, 0);
+   transition: background-color 0.2s ease-out;
+}
+
+.tab-reset-pin-button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
 .tab-close-button
 {transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;}
 
@@ -28,6 +103,46 @@
   display: flex !important;
 }
 
+  /* ======== containers ======= */
+  /* ------------------- Container Tabs Styling ------------------- */
+    #userContext-icons {
+      width: 5px !important;
+      height: 10px !important;
+      margin: 0 6px 0 2px !important;
+      border-radius: 3px !important;
+      background-color: var(--identity-tab-color) !important;
+      opacity: 0.8;
+    }
+
+    .tab-context-line {
+      display: none !important;
+    }
+
+    .tabbrowser-tab[usercontextid] .tab-background {
+      position: relative !important;
+    }
+
+    .tabbrowser-tab[usercontextid] .tab-background::after {
+      content: "";
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      width: 50% !important;
+      height: 100% !important;
+      z-index: -1 !important;
+      opacity: 0.5 !important;
+      filter: blur(10px) contrast(100%) brightness(100%);
+      background: linear-gradient(to right, var(--identity-tab-color, rgba(0, 0, 255, 0.5)), transparent 50%) !important;
+      transition: opacity 0.3s ease, width 0.3s ease, background 0.3s ease !important;
+    }
+
+    .tabbrowser-tab[usercontextid]:not([selected]):not([visuallyselected]) .tab-background::after {
+      width: 25% !important;
+      opacity: 0.5 !important;
+    }
+  
+  
+  
 /* ------------------------- QUIETIFY SOUND ICON ------------------------- */
 .tab-audio-button {
     display: none !important;
@@ -49,8 +164,8 @@
         border-radius: 0px !important;
         top: 0px !important;
         right: 0px !important;
-        scale: 0.9 !important;
-        opacity: 0.7 !important;
+        scale: 0.95 !important;
+        opacity: 0.9 !important;
         margin: 0px 3px !important;
         background: none !important;
         pointer-events: auto !important;
@@ -63,7 +178,7 @@
     }
 
     &:is([soundplaying], [muted], [activemedia-blocked]):hover {
-        scale: 1.1 !important;
+        scale: 1.2 !important;
         opacity: 1 !important;
     }
 
