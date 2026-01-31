@@ -37,7 +37,7 @@
       .tabbrowser-tab[pinned]:hover .tab-stack .tab-background {
         background-color: color-mix(
           in srgb,
-          white calc(var(--pins-bg-percentage) + 3%),
+          white calc(var(--pins-bg-percentage) + 7%),
           transparent
         ) !important;
       }
@@ -47,7 +47,7 @@
       .tabbrowser-tab[pinned][multiselected="true"] .tab-stack .tab-background {
         background-color: color-mix(
           in srgb,
-          white calc(var(--pins-bg-percentage) + 16%),
+          white calc(var(--pins-bg-percentage) + 10%),
           transparent
         ) !important;
       }
@@ -57,7 +57,7 @@
       .tabbrowser-tab[pinned][multiselected="true"]:hover .tab-stack .tab-background {
         background-color: color-mix(
           in srgb,
-          white calc(var(--pins-bg-percentage) + 18%),
+          white calc(var(--pins-bg-percentage) + 15%),
           transparent
         ) !important;
       }
@@ -75,7 +75,7 @@
     .tabbrowser-tab[pinned]:not([zen-essential="true"]) .tab-stack .tab-background,
     #vertical-pinned-tabs-container > .zen-workspace-tabs-section tab-group,
     .zen-workspace-pinned-tabs-section tab-group {
-      border: 1px solid
+      box-shadow:  0 0 0 1px inset
         light-dark(
           color-mix(in srgb, var(--zen-colors-secondary) 80%, black),
           color-mix(in srgb, var(--zen-colors-secondary) 80%, white)
