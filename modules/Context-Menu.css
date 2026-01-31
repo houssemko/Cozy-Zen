@@ -1,22 +1,19 @@
-/* === COMPACT MENU === */
-#contentAreaContextMenu { max-width: 280px !important;}
+/* Width Constraints */
+#contentAreaContextMenu { max-width: 280px !important; }
 #tabContextMenu { max-width: 250px !important; }
 
 /* Menu Item Styles */
 :is(menuitem, menu, .subviewbutton) {
   height: fit-content !important;
-  padding-block: 2.5px !important;
-  /* Base state */
+  padding-block: 3px !important;
+
   & .menu-text {
     padding: 1.5px 5px !important;
-    opacity: 1 !important;
-    transition: all 0.25s ease-in-out !important;
+    transition: transform 0.25s ease-in-out !important;
   }
 
-  /* Hover state */
   &:hover > .menu-text {
-    padding-left: 9px !important;
-    padding-right: 1px !important;
+    transform: translateX(4px) !important;
   }
 }
 
@@ -25,7 +22,6 @@ menuseparator {
   &::before {
     opacity: 0.3;
  }
-  &:nth-of-type(3),
   &:nth-of-type(7) {
     display: none !important;
   }
