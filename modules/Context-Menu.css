@@ -51,14 +51,6 @@ menupopup, panel {
   }
 }
 
-/* Set pseudo-element content */
-#context_zen-add-essential::before { content: "Add to Essentials" !important; }
-#context_bookmarkTab::before { content: "Bookmark Tab" !important; }
-#context_zenSplitTabs::before { content: "Split Tab..." !important; }
-#context_zen-replace-pinned-url-with-current::before { content: "Replace Pinned URL" !important; }
-#context-searchselect-private::before { content: "Search in a Private Window" !important; }
-
-
 /* Hide elements and pseudo-elements */
 menuitem.badge-new::after,
 #context_zen-add-essential::after,
@@ -68,7 +60,6 @@ menuitem.badge-new::after,
 #context_zen-add-essential > .menu-text,
 #context_bookmarkTab > .menu-text,
 #context_zenSplitTabs > .menu-text,
-#context_zen-replace-pinned-url-with-current > .menu-text,
 #context-searchselect-private > .menu-text,
 #context-savepage,
 #context-sendpagetodevice,
