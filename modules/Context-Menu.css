@@ -1,4 +1,4 @@
-/* Width Constraints */
+/* Compact Context menu */
 #contentAreaContextMenu { max-width: 260px important; }
 #tabContextMenu { max-width: 250px !important; }
 
@@ -25,7 +25,7 @@ menuseparator {
  
   &:nth-of-type(2),
   &:nth-of-type(4),
-  &:nth-of-type(7) {
+  &:nth-of-type(6){
     display: none !important;
   }
 }
