@@ -1,6 +1,6 @@
 /* Width Constraints */
-#contentAreaContextMenu { max-width: 280px !important; }
-#tabContextMenu { max-width: 250px !important; }
+#contentAreaContextMenu { max-width: 250px important; }
+#tabContextMenu { max-width: 230px !important; }
 
 /* Menu Item Styles */
 :is(menuitem, menu, .subviewbutton) {
