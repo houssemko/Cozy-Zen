@@ -1,6 +1,6 @@
 /* Width Constraints */
-#contentAreaContextMenu { max-width: 250px important; }
-#tabContextMenu { max-width: 230px !important; }
+#contentAreaContextMenu { max-width: 260px important; }
+#tabContextMenu { max-width: 250px !important; }
 
 /* Menu Item Styles */
 :is(menuitem, menu, .subviewbutton) {
@@ -22,6 +22,9 @@ menuseparator {
   &::before {
     opacity: 0.3;
  }
+ 
+  &:nth-of-type(2),
+  &:nth-of-type(4),
   &:nth-of-type(7) {
     display: none !important;
   }
@@ -66,11 +69,7 @@ menuitem.badge-new::after,
 #context_bookmarkTab > .menu-text,
 #context_zenSplitTabs > .menu-text,
 #context_zen-replace-pinned-url-with-current > .menu-text,
-#context-searchselect-private > .menu-text {
-  display: none !important;
-}
-
-/* Hiding unnecessary context menu */
+#context-searchselect-private > .menu-text,
 #context-savepage,
 #context-sendpagetodevice,
 #context-sep-sendlinktodevice,
@@ -93,9 +92,7 @@ menuitem.badge-new::after,
 #context-media-sep-video-commands,
 #context-media-loop,
 #context-media-playbackrate>.menu-right,
-#context-sep-open {
-  display: none !important;
-}
+#context-sep-open,
 #context-sendimage,
 #context-sep-sharing,
 #context-sep-setbackground,
