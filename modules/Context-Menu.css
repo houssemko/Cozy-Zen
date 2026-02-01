@@ -1,5 +1,5 @@
 /* Compact Context menu */
-#contentAreaContextMenu { max-width: 260px important; }
+#contentAreaContextMenu,
 #tabContextMenu { max-width: 250px !important; }
 
 /* Menu Item Styles */
@@ -24,7 +24,7 @@ menuseparator {
  
   &:nth-of-type(2),
   &:nth-of-type(4),
-  &:nth-of-type(6){
+  &:nth-of-type(7){
     display: none !important;
   }
 }
