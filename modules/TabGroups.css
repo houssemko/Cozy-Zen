@@ -1,23 +1,59 @@
-/* Folder */
-zen-folder {
-  margin: 2px 2px 2px 2px !important;
-  padding: 3px !important;
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 20%, transparent) !important;
+/* ---------------------- Zen Folders Styling ---------------------- */
+zen-folder[collapsed] {
+  margin: 2px !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 50%, transparent) !important;
   border-radius: var(--border-radius-medium);
-  border: 1px solid color-mix(in srgb, var(--toolbox-textcolor) 8%, transparent) !important;
-  
- &>.tab-group-container {
-      :root[zen-sidebar-expanded] &>* {
-        --zen-folder-indent: 0px !important;
-        scale: 0.97 !important;
-      }
-    }
-    
-    & .tab-group-folder-icon {
-      scale: 0.85;
-      margin-top: 1px !important;
-  }
+  box-shadow: 0 0 0 1.5px inset color-mix(in srgb, var(--toolbox-textcolor) 10%, transparent) !important;
 }
+
+zen-folder:not([collapsed]) {
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important;
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0 0 0 1px inset color-mix(in srgb, var(--toolbox-textcolor) 8%, transparent) !important;
+   }
+   
+  & .tab-group-folder-icon {
+    scale: 0.85;
+  }
+
+ /* ------------------ Top-Level Folders ------------------ */
+zen-folder:not(zen-folder zen-folder):has(> hbox.tab-group-label-container > label.tab-group-label[aria-expanded="true"]),
+zen-folder:not(zen-folder zen-folder):has([selected="true"]),
+zen-folder:not(zen-folder zen-folder):has([folder-active="true"]) {
+  padding: 2px !important;
+  border-radius: var(--border-radius-medium);
+  margin: 2px !important; /* Top-level margin */
+}
+
+/* ------------------ Subfolders ------------------ */
+zen-folder zen-folder:has(> hbox.tab-group-label-container > label.tab-group-label[aria-expanded="true"]),
+zen-folder zen-folder:has([selected="true"]),
+zen-folder zen-folder:has([folder-active="true"]) {
+  padding: 2px !important;
+  margin-right: 2px !important;
+  margin-left: 18px !important; /* Different margin for subfolders */
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
+}
+  
+/* Top-level folders (::before always works) */
+zen-folder:not(zen-folder zen-folder):has(> hbox.tab-group-label-container > label.tab-group-label[aria-expanded="true"])::before,
+
+zen-folder:not(zen-folder zen-folder):has([selected="true"])::before,
+zen-folder:not(zen-folder zen-folder):has([folder-active="true"])::before {
+  opacity: 1 !important;
+}
+
+/* Subfolders - only show background if expanded, NOT if selected or active */
+zen-folder zen-folder:has(> hbox.tab-group-label-container > label.tab-group-label[aria-expanded="true"])::before {
+  opacity: 1 !important;
+}
+
+zen-folder zen-folder:has([selected="true"])::before,
+zen-folder zen-folder:has([folder-active="true"])::before {
+  opacity: 0 !important; /* disables background for active/selected subfolders */
+}
+
 
 /* Tab Group */
 tab-group:not([split-view-group]) {
