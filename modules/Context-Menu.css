@@ -4,7 +4,6 @@
 
 /* Menu Item Styles */
 :is(menuitem, menu, .subviewbutton) {
-  height: fit-content !important;
   padding-block: 3px !important;
 
   & .menu-text {
