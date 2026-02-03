@@ -6,7 +6,7 @@
 
 :root,
 :not([inDOMFullscreen="true"]) #zen-main-app-wrapper {
-  background-color: light-dark(rgba(10, 10, 10, 0.3), rgba(0, 0, 0, 0.7)) !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 60%, rgba(5, 5, 5, 0.5)) !important;
 }  
 
 /* Media Player */
@@ -77,8 +77,8 @@
 }
 
 :root[zen-compact-mode="true"] #navigator-toolbox:not([animate="true"]) #titlebar::before {
-  background-color: light-dark(rgba(20, 20, 20, 0.2), rgba(0, 0, 0, 0.8));
-  box-shadow: inset 0 0 0 1px light-dark(rgba(255, 255, 255, 0.2), rgba(50, 50, 50, 0.8));
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 30%, rgba(5, 5, 5, 0.8));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--zen-colors-primary) 80%, white);
   border-radius: var(--zen-native-inner-radius);
   backdrop-filter: blur(20px) saturate(140%);
   will-change: backdrop-filter;
@@ -101,7 +101,7 @@ display: none !important;
 /* Limit height and width of history panel */
 #appMenu-library-recentlyClosedTabs,
 .PanelUI-subView[id*="history"] {
-    max-height: 460px !important;
+    max-height: 500px !important;
     max-width: 300px !important;
     overflow-y: auto !important;
 }
