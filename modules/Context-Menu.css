@@ -31,7 +31,7 @@ menuseparator {
 
 /* Panel and Popup Backgrounds */
 menupopup, panel {
-  --panel-background: light-dark(rgba(255, 255, 255, 0.8), rgba(10, 10, 10, 0.8)) !important;
+  --panel-background: color-mix(in srgb, var(--zen-colors-primary) 90%, transparent) !important;
   --panel-border-radius: var(--zen-native-inner-radius) !important;
 }
 
