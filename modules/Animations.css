@@ -69,20 +69,21 @@
   border-radius: 9.5px;
 }
 
-#back-button:hover {
+#back-button:hover .toolbarbutton-icon {
   transform: translateX(-2px) translateY(-1px) scale(1.05);
-  box-shadow: 0 4px 12px -3px rgba(30,40,80,0.15);
 }
 
-#forward-button:hover {
+#forward-button:hover .toolbarbutton-icon {
   transform: translateX(2px) translateY(-1px) scale(1.05);
-  box-shadow: 0 4px 12px -3px rgba(30,40,80,0.15);
 }
 
-#reload-button:hover {
+#reload-button:hover .toolbarbutton-icon {
   transform: translateY(-2px) scale(1.05) rotate(15deg);
-  box-shadow: 0 5px 14px -4px rgba(30,40,80,0.18);
   animation: reloadPulse 1s ease-in-out infinite;
+}
+
+#back-button:hover, #forward-button:hover, #reload-button:hover {
+  box-shadow: 0 4px 12px -3px rgba(30,40,80,0.15);
 }
 
 @keyframes reloadPulse {
@@ -90,13 +91,49 @@
   50% { box-shadow: 0 5px 14px -4px rgba(68,138,255,0.25); }
 }
 
-#reload-button[loading="true"] {
+#reload-button[loading="true"] .toolbarbutton-icon {
   animation: reloadSpin 1s linear infinite;
 }
 
 @keyframes reloadSpin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* === STOP BUTTON === */
+
+#stop-button {
+  transition: background-color 0.2s ease-in-out !important;
+  border-radius: 9.5px !important;
+}
+
+#stop-button:hover .toolbarbutton-icon {
+  animation: stopLineFade 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+}
+
+@keyframes stopLineFade {
+  0% { opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);}
+  30% { opacity: 0.5;
+    transform: scale(0.85) rotate(10deg);
+    filter: brightness(1.2) }
+  60% { opacity: 0.7;
+    transform: scale(1.1) rotate(-5deg);}
+  100% {
+    opacity: 1; transform: scale(1) rotate(0deg);
+    filter: brightness(1);}
+
+
+/* Ensure background remains static */
+#stop-button:hover {
+  background-color: var(--toolbarbutton-hover-background) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+#stop-button:hover .toolbarbutton-icon {
+  background-color: transparent !important;
 }
 
 /* Menu button animation */
@@ -110,7 +147,7 @@
   100% { transform: rotate(0deg) scale(1.12); }
 }
 
-#PanelUI-menu-button:hover {
+#PanelUI-menu-button:hover .toolbarbutton-icon {
   animation: menuButtonAnimation 0.6s cubic-bezier(.2,.49,.78,1.01) forwards;
 }
 
