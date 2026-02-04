@@ -6,18 +6,18 @@
 
 :root,
 :not([inDOMFullscreen="true"]) #zen-main-app-wrapper {
-  background-color: color-mix(in srgb, var(--zen-colors-primary) 60%, rgba(5, 5, 5, 0.5)) !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 60%, rgba(5, 5, 5, 0.4)) !important;
 }  
 
 /* Media Player */
   #zen-media-controls-toolbar > toolbaritem:nth-child(1) {
-    background-color: #0000002a !important;
+    background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 10%, transparent) !important;
     backdrop-filter: blur(10px) !important;
   }
   
   #zen-media-controls-toolbar.playing {
     toolbaritem {
-      background-color: light-dark(#fffd, #0000001a) !important;
+      background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 15%, transparent) !important;
     }
   }
 
@@ -73,15 +73,14 @@
 }
 
 .zen-toolbar-background {
-  opacity: var(--zen-grainy-background-opacity,0.5);
+  opacity: var(--zen-grainy-background-opacity);
 }
 
 :root[zen-compact-mode="true"] #navigator-toolbox:not([animate="true"]) #titlebar::before {
-  background-color: color-mix(in srgb, var(--zen-colors-primary) 30%, rgba(5, 5, 5, 0.8));
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--zen-colors-primary) 80%, white);
+  background-color: color-mix(in srgb, var(--zen-colors-primary) 50%, rgba(5, 5, 5, 0.8));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--zen-colors-primary) 90%, white);
   border-radius: var(--zen-native-inner-radius);
-  backdrop-filter: blur(20px) saturate(140%);
-  will-change: backdrop-filter;
+  backdrop-filter: blur(15px) saturate(140%);
   }
   
 :root[zen-compact-mode="true"] {
