@@ -18,6 +18,7 @@
         transition: opacity 150ms ease-in-out !important;
         opacity: 0 !important;
       }
+      
       &:has(#searchInput:focus),
       &:hover {
         #categories,
@@ -29,10 +30,12 @@
           opacity: 1 !important;
         }
       }
+      
       #searchInput {
         margin: 20px 0 !important;
         padding-left: 12px !important;
       }
+      
       #categories {
         margin: 0 !important;
         padding: 0 !important;
@@ -42,6 +45,7 @@
           width: 250px !important;
         }
       }
+      
       vbox.sidebar-footer-list {
         margin-left: 13px !important;
         .sidebar-footer-icon {
@@ -51,4 +55,92 @@
       }
     }
   }
+}
+
+:root {
+  --zen-colors-tertiary: transparent !important;
+  --zen-settings-secondary-background: transparent !important;
+}
+
+.sticky-container{
+  width: calc(var(--page-main-content-width) + var(--main-margin-start) + var(--main-margin-start)) !important;
+  border-radius: 0 0 1em 1em !important;
+}
+#preferences-root{
+  background-color: transparent !important;
+}
+
+/* ---------------- Transparent backgrounds for all about: pages ---------------- */
+
+@-moz-document url-prefix("about:") {
+
+  /* General page background */
+  html, body, #toolbar, .App, .sticky-container, .main-search, .main-heading {
+    background-color: transparent !important;
+  }
+
+  /* Tables and action boxes */
+  tr, table{
+    background-color: transparent !important;
+    border: none !important;
+  }
+  tr{
+    outline: solid 1px #88888822 !important;
+  }
+  
+  /* Top sites / personalize buttons on home/newtab */
+  .top-sites-list,
+  .personalizeButtonWrapper {
+    opacity: 0 !important;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .top-sites-list:hover,
+  .personalizeButtonWrapper:hover {
+    opacity: 1 !important;
+  }
+
+  /* Hide default background elements */
+  .App > div:nth-child(2),
+  .wallpaper {
+    display: none !important;
+  }
+}
+
+@-moz-document url(about:home), url(about:newtab), url(about:privatebrowsing) {
+  body, .App{
+    background-color: transparent !important;
+  }
+
+  .top-sites-list, .personalizeButtonWrapper{
+    opacity: 0 !important;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover{
+      opacity: 1 !important;
+    }
+  }
+  
+  .App > div:nth-child(2), .wallpaper{
+    display: none !important;
+  }
+}
+
+@-moz-document url(about:config), url(about:support), url(about:profiles) {
+  html, #toolbar{
+    background-color: transparent !important;
+  }
+  tr, table{
+    background-color: transparent !important;
+    border: none !important;
+  }
+  tr{
+    outline: solid 1px #88888822 !important;
+  }
+}
+
+/* Fixes the transparent dialogs. */
+.dialogFrame {
+  background: var(--zen-dialog-background);
+  border-radius: 8px;
 }
