@@ -3,18 +3,27 @@
 #tabContextMenu { max-width: 250px !important; }
 
 /* Menu Item Styles */
-:is(menuitem, menu, .subviewbutton) {
-  padding-block: 3px !important;
+  :is(menuitem, menu, .subviewbutton) {
+    padding-block: 3px !important;
+    transition: all 0.25s ease-in-out !important;
 
-  & .menu-text {
-    padding: 1.5px 5px !important;
-    transition: transform 0.25s ease-in-out !important;
+    & :is(.menu-text, .toolbarbutton-text) {
+      padding: 1.5px 5px !important;
+      opacity: 1 !important;
+      transition: all 0.25s ease-in-out !important;
+    }
+
+    &:hover > :is(.menu-text, .toolbarbutton-text) {
+     translate: 4px 0 !important;
+    }
   }
 
-  &:hover > .menu-text {
-    transform: translateX(4px) !important;
+  [hasbeenopened="true"]:has(menu[open="true"]) {
+    & > menuitem,
+    & > menu:not([open="true"]) {
+      opacity: 0.3 !important;
+    }
   }
-}
 
 /* Style for menu separators */
 menuseparator {
@@ -31,7 +40,7 @@ menuseparator {
 
 /* Panel and Popup Backgrounds */
 menupopup, panel {
-  --panel-background: color-mix(in srgb, var(--zen-colors-primary) 90%, transparent) !important;
+  --panel-background: color-mix(in srgb, var(--zen-colors-primary) 80%, transparent) !important;
   --panel-border-radius: var(--zen-native-inner-radius) !important;
 }
 
@@ -40,8 +49,8 @@ menupopup, panel {
   transition: background-color 0.1s, box-shadow 0.1s !important;
 
   &:hover {
-    background-color: color-mix(in srgb, AccentColor 30%, transparent) !important;
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, AccentColor 50%, transparent) !important;
+    background-color: color-mix(in srgb, AccentColor 20%, transparent) !important;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, AccentColor 40%, transparent) !important;
   }
 
   &:not(:hover) {
@@ -51,15 +60,6 @@ menupopup, panel {
 }
 
 /* Hide elements and pseudo-elements */
-menuitem.badge-new::after,
-#context_zen-add-essential::after,
-#context-zen-change-workspace-tab,
-#context-zen-change-workspace-tab::after,
-#context-zen-change-workspace-tab > .menu-text,
-#context_zen-add-essential > .menu-text,
-#context_bookmarkTab > .menu-text,
-#context_zenSplitTabs > .menu-text,
-#context-searchselect-private > .menu-text,
 #context-savepage,
 #context-sendpagetodevice,
 #context-sep-sendlinktodevice,
