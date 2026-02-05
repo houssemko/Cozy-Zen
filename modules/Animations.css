@@ -294,3 +294,143 @@ menuitem:nth-child(n+6) { animation-delay: 0.12s; }
   50% { transform: scale(1.1); }   
   75% { transform: scale(0.95); }
 }
+
+/* ------------------------ Glance Animation ----------------------- */
+  .browserSidebarContainer.zen-glance-background.deck-selected {
+    filter: blur(5px) brightness(50%);
+    transition: filter 0.1s ease-in-out;
+  }
+ 
+ /* Transparent glance */
+.zen-glance-background > vbox {
+    mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 3.7%,
+    transparent 6.7%,
+    transparent 93.3%,
+    black 96.3%,
+    black 100%
+  );
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+
+  transition: all var(--zen-hidden-toolbar-transition), mask-image 0.3s ease-in-out 1s !important;
+  
+}
+
+.zen-glance-overlay > vbox {
+    background-color: light-dark(#fff7, #0007) !important;
+  border-radius: 1.5em !important;
+  border: 1px solid light-dark(#ffff, #fff3);
+  box-shadow:   4px 2px 60px light-dark(#0005, #0001), inset 0 2px 4px light-dark(#ffff, #fff3);
+}
+
+.zen-glance-sidebar-container{
+    background-color: light-dark(#fff7, #0007) !important;
+    border-radius: 10em !important;
+    margin: 0.5em;
+    padding: 0 !important;
+    border: 1px solid light-dark(#ffff, #fff5);
+    box-shadow: 4px 2px 60px light-dark(#0005, #0001), inset 0 2px 4px light-dark(#ffff, #fff3);
+    gap: 6px !important;
+    height: fit-content !important;
+    backdrop-filter: blur(5px) !important;
+
+    toolbarbutton {
+      margin: 0.5em !important;
+    }
+}
+/* --------------------- Tab Switch Animation --------------------- */
+    #tabbrowser-tabpanels>hbox:not(.zen-glance-background):not([zen-split]) {
+      transform: scale(1.03);
+      filter: blur(2px);
+      opacity: 1;
+      transition: transform 0.1s ease, filter 0.1s ease, opacity 0.1s;
+      will-change: transform, filter, opacity;
+    }
+
+    #tabbrowser-tabpanels>hbox.deck-selected:not(.zen-glance-background):not([zen-split]) {
+      transform: scale(1);
+      opacity: 1 !important;
+      filter: none !important;
+    }
+
+ /* trackpad gestures*/
+  tabpanels .browserStack browser {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1) 0.1s !important;
+  }
+
+    /* Previous animation */
+    .browserStack:has(#historySwipeAnimationPreviousArrow:not([style="translate: none;"])) browser {
+      scale: 0.95 !important;
+      transform: translateX(3%) !important;
+    }
+
+    /* Next animation  */
+    .browserStack:has(#historySwipeAnimationNextArrow:not([style="translate: none;"])) browser {
+      scale: 0.95 !important;
+      transform: translateX(-3%) !important;
+    }
+
+  /* ctrl tab visuals and animations */
+  #ctrlTab-panel {
+    --panel-background: rgba(0, 0, 0, 0.9) !important;
+    transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.1) 0.2s !important;
+    border-radius: 13px;
+    scale: 0.7;
+  }
+
+  #ctrlTab-panel:has(.ctrlTab-preview:not([hidden="true"])) {
+    scale: 0.7 !important;
+    border-radius: 13px;
+  }
+
+  slot:nth-child(1) {
+    padding: 0 !important;
+  }
+
+  .ctrlTab-preview-inner {
+    margin: 0 !important;
+    transition: all 0.2s ease-in-out;
+
+    .ctrlTab-canvas {
+      border-radius: 1em !important;
+      overflow: hidden;
+
+      img {
+        background-color: #000000 !important;
+      }
+    }
+
+    .ctrlTab-favicon-container {
+      justify-content: center !important;
+      transition: all 0.5s ease-in-out;
+
+      image {
+        border-radius: 50% !important;
+        transition: all 0.5s ease-in-out !important;
+        /* 			scale: 1.25 !important; */
+      }
+    }
+
+    .ctrlTab-label {
+      margin-top: 1.5em !important;
+    }
+  }
+
+  .ctrlTab-preview:focus>.ctrlTab-preview-inner {
+    outline: none !important;
+    /* border: none !important;   */
+    background-color: var(--sidebar-background-color) !important;
+    border-radius: 1.5em !important;
+    scale: 1.03 !important;
+
+    .ctrlTab-favicon-container {
+      image {
+        padding: 2px !important;
+      }
+    }
+  }
+
+
