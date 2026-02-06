@@ -1,7 +1,7 @@
 @-moz-document url-prefix("about:preferences"), url-prefix("about:settings") {
   #preferences-stack {
     vbox.navigation {
-      position: absolute !important;
+      position: relative !important;
       height: 100vh !important;
       z-index: 20 !important;
       width: auto !important;
@@ -10,8 +10,7 @@
       #categories,
       vbox.sidebar-footer-list {
         transition: width 150ms ease-in-out !important;
-        width: 40px !important;
-        overflow-x: hidden !important;
+        width: 30px !important;
         white-space: nowrap !important; 
       }
       .sidebar-footer-label {
