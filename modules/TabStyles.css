@@ -4,8 +4,8 @@
     .tabbrowser-tab:is([selected],[visuallyselected]) .tab-background {
       &::before {
         opacity: 0.7;
-      }
-    }
+       }
+     }
    }
 
   /* Adds a little bg to the pinned tabs */
@@ -37,7 +37,7 @@
       .tabbrowser-tab[pinned]:hover .tab-stack .tab-background {
         background-color: color-mix(
           in srgb,
-          white calc(var(--pins-bg-percentage) + 7%),
+          white calc(var(--pins-bg-percentage) + 5%),
           transparent
         ) !important;
       }
@@ -47,7 +47,7 @@
       .tabbrowser-tab[pinned][multiselected="true"] .tab-stack .tab-background {
         background-color: color-mix(
           in srgb,
-          white calc(var(--pins-bg-percentage) + 10%),
+          white calc(var(--pins-bg-percentage) + 8%),
           transparent
         ) !important;
       }
@@ -57,18 +57,18 @@
       .tabbrowser-tab[pinned][multiselected="true"]:hover .tab-stack .tab-background {
         background-color: color-mix(
           in srgb,
-          white calc(var(--pins-bg-percentage) + 15%),
+          white calc(var(--pins-bg-percentage) + 10%),
           transparent
         ) !important;
       }
     }
 
     .tabbrowser-tab[pinned]:not([zen-essential]) .tab-background {
-      transition: background-color var(--uc-pins-transition-speed) ease;
+      transition: background-color .1s ease;
     }
 
     .tabbrowser-tab[zen-essential] .tab-background {
-      transition: background-color var(--uc-essentials-transition-speed) ease;
+      transition: background-color .1s ease;
     }
 
   /* Adds border to Pins/Essentials (when toggled) */
@@ -83,20 +83,11 @@
     }
 
 /* show tab close/reset button only on hover with cool animation */
-.tab-reset-pin-button {
-   border-radius: var(--zen-native-inner-radius) !important;
-   background-color: rgba(255, 255, 255, 0);
-   transition: background-color 0.2s ease-out;
-}
-
-.tab-reset-pin-button:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
+.tab-reset-pin-button,
 .tab-close-button
 {transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;}
 
-.tabbrowser-tab:not([pinned]):not(:hover) .tab-close-button {
+.tabbrowser-tab:not(:hover) .tab-close-button {
   margin-inline-end: -25px !important;
   opacity: 0 !important;
   pointer-events: none !important;
