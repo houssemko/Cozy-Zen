@@ -16,7 +16,7 @@ Adds beautiful FluentUI/ZenUI icons to all context menus — including tabs, boo
 If you haven’t already, enable `userChrome.css` support in Zen:
 - Go to `about:config`
 - Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`
-- Locate your [Zen profile folder]([https://github.com/zen-browser/zen/wiki/Profile-Directory](https://docs.zen-browser.app/guides/live-editing)) and create a `chrome` folder inside it.
+- Locate your [Zen profile folder](https://docs.zen-browser.app/guides/live-editing) and create a `chrome` folder inside it.
 
 ### 2. Install Cozy-Zen
 1. Download or clone this repo.
