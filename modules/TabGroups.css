@@ -4,53 +4,55 @@ zen-folder .tab-group-folder-icon {
   scale: 0.85;
 }
 zen-folder:not(zen-folder zen-folder)[collapsed] {
-  margin: 2px !important;
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 25%, transparent) !important;
+  margin: 2px  ;
+  padding-bottom: 2px;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 25%, transparent)  ;
   border-radius: var(--border-radius-medium);
-  box-shadow: 0 0 0 1.5px inset color-mix(in srgb, var(--toolbox-textcolor) 10%, transparent) !important;
+  box-shadow: 0 0 0 1.5px inset color-mix(in srgb, var(--toolbox-textcolor) 10%, transparent) ;
 }
 
 zen-folder:not(zen-folder zen-folder):not([collapsed]) {
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent)  ;
   border-radius: var(--border-radius-medium);
-  box-shadow: 0 0 0 1px inset color-mix(in srgb, var(--toolbox-textcolor) 8%, transparent) !important;
+  box-shadow: 0 0 0 1px inset color-mix(in srgb, var(--toolbox-textcolor) 8%, transparent)  ;
 }
 
 zen-folder:not(zen-folder zen-folder):has(> hbox.tab-group-label-container > label.tab-group-label[aria-expanded="true"]),
 zen-folder:not(zen-folder zen-folder):has([selected="true"]),
 zen-folder:not(zen-folder zen-folder):has([folder-active="true"]) {
-  padding: 2px !important;
+  padding: 2px  ;
   border-radius: var(--border-radius-medium);
-  margin: 2px !important; 
+  margin: 2px  ; 
 }
 
 /* ---------------------- Subfolders ---------------------- */
 zen-folder zen-folder[collapsed] {
-  margin-top: 2px !important;
-  margin-bottom: 2px !important;
-  margin-right: 2px !important;
-  margin-left: 18px !important; 
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 25%, transparent) !important;
+  margin-top: 2px  ;
+  margin-bottom: 2px  ;
+  margin-right: 2px  ;
+  margin-left: 18px  ; 
+  padding-bottom: 2px;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 25%, transparent)  ;
   border-radius: var(--border-radius-medium);
-  box-shadow: 0 0 0 1.5px inset color-mix(in srgb, var(--toolbox-textcolor) 10%, transparent) !important;
+  box-shadow: 0 0 0 1.5px inset color-mix(in srgb, var(--toolbox-textcolor) 10%, transparent)  ;
 }
 
 /* Subfolders: Expanded */
 zen-folder zen-folder:not([collapsed]) {
-  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent) !important;
+  background-color: color-mix(in srgb, var(--zen-colors-primary-foreground) 30%, transparent)  ;
   border-radius: var(--border-radius-medium);
-  box-shadow: 0 0 0 1px inset color-mix(in srgb, var(--toolbox-textcolor) 8%, transparent) !important;
+  box-shadow: 0 0 0 1px inset color-mix(in srgb, var(--toolbox-textcolor) 8%, transparent)  ;
 }
 
 /* Subfolders: Active/Selected/Expanded States */
 zen-folder zen-folder:has(> hbox.tab-group-label-container > label.tab-group-label[aria-expanded="true"]),
 zen-folder zen-folder:has([selected="true"]),
 zen-folder zen-folder:has([folder-active="true"]) {
-  padding: 2px !important;
-  margin-right: 2px !important;
-  margin-left: 18px !important; 
-  margin-top: 2px !important;
-  margin-bottom: 2px !important;
+  padding: 2px  ;
+  margin-right: 2px  ;
+  margin-left: 18px  ; 
+  margin-top: 2px  ;
+  margin-bottom: 2px  ;
 }
 
 /* ----------------------Tab Groups ---------------------- */
@@ -116,7 +118,7 @@ tab-group:not([split-view-group]) {
  &:hover { 
     background-color: color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent) !important;
     box-shadow:  0 0 0 1px inset color-mix(in srgb, var(--tab-group-color-invert) 50%, transparent) !important;
-    transform: translateY(-1px) scale(1.03) ;
+    transform: translateY(-1px) scale(1.02) ;
   }
      
     & tab {
