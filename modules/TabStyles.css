@@ -47,7 +47,7 @@
       .tabbrowser-tab[pinned][multiselected="true"] .tab-stack .tab-background {
         background-color: color-mix(
           in srgb,
-          white calc(var(--pins-bg-percentage) + 8%),
+          white calc(var(--pins-bg-percentage) + 7%),
           transparent
         ) !important;
       }
@@ -71,15 +71,11 @@
       transition: background-color .1s ease;
     }
 
-  /* Adds border to Pins/Essentials (when toggled) */
+  /* Adds border to Pins (when toggled) */
     .tabbrowser-tab[pinned]:not([zen-essential="true"]) .tab-stack .tab-background,
     #vertical-pinned-tabs-container > .zen-workspace-tabs-section tab-group,
     .zen-workspace-pinned-tabs-section tab-group {
-      box-shadow:  0 0 0 1px inset
-        light-dark(
-          color-mix(in srgb, var(--zen-colors-secondary) 80%, black),
-          color-mix(in srgb, var(--zen-colors-secondary) 80%, white)
-        ) !important;
+      box-shadow:  0 0 0 1px inset color-mix(in srgb, var(--zen-colors-secondary) 70%, white) !important;
     }
 
 /* show tab close/reset button only on hover with cool animation */
@@ -92,6 +88,15 @@
   opacity: 0 !important;
   pointer-events: none !important;
   display: flex !important;
+}
+
+.tab-background {
+  transition: background-color 0.4s ease, box-shadow 0.4s ease,
+    background 0.5s ease !important;
+}
+
+#tabs-newtab-button {
+  transition: background-color 0.3s ease-in-out; 
 }
 
   /* ======== containers ======= */
@@ -131,7 +136,6 @@
       width: 25% !important;
       opacity: 0.5 !important;
     }
-  
   
   
 /* ------------------------- QUIETIFY SOUND ICON ------------------------- */
