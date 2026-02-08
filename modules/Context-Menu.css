@@ -8,7 +8,7 @@
     transition: all 0.2s ease-in-out !important;
       
     & :is(.menu-text, .toolbarbutton-text) {
-      padding: 1.5px !important;
+      padding: 2px !important;
       transition: all 0.2s ease-in-out !important;
     }
 
@@ -53,8 +53,8 @@ menupopup, panel {
   }
 
   &:not(:hover) {
-    background-color: none;
-    box-shadow: none;
+    background-color: transparent !important;
+    box-shadow: inset 0 0 0 1px transparent !important;
   }
 }
 
@@ -89,20 +89,14 @@ menupopup, panel {
 #context-zenSplitLink,
 #context-zenAddToWebPanel,
 #context-sendvideo,
-#context-viewimageinfo {
-  display: none !important;
-}
-
-/* Sidebar tab options */
+#context_sendtodevice,
+#context-viewimageinfo,
 #context_openANewTab,
-#context_sendlinktodevice,
 #context_reopenInContainer,
 #context_zenTabActions,
 #context_closeTab,
 #context_closeDuplicateTabs[disabled="true"],
 #context_zenSplitTabs[disabled="true"],
-
-/* Sidebar toolbar options */
 #toggle_toolbar-menubar,
 #toolbar-context-bookmarkSelectedTab,
 #toolbar-context-bookmarkSelectedTabs,
@@ -112,5 +106,5 @@ menupopup, panel {
 #viewToolbarsMenuSeparator,
 #toolbarItemsMenuSeparator,
 #toolbarNavigatorItemsMenuSeparator {
-  visibility: collapse !important;
+  display: none !important;
 }
