@@ -44,7 +44,8 @@
     toolbarbutton {
       margin: 0.5em !important;
     }
-}
+  }
+  
 /* --------------------- Tab Switch Animation --------------------- */
 :root {
   --mod-browser-scale: var(--user-browser-scale, 0.98);
@@ -77,25 +78,28 @@
 
 .browserStack:has(#historySwipeAnimationPreviousArrow:not([style="translate: none;"])) browser {
   transform: translateX(calc(var(--mod-browser-translate-x) * 1)) !important;
+}
 
 .browserStack:has(#historySwipeAnimationNextArrow:not([style="translate: none;"])) browser {
   transform: translateX(calc(var(--mod-browser-translate-x) * -1)) !important;
 }
 
-#tabbrowser-tabpanels > hbox:not([zen-split="true"]):not(:has(.zen-glance-background)) {
-  transition:
-    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.35),
-    filter 0.45s ease-in-out,
-    opacity 0.35s ease-in-out !important;
-  transform: scale(0.9) !important;
-  opacity: 0 !important;
-}
+/* --------------------- Tab Switch Animation --------------------- */
+    #tabbrowser-tabpanels>hbox:not(.zen-glance-background):not([zen-split]) {
+      transform: scale(1.03);
+      filter: blur(2px);
+      opacity: 1;
+      transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s;
+      will-change: transform, filter, opacity;
+    }
 
-#tabbrowser-tabpanels > hbox.deck-selected:not([zen-split="true"]) {
-  transform: scale(1) !important;
-  opacity: 1 !important;
-}
-
+    #tabbrowser-tabpanels>hbox.deck-selected:not(.zen-glance-background):not([zen-split]) {
+      transform: scale(1);
+      opacity: 1 !important;
+      filter: none !important;
+    }
+    
+    
 /* Tab hover and active animation */
 .tabbrowser-tab[pinned] {       
   padding-bottom : 2px !important;
