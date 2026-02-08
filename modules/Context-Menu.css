@@ -3,26 +3,28 @@
 #tabContextMenu { max-width: 250px !important; }
 
 /* Menu Item Styles */
-  :is(menuitem, menu, .subviewbutton) {
-    padding-block: 3px !important;
+:is(menuitem, menu, .subviewbutton) {
+  padding-block: 3px !important;
+  transition: all 0.2s ease-in-out !important;
+
+  & :is(.menu-text, .toolbarbutton-text) {
     transition: all 0.2s ease-in-out !important;
-      
-    & :is(.menu-text, .toolbarbutton-text) {
-      padding: 2px !important;
-      transition: all 0.2s ease-in-out !important;
-    }
-
-    &:hover > :is(.menu-text, .toolbarbutton-text) {
-     translate: 4px 0 !important;
-    }
   }
 
-  [hasbeenopened="true"]:has(menu[open="true"]) {
-    & > menuitem,
-    & > menu:not([open="true"]) {
-      opacity: 0.3 !important;
-    }
+  & .menu-text {
+    padding: 2px !important;
   }
+
+  &:hover > :is(.menu-text, .toolbarbutton-text) {
+    translate: 4px 0 !important;
+  }
+}
+
+[hasbeenopened="true"]:has(menu[open="true"]) {
+  & > :is(menuitem, menu:not([open="true"])) {
+    opacity: 0.3 !important;
+  }
+}
 
 /* Style for menu separators */
 menuseparator {
