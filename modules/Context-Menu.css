@@ -4,7 +4,7 @@
 
 /* Menu Item Styles */
 :is(menuitem, menu, .subviewbutton) {
-  padding-block: 3px !important;
+  padding-block: 2px !important;
   transition: all 0.2s ease-in-out !important;
 
   & :is(.menu-text, .toolbarbutton-text) {
