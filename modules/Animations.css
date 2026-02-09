@@ -106,21 +106,6 @@ menuitem:nth-child(n+6) { animation-delay: 0.12s; }
 }
 
 /*  Buttons Animations  */
-/* Menu button animation */
-@keyframes menuButtonAnimation {
-  0%   { transform: rotate(0deg) scale(1); }
-  30%  { transform: rotate(12deg) scale(1.01); }
-  50%  { transform: rotate(-12deg) scale(1.03); }
-  70%  { transform: rotate(6deg) scale(1.05); }
-  85%  { transform: rotate(-4deg) scale(1.08); }
-  95%  { transform: rotate(2deg) scale(1.1); }
-  100% { transform: rotate(0deg) scale(1.12); }
-}
-
-#PanelUI-menu-button:hover .toolbarbutton-icon {
-  animation: menuButtonAnimation 0.6s cubic-bezier(.2,.49,.78,1.01) forwards;
-}
-
   #preferences-button,
   #downloads-button,
   #back-button,
@@ -170,7 +155,12 @@ menuitem:nth-child(n+6) { animation-delay: 0.12s; }
     background-color: transparent !important;
   }
 
-  /* Settings */
+/* Menu */
+#PanelUI-menu-button:hover .toolbarbutton-icon {
+  animation: menuButtonAnimation 0.6s cubic-bezier(.2,.49,.78,1.01) forwards;
+}
+ 
+ /* Settings */
   #preferences-button:hover .toolbarbutton-icon {
     animation: spin-once 1s cubic-bezier(0.35, 0.15, 0.12, 1) forwards;
   }
@@ -209,6 +199,16 @@ menuitem:nth-child(n+6) { animation-delay: 0.12s; }
 
 /* Animation Keyframes */
 @keyframes spin-once { to { transform: rotate(180deg); } }
+
+@keyframes menuButtonAnimation {
+  0%   { transform: rotate(0deg) scale(1); }
+  30%  { transform: rotate(12deg) scale(1.01); }
+  50%  { transform: rotate(-12deg) scale(1.03); }
+  70%  { transform: rotate(6deg) scale(1.05); }
+  85%  { transform: rotate(-4deg) scale(1.08); }
+  95%  { transform: rotate(2deg) scale(1.1); }
+  100% { transform: rotate(0deg) scale(1.12); }
+}
 
 @keyframes rotate-bounce-right {
   0% { transform: rotate(0deg); }
