@@ -160,12 +160,3 @@ display: none !important;
 #customization-container .panel-arrowbox {
   display: none !important;
 }
-
-#customization-container .panel-arrowcontent {
-  height: 100% !important;
-  background-color: color-mix(in srgb, var(--zen-colors-primary) 50%, transparent) !important;
-  backdrop-filter: blur(10px) ;
-  border: none !important;
-  margin: 0px !important;
-  border-radius: 8px;
-}
