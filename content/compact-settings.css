@@ -23,7 +23,7 @@
         #categories,
         #searchInput,
         .sidebar-footer-list {
-          width: 250px !important;
+          width: 200px !important;
         }
         .sidebar-footer-label {
           opacity: 1 !important;
@@ -41,7 +41,7 @@
         .category {
           margin-left: 10px !important;
           padding: 0 8px !important;
-          width: 250px !important;
+          width: 200px !important;
         }
       }
       
@@ -56,6 +56,8 @@
   }
 }
 
+
+/* ---------------- Transparent backgrounds for all about: pages ---------------- */
 :root {
   --zen-colors-tertiary: transparent !important;
   --zen-settings-secondary-background: transparent !important;
@@ -68,8 +70,6 @@
 #preferences-root{
   background-color: transparent !important;
 }
-
-/* ---------------- Transparent backgrounds for all about: pages ---------------- */
 
 @-moz-document url-prefix("about:") {
 
@@ -86,7 +86,13 @@
   tr{
     outline: solid 1px #88888822 !important;
   }
-  
+ 
+  /* search box */
+  .search-handoff-button {
+    backdrop-filter: blur(10px);
+    background-color: var(--tr-col) !important;
+  } 
+ 
   /* Top sites / personalize buttons on home/newtab */
   .top-sites-list,
   .personalizeButtonWrapper {
