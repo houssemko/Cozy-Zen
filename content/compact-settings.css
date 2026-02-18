@@ -23,7 +23,7 @@
         #categories,
         #searchInput,
         .sidebar-footer-list {
-          width: 200px !important;
+          width: 180px !important;
         }
         .sidebar-footer-label {
           opacity: 1 !important;
@@ -31,8 +31,8 @@
       }
       
       #searchInput {
-        margin: 20px 0 !important;
-        padding-left: 12px !important;
+        margin: 15px 0 !important;
+        padding-left: 10px !important;
       }
       
       #categories {
@@ -41,12 +41,12 @@
         .category {
           margin-left: 10px !important;
           padding: 0 8px !important;
-          width: 200px !important;
+          width: 180px !important;
         }
       }
       
       vbox.sidebar-footer-list {
-        margin-left: 13px !important;
+        margin-left: 10px !important;
         .sidebar-footer-icon {
           margin: 0 8px !important;
           scale: 1.4 !important;
