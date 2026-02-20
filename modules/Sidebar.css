@@ -1,7 +1,6 @@
 /* General tweaks */
 .browserStack {
     transform: translateZ(0);
-    will-change : transform;
 }
 
 #statuspanel-label {
@@ -14,12 +13,10 @@
   background-color: color-mix(in srgb, var(--zen-colors-primary) 70%, transparent) !important;
 }  
 
-	:root[zen-single-toolbar="true"] {
-		#zen-appcontent-navbar-wrapper {
-			min-height: 0.1px !important;
-			height: 0.1px !important;
-		}
-	}
+:root[zen-single-toolbar="true"] #zen-appcontent-navbar-wrapper {
+		min-height: 0.1px !important;
+		height: 0.1px !important;
+}
  
 /* Media Player */
 #zen-media-controls-toolbar > toolbaritem:nth-child(1) {
@@ -34,36 +31,13 @@
   }
 
 /* hide scrollbar */
-scrollbox {
-    scrollbar-width: none !important;
-  }
+.browserSidebarContainer scrollbox{
+  scrollbar-width:none;
+}
   
 /* Workspace indicator */
 .zen-current-workspace-indicator {
   display: none!important;
-}
-
-/* Base state */
-#zen-workspaces-button .subviewbutton:not([active="true"]) {
-  opacity: 0 !important;
-  max-width: 0 !important;
-  margin-inline: 0 !important;
-  padding-inline: 0 !important;
-  pointer-events: none !important;
-  overflow: hidden !important;
-  transition: 
-    opacity 0.15s ease-in-out, 
-    max-width 0.15s ease-in-out, 
-    margin 0.15s ease-in-out, 
-    padding 0.15s ease-in-out !important;
-}
-
-/* Hover state */
-#zen-workspaces-button:hover .subviewbutton:not([active="true"]) {
-  opacity: 1 !important;
-  max-width: 50px !important;
-  margin-inline: 1px !important; 
-  pointer-events: auto !important;
 }
 
  /* --- Compact Sidebar --- */
