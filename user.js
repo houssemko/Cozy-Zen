@@ -25,7 +25,6 @@ user_pref("svg.context-properties.content.enabled", true);
 user_pref("cmi-Hide-Inactive-Items-ContentAreaContextMenu", true);
 user_pref("cmi-Hide-Inactive-Items-TabContextMenu", true);
 user_pref("cmi-Center-Bookmark-Items", true);
-user_pref("cmi-fold_menu_item-enable", false);
 user_pref("cmi-Hide-Folder-Icon", false);
 user_pref("cmi-Auto-Hide-BookmarkBar", 0);
 user_pref("cmi-Switch-Icon-Package", 2);
