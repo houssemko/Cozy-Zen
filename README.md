@@ -2,12 +2,33 @@
 
 # 🌿 Cozy-Zen
 
-My personal, tweaked CSS theme for the [Zen Browser](https://zen-browser.app/), Basically Zen Browser with quality of life improvements centered around the Compact Sidebar.
+My personal, tweaked CSS theme for the [Zen Browser](https://zen-browser.app/) — Zen Browser with quality of life improvements centered around the Compact Sidebar.
 
 ## 📦 Included Mods
 
-### ✨ [Context-Menu-Icons (CMI)](https://github.com/Starry-AXQG/Context-Menu-Icons)
-Adds beautiful FluentUI/ZenUI icons to all context menus — including tabs, bookmarks, extensions and zenFolders.  
+The theme is organized as a set of small, focused CSS modules, each targeting a specific part of the UI:
+
+| Module | Purpose |
+| ------ | ------- |
+| `Sidebar.css` | Compact sidebar styling and behavior |
+| `TabStyles.css` | Tab appearance tweaks |
+| `TabGroups.css` | Tab group styling |
+| `URLbar.css` | Address bar styling |
+| `Findbar.css` | Find / search bar styling |
+| `Context-Menu.css` | Context menu styling |
+| `Window-Buttons.css` | Window control buttons |
+| `Animations.css` | UI animations and transitions |
+| `CMI/` | [Context-Menu-Icons](#-context-menu-icons-cmi) — icon pack for context menus |
+
+### ✨ Context-Menu-Icons (CMI)
+[Context-Menu-Icons](https://github.com/Starry-AXQG/Context-Menu-Icons) adds beautiful FluentUI/ZenUI icons to all context menus — including tabs, bookmarks, extensions and zenFolders. It ships with two icon sets (`FluentUI/` and `ZenUI/`) plus `global.css`, `preferences.css` and the `CMI-config.css` customization file.
+
+### 🎨 Content Styling
+- `betterpdf.css` — improves the built-in PDF viewer.
+- `compact-settings.css` — compacts the `about:preferences` / `about:settings` pages.
+
+> **Note**: Content styles are applied via `userContent.css`. Update it to `@import` whichever of the files under `content/` you want active.
+
 ---
 
 ## 🛠️ Installation
@@ -24,16 +45,30 @@ If you haven’t already, enable `userChrome.css` support in Zen:
    ```
    [Your Zen Profile]/
    └── chrome/
-       ├── userChrome.css        
-       ├── userContent.css
-       ├── content/
-       ├   └── Better-pdf.css  
-       └── modules/             ← organized mod directory
+       ├── userChrome.css        ← main stylesheet (imports modules/)
+       ├── userContent.css       ← content / page styling (imports content/)
+       ├── content/              ← page-level styles
+       │   ├── betterpdf.css
+       │   └── compact-settings.css
+       ├── user.js
+       └── modules/              ← organized mod directory
+           ├── Animations.css
+           ├── Context-Menu.css
+           ├── Findbar.css
+           ├── Sidebar.css
+           ├── TabGroups.css
+           ├── TabStyles.css
+           ├── URLbar.css
+           ├── Window-Buttons.css
            └── CMI/              ← Context-Menu-Icons (CMI)
-               └── CMI-config.css  ← ✅ customization file (edit this!)
+               ├── CMI-config.css   ← ✅ customization file (edit this!)
+               ├── global.css
+               ├── preferences.css
+               ├── FluentUI/        ← FluentUI icon set
+               └── ZenUI/           ← ZenUI icon set
    ```
 
-> 💡 **Important**: The `CMI-config.css` file **must be inside** the `CMI/` folder for CMI to load properly.
+> 💡 **Important**: The `CMI-config.css` file **must remain inside** the `CMI/` folder for CMI to load properly.
 
 ### 3. Enable Required Preference
 In `about:config`, ensure this setting is **enabled**:
@@ -42,7 +77,9 @@ svg.context-properties.content.enabled = true
 ```
 > ⚠️ CMI will **not run** without this.
 
-### 4. Place `user.js` inside your [Zen profile folder] or add the text inside to the end of your existing `user.js` file.
+### 4. Place `user.js`
+Place `user.js` inside your [Zen profile folder], or add its contents to the end of an existing `user.js` file.
+
 ### 5. Restart Zen Browser
 After copying files and setting preferences, fully restart Zen to apply changes.
 
@@ -53,8 +90,8 @@ After copying files and setting preferences, fully restart Zen to apply changes.
 
 Since CMI updates frequently:
 1. Download the latest release from [Starry-AXQG/Context-Menu-Icons](https://github.com/Starry-AXQG/Context-Menu-Icons)
-2. Preserve your customizations by re-applying changes to `CMI-config.css` if needed or Replacing it with your previous one.
-3. Replace the contents of your `modules/CMI/` folder with the new `CMI/` folder
+2. Preserve your customizations by re-applying them to `CMI-config.css`, or replace it with your previous one.
+3. Replace the contents of your `modules/CMI/` folder with the new `CMI/` folder.
 
 > 🔜 *(Future note: Consider using [Sine](https://sine.zen-browser.app/) for auto-updates—but manual install gives full control.)*
 
@@ -71,7 +108,7 @@ Since CMI updates frequently:
 
 ## 📝 License
 
-This theme is for personal use. Respect the licenses of all included mods.  
+This theme is licensed under the [MIT License](LICENSE). Respect the licenses of all included mods.  
 CMI is licensed under its own terms—see its [repository](https://github.com/Starry-AXQG/Context-Menu-Icons) for details.
 
 ---
