@@ -6,15 +6,15 @@
 :is(menuitem, menu, .subviewbutton) {
   padding-block: 2px !important;
   transition: all 0.2s ease-in-out !important;
-
+  
   & :is(.menu-text, .toolbarbutton-text) {
     transition: all 0.2s ease-in-out !important;
   }
-
+  
   & .menu-text {
     padding: 2px !important;
   }
-
+  
   &:hover > :is(.menu-text, .toolbarbutton-text) {
     translate: 4px 0 !important;
   }
@@ -22,17 +22,15 @@
 
 [hasbeenopened="true"]:has(menu[open="true"]) {
   & > :is(menuitem, menu:not([open="true"])) {
-    opacity: 0.3 !important;
+    opacity: 0.5 !important;
   }
 }
 
 /* Style for menu separators */
 menuseparator {
   &::before {
-    opacity: 0.3;
+    opacity: 0.5;
  }
- 
-  &:nth-of-type(2),
   &:nth-of-type(4),
   &:nth-of-type(7){
     display: none !important;
@@ -45,7 +43,22 @@ menupopup, panel {
   --panel-border-radius: var(--zen-native-inner-radius) !important;
 }
 
-/* Hover States*/
+.menupopup-arrowscrollbox {
+  background: color-mix(in srgb, var(--zen-colors-primary) 80%, transparent) !important;
+  border-radius: var(--zen-native-inner-radius) !important;
+  overflow: hidden !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+panel[type="arrow"] {
+  --panel-background: color-mix(in srgb, var(--zen-colors-primary) 80%, transparent) !important;
+}
+
+panelview {
+  background: transparent !important;
+}
+
+/* Hover States */
 :is(menuitem, menu) {
   transition: background-color 0.1s, box-shadow 0.1s !important;
 
@@ -67,7 +80,6 @@ menupopup, panel {
 #context-sendlinktodevice,
 #context-print-selection,
 #context-searchselect-private,
-#context-openlinkinusercontext-menu,
 #context-openlinkinnewcontainercontext-menu,
 #context-openlinkprivate,
 #context-bookmarklink,
@@ -110,3 +122,5 @@ menupopup, panel {
 #toolbarNavigatorItemsMenuSeparator {
   display: none !important;
 }
+
+

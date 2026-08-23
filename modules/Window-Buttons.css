@@ -53,6 +53,7 @@
         order: 999 !important;
     }
 }
+
 @media not (-moz-bool-pref: "zen.view.experimental-no-window-controls") {
     @media (-moz-bool-pref: "zen.view.experimental-force-window-controls-left") {
         .titlebar-buttonbox-container {

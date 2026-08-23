@@ -1,12 +1,17 @@
 /* CMI configs */
+@import "modules/CMI/FluentUI/Fluent-icons.css";
+@import "modules/CMI/ZenUI/Zen-icons.css";
+@import "modules/CMI/global.css";
+@import "modules/CMI/preferences.css";
 @import "modules/CMI/CMI-config.css";
-@import "modules/CMI/icons.css";
+@import "modules/Context-Menu.css";
+
 /* Modules */
 @import "modules/Window-Buttons.css";
-@import "modules/Context-Menu.css";
 @import "modules/Animations.css";
 @import "modules/TabStyles.css";
 @import "modules/TabGroups.css";
 @import "modules/Sidebar.css";
 @import "modules/Findbar.css";
 @import "modules/URLbar.css";
+

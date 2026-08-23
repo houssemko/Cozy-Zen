@@ -1,6 +1,7 @@
 /* General tweaks */
-.browserStack {
-    transform: translateZ(0);
+browser {
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 #statuspanel-label {
@@ -128,3 +129,4 @@ display: none !important;
 #customization-container .panel-arrowbox {
   display: none !important;
 }
+

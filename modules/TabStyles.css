@@ -90,13 +90,10 @@
   display: flex !important;
 }
 
-.tab-background {
+.tab-background,
+#tabs-newtab-button {
   transition: background-color 0.4s ease, box-shadow 0.4s ease,
     background 0.5s ease !important;
-}
-
-#tabs-newtab-button {
-  transition: background-color 0.3s ease-in-out; 
 }
 
   /* ======== containers ======= */
@@ -145,11 +142,6 @@
 
 .tabbrowser-tab img {
     transition: opacity 0.3s ease-in-out;
-}
-
-.tabbrowser-tab:is([soundplaying], [muted], [activemedia-blocked]) img {
-    opacity: 0 !important;
-    transition: opacity 0.1s !important;
 }
 
 .tab-icon-overlay {

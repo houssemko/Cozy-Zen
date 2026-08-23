@@ -8,8 +8,8 @@ findbar {
   height: auto !important;
   flex-wrap: wrap;
   border-radius: 12px;
-  background: rgba(10, 10, 10, 0.2) !important;
-  border: 1px solid light-dark(rgba(10, 10, 10, 0.2), rgba(235, 235, 235, 0.3)) !important;
+  background: color-mix(in srgb, var(--zen-colors-primary) 80%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--zen-colors-primary) 90%, white) !important;
   opacity: 1;
   transition: background 0.2s ease, opacity 0.2s ease, visibility 0.2s ease,
   top 0.2s ease, box-shadow 0.2s ease !important;
