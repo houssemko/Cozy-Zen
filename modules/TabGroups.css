@@ -182,7 +182,7 @@ tab-group:not([split-view-group]) {
 
   &:not([collapsed]) {
     max-height: calc(4rem + (7 * var(--tab-min-height)))!important;
-    overflow-y: scroll !important;
+    overflow-y: auto !important;
     overflow-x: visible !important;
     scrollbar-width: none !important;
 

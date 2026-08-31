@@ -42,11 +42,9 @@
 }
 
 .browserStack:has(#historySwipeAnimationPreviousArrow:not([style="translate: none;"]), #historySwipeAnimationNextArrow:not([style="translate: none;"])) browser {
-  transition: all 0.22s cubic-bezier(var(--mod-browser-ease-swipe)) !important;
+  transition: transform 0.22s cubic-bezier(var(--mod-browser-ease-swipe)) !important;
   scale: var(--mod-browser-scale) !important;
   border-radius: calc(var(--mod-browser-radius-default) * 2) !important;
-  will-change: transform;
-  backface-visibility: hidden;
 }
 
 .browserStack:has(#historySwipeAnimationPreviousArrow:not([style="translate: none;"])) browser {
@@ -78,7 +76,7 @@
 
 .tabbrowser-tab,
 #tabs-newtab-button {
-  transition: all 0.1s ease !important;
+  transition: transform 0.1s ease, background-color 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease !important;
   box-shadow: none !important;
   z-index: 0;
 }
@@ -135,48 +133,21 @@ menuitem:nth-child(n+6) { animation-delay: 0.12s; }
 }
 
 /*  Buttons Animations  */
-  #preferences-button,
-  #downloads-button,
-  #back-button,
-  #forward-button,
-  #reload-button,
-  #stop-button,         
-  #history-panelmenu,
-  #panic-button,
-  #new-tab-button,
-  #zen-create-new-button,
-  #zen-compact-mode-button,
-  #bookmarks-menu-button,
-  #find-button {
+  :is(#preferences-button, #downloads-button, #back-button, #forward-button, #reload-button,
+      #stop-button, #history-panelmenu, #panic-button, #new-tab-button, #zen-create-new-button,
+      #zen-compact-mode-button, #bookmarks-menu-button, #find-button) {
     border-radius: 9.5px !important;
     transition: background-color 0.2s ease-in-out !important;
   }
 
-  #preferences-button:hover,
-  #downloads-button:hover,
-  #back-button:hover,
-  #forward-button:hover,
-  #reload-button:hover,
-  #stop-button:hover,   
-  #history-panelmenu:hover,
-  #panic-button:hover,
-  #new-tab-button:hover,
-  #find-button:hover,
-  #zen-create-new-button:hover,
-  #bookmarks-menu-button:hover {
+  :is(#preferences-button, #downloads-button, #back-button, #forward-button, #reload-button,
+      #stop-button, #history-panelmenu, #panic-button, #new-tab-button, #zen-create-new-button,
+      #bookmarks-menu-button):hover {
     background-color: var(--toolbarbutton-hover-background) !important;
   }
 
-  :is(#preferences-button,
-      #reload-button,
-      #stop-button,     
-      #back-button,
-      #forward-button,
-      #history-panelmenu,
-      #panic-button,
-      #new-tab-button,
-      #find-button,
-      #zen-create-new-button,
+  :is(#preferences-button, #reload-button, #stop-button, #back-button, #forward-button,
+      #history-panelmenu, #panic-button, #new-tab-button, #find-button, #zen-create-new-button,
       #bookmarks-menu-button):hover .toolbarbutton-icon,
   #downloads-button:hover .toolbarbutton-badge-stack {
     background-color: transparent !important;

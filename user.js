@@ -29,23 +29,6 @@ user_pref("cmi-Hide-Folder-Icon", false);
 user_pref("cmi-Auto-Hide-BookmarkBar", 0);
 user_pref("cmi-Switch-Icon-Package", 2);
 
-
-//
-/* You may copy+paste this file and use it as it is.
- *
- * If you make changes to your about:config while the program is running, the
- * changes will be overwritten by the user.js when the application restarts.
- *
- * To make lasting changes to preferences, you will have to edit the user.js.
- */
-
-/****************************************************************************
- * BetterZen                                                                *
- * "Ex nihilo nihil fit"                                                    *
- * version: 148                                                             *
- * url: https://github.com/yokoffing/Betterfox                              *
-****************************************************************************/
-
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
@@ -117,7 +100,6 @@ user_pref("network.prefetch-next", false);
 user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
-user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.quicksuggest.enabled", false);
 user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.formfill.enable", false);
@@ -149,7 +131,6 @@ user_pref("pdfjs.enableScripting", false);
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 
 /** MOZILLA ***/
-user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://beacondb.net/v1/geolocate");
 user_pref("browser.search.update", false);
@@ -202,7 +183,6 @@ user_pref("browser.profiles.enabled", true);
 
 /** THEME ADJUSTMENTS ***/
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-user_pref("browser.compactmode.show", true);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 
 /** AI ***/
@@ -243,10 +223,6 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 user_pref("permissions.default.desktop-notification", 0);
 // PREF: restore Top Sites on New Tab page
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", true);
-// PREF: remove sponsored content on New Tab page
-user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts 
-user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
-user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories
 // PREF: show weather on New Tab page
 user_pref("browser.newtabpage.activity-stream.showWeather", true);
 // PREF: restore search engine suggestions
